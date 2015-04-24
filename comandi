@@ -1,0 +1,8 @@
+#!/bin/bash
+
+alias serve="php artisan serve"
+
+alias dal="composer dump autoload"
+
+alias migrate="php artisan migrate"
+
