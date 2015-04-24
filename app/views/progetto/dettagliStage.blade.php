@@ -2,7 +2,7 @@
 
 
 @section('title')
-Lista Stage
+Stage {{ $stage->id }}
 @endsection
 
 @section('navProgetto')

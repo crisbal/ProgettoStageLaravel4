@@ -13,7 +13,7 @@ active
 
 	@foreach($classi as $classe)
 		<div class="panel-group" id="accordion">
-			<div class="panel panel-primary">
+			<div class="panel panel-info">
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{$classe->classe}}{{$classe->articolazione}}{{$classe->sezione}}">{{$classe->classe}} {{$classe->articolazione}} {{$classe->sezione}}</a>
