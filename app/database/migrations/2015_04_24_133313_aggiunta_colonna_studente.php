@@ -28,6 +28,8 @@ class AggiuntaColonnaStudente extends Migration {
     {
         Schema::table('studenti', function($table)
         {
+            
+            $table->dropForeign('studenti_classe_id_foreign');
             $table->dropColumn('classe_id');
         });
     }

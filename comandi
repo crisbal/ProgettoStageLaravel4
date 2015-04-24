@@ -2,7 +2,8 @@
 
 alias serve="php artisan serve"
 
-alias dal="composer dump autoload"
+alias dal="composer dumpautoload"
 
 alias migrate="php artisan migrate"
 
+alias seed="php artisan migrate:refresh;php artisan db:seed"

@@ -32,6 +32,8 @@ class AggiuntaColonnaAzienda extends Migration {
     {
         Schema::table("aziende",function($table)
         {
+            $table->dropForeign('aziende_referente_id_foreign');
+            $table->dropForeign('aziende_rappresentantelegale_id_foreign');
             $table->dropColumn(['referente_id', 'rappresentantelegale_id']);
         }
         );

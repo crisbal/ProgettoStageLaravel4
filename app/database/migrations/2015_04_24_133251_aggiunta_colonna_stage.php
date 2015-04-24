@@ -36,6 +36,9 @@ class AggiuntaColonnaStage extends Migration {
     {
         Schema::table("stage",function($table)
         {
+            $table->dropForeign('stage_azienda_id_foreign');
+            $table->dropForeign('stage_tutorazienda_id_foreign');
+            $table->dropForeign('stage_tutorscuola_id_foreign');
             $table->dropColumn(['azienda_id', 'tutorazienda_id', 'tutorscuola_id']);
         });
     }
