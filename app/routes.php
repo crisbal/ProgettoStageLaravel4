@@ -22,11 +22,4 @@ Route::get('/aziende', 'AziendeController@mostraAziende');
 Route::get('/aziende/{id}', 'AziendeController@mostraSpecifica');
 
 
-Route::get('/test', function() {
-
-    $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/template.docx');
-    $templateProcessor->setValue('nome', htmlspecialchars("Caverio"));
-    $templateProcessor->setValue('cognome', htmlspecialchars("alessandro"));
-    $templateProcessor->saveAs('documenti/compilata.docx');
-
-});
+Route::get('/documento/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaConvenzione');
