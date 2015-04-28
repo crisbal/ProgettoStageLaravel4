@@ -23,6 +23,8 @@ class StageController extends BaseController {
 
 
 	public function mostraNuovoProgetto(){
-		return  View::make("progetto/nuovoProgetto");
+		$aziende = Azienda::all();
+
+		return  View::make("progetto/nuovoProgetto")->with("aziende",$aziende);
 	}
 }
