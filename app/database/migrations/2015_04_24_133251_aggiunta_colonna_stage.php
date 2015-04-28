@@ -20,9 +20,6 @@ class AggiuntaColonnaStage extends Migration {
 
                 $table->integer('tutorscuola_id')->unsigned();
                 $table->foreign('tutorscuola_id')->references('id')->on('tutorScuola');
-
-                $table->integer('tutorazienda_id')->unsigned();
-                $table->foreign('tutorazienda_id')->references('id')->on('tutorAzienda');
             }
         );
     }
@@ -37,9 +34,8 @@ class AggiuntaColonnaStage extends Migration {
         Schema::table("stage",function($table)
         {
             $table->dropForeign('stage_azienda_id_foreign');
-            $table->dropForeign('stage_tutorazienda_id_foreign');
             $table->dropForeign('stage_tutorscuola_id_foreign');
-            $table->dropColumn(['azienda_id', 'tutorazienda_id', 'tutorscuola_id']);
+            $table->dropColumn(['azienda_id', 'tutorscuola_id']);
         });
     }
 

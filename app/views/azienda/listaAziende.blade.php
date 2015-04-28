@@ -2,7 +2,7 @@
 
 
 @section('title')
-Lista Studenti
+Lista Aziende
 @endsection
 
 @section('navAziende')

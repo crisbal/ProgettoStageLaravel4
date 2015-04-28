@@ -9,4 +9,9 @@ class Azienda extends Eloquent {
 	 */
 	protected $table = 'aziende';
 
+	public function tutorAzienda(){
+
+		return $this->hasMany('TutorAzienda');
+
+	}
 }

@@ -22,4 +22,4 @@ Route::get('/aziende', 'AziendeController@mostraAziende');
 Route::get('/aziende/{id}', 'AziendeController@mostraSpecifica');
 
 
-Route::get('/documento/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaConvenzione');
+Route::get('/documento/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaProgettoFormativo');

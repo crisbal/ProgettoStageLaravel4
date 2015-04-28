@@ -18,4 +18,8 @@ class Studente extends Eloquent {
 		return $this->belongsToMany('Stage', 'partecipazione_stage');
 
 	}
+
+	public function classe(){
+		return $this->belongsTo('Classe');
+	}
 }

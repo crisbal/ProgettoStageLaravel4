@@ -2,7 +2,7 @@
 
 
 @section('title')
-Dettagli Azienda
+Dettagli {{$azienda->denominazione}} 
 @endsection
 
 @section('navAziende')

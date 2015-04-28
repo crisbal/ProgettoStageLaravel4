@@ -20,4 +20,8 @@ class Stage extends Eloquent {
 		return $this->belongsTo("Azienda");
 	}
 
+	public function TutorScuola(){
+		return $this->hasOne("TutorScuola");
+	}
+
 }

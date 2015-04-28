@@ -10,5 +10,4 @@ class TutorAzienda extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'tutorAzienda';
-
 }
