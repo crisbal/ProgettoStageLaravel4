@@ -13,6 +13,8 @@
 
 Route::get('/', 'StageController@index');
 Route::get('/stage', 'StageController@mostraNuovoProgetto');
+Route::post('/stage', 'StageController@faiNuovoProgetto');
+
 Route::get('/stage/{id}', 'StageController@mostraStage');
 
 Route::get('/studenti', 'StudentiController@mostraStudenti');
@@ -22,4 +24,16 @@ Route::get('/aziende', 'AziendeController@mostraAziende');
 Route::get('/aziende/{id}', 'AziendeController@mostraSpecifica');
 
 
+<<<<<<< HEAD
 Route::get('/documento/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaProgettoFormativo');
+=======
+Route::get('/documento/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaConvenzione');
+
+
+Route::group(array('prefix' => 'api'), function()
+{
+
+    Route::get('azienda/{idAzienda}', 'ApiController@mostraAzienda');
+
+});
+>>>>>>> dc59a504b63da7b4bba8eb0fec066e0e17d09743
