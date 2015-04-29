@@ -11,7 +11,13 @@ class Azienda extends Eloquent {
 
 	public function tutorAzienda(){
 
-		return $this->hasMany('TutorAzienda');
+		return $this->hasOne('TutorAzienda');
+
+	}
+
+	public function rappresentanteLegale(){
+
+		return $this->belongsTo('RappresentanteLegale', "rappresentanteLegale_id");
 
 	}
 }

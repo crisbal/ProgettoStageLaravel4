@@ -24,11 +24,8 @@ Route::get('/aziende', 'AziendeController@mostraAziende');
 Route::get('/aziende/{id}', 'AziendeController@mostraSpecifica');
 
 
-<<<<<<< HEAD
 Route::get('/documento/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaProgettoFormativo');
-=======
-Route::get('/documento/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaConvenzione');
-
+Route::get('/documento/convenzione/{stageId}', 'DocumentiController@generaConvenzione');
 
 Route::group(array('prefix' => 'api'), function()
 {
@@ -36,4 +33,4 @@ Route::group(array('prefix' => 'api'), function()
     Route::get('azienda/{idAzienda}', 'ApiController@mostraAzienda');
 
 });
->>>>>>> dc59a504b63da7b4bba8eb0fec066e0e17d09743
+

@@ -4,12 +4,14 @@ class DocumentiController extends BaseController {
 
 
 	public function generaProgettoFormativo($stageId,$studenteId){
+
 		$stage = Stage::find($stageId);
 
 		$azienda = $stage->azienda;
 
 		$studente = Studente::find($studenteId);
 
+		$tutorScuola = $stage->tutorScuola;
 
 		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/progettoFormativo.docx');
 		//----------------------------STAGE	   
@@ -37,20 +39,47 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
 	    $templateProcessor->setValue('azienda_provincia', htmlspecialchars($azienda->provincia));
 
-	    return $azienda->tutorAzienda;
 	    //---------------------------TUTOR AZIENDA
 	    $templateProcessor->setValue('tutorAzienda_nome', htmlspecialchars($azienda->tutorAzienda->nome));
 	    $templateProcessor->setValue('tutorAzienda_cognome', htmlspecialchars($azienda->tutorAzienda->cognome));
 
 	    //---------------------------TUTOR SCUOLA
-
-	    $templateProcessor->setValue('tutorScuola_nome', htmlspecialchars($stage->tutorScuola->nome));
-	    $templateProcessor->setValue('tutorScuola_cognome', htmlspecialchars($stage->tutorScuola->cognome));
+	    $templateProcessor->setValue('tutorScuola_nome', htmlspecialchars($tutorScuola->nome));
+	    $templateProcessor->setValue('tutorScuola_cognome', htmlspecialchars($tutorScuola->cognome));
 
 
 	    $templateProcessor->saveAs('documenti/progettoFormativo-' . $stage->id . '-' . $studente->id . '.docx');
 
 
 		return "Documento Generato";
+	}
+
+	public function generaConvenzione($stageId){
+		$stage = Stage::find($stageId);
+
+		$azienda = $stage->azienda;
+		$rappresentanteLegale = $azienda->rappresentanteLegale;
+
+
+		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/convenzione.docx');
+		//----------------------------STAGE
+		$templateProcessor->setValue('id_stage', htmlspecialchars($stageId));
+	    $templateProcessor->setValue('data_stage', htmlspecialchars($stage->created_at));
+	    //----------------------------AZIENDA
+		$templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
+	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));
+	    $templateProcessor->setValue('azienda_cap', htmlspecialchars($azienda->cap));
+	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
+	    $templateProcessor->setValue('azienda_provincia', htmlspecialchars($azienda->provincia));
+	    $templateProcessor->setValue('azienda_pIva', htmlspecialchars($azienda->pIva));
+	    //----------------------------RAPPRESENTANTE LEGALE
+	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($rappresentanteLegale->nome));
+	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($rappresentanteLegale->cognome));
+	    $templateProcessor->setValue('rappresentanteLegale_luogoN', htmlspecialchars($rappresentanteLegale->luogoN));
+	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars($rappresentanteLegale->dataN));
+	    $templateProcessor->setValue('rappresentanteLegale_cf', htmlspecialchars($rappresentanteLegale->cf));
+
+		$templateProcessor->saveAs('documenti/convenzione' . '-' . $stage->id . '.docx');
+		return "Documento Generato";	
 	}
 }
