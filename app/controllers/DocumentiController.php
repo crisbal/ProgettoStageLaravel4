@@ -24,9 +24,8 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('comuneN_studente', htmlspecialchars($studente->comuneNascita));
 	    $templateProcessor->setValue('dataN_studente', htmlspecialchars($studente->dataNascita));
 	    $templateProcessor->setValue('comuneR_studente', htmlspecialchars($studente->comuneResidenza));
-	    $templateProcessor->setValue('numeroCivico_studente', htmlspecialchars($studente->numeroCivico));
 	    $templateProcessor->setValue('cap_studente', htmlspecialchars($studente->cap));
-	    $templateProcessor->setValue('via_studente', htmlspecialchars($studente->via));
+	    $templateProcessor->setValue('indirizzo_studente', htmlspecialchars($studente->indirizzo));
 	    //----------------------------CLASSE
 	    $templateProcessor->setValue('studente_classe', htmlspecialchars($studente->classe->classe));
 	    $templateProcessor->setValue('studente_sezione', htmlspecialchars($studente->classe->sezione));

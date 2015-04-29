@@ -22,9 +22,8 @@ class CreateTableStudenti extends Migration {
             $table->string('CF');
             $table->date('dataNascita');
             $table->string('comuneNascita');
-            $table->string('via');
+            $table->string('indirizzo');
             $table->integer('cap');
-            $table->integer('numeroCivico');
             $table->string('comuneResidenza');
 
             $table->timestamps();

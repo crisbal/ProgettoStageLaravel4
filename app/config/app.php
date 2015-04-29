@@ -123,7 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 
-		
+
 		'Maatwebsite\Excel\ExcelServiceProvider',
 
 	),
@@ -193,7 +193,10 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
-        'PhpWord'            => '\PhpOffice\PhpWord\PhpWord',
+
+
+        'PhpWord'           => '\PhpOffice\PhpWord\PhpWord',
+        'Excel' 			=> 'Maatwebsite\Excel\Facades\Excel',
 
 	),
 

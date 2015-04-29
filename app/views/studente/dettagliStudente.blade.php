@@ -42,13 +42,13 @@ active
 	                <p>{{$studente->matricola}}</p>
 
 	                <b>Indirizzo</b>
-	                <p>{{$studente->via}} {{$studente->numeroCivico}}, ({{$studente->comuneRes}})</p>
+	                <p>{{$studente->indirizzo}}, {{$studente->comuneResidenza}}</p>
 
 	                <b>Data di Nascita</b>
-	                <p>{{$studente->dataN}}</p>
+	                <p>{{$studente->dataNascita}}</p>
 
 	                <b>Comune di Nascita</b>
-	                <p>{{$studente->comuneN}}</p>
+	                <p>{{$studente->comuneNascita}}</p>
 	            </div>
 	            <div class="warning">
 	            	<p>Aggiungere lista stage a cui ha partecipato</p>
