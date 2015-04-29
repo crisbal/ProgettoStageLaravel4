@@ -24,7 +24,8 @@ class StageController extends BaseController {
 
 	public function mostraNuovoProgetto(){
 		$aziende = Azienda::all();
-
-		return  View::make("progetto/nuovoProgetto")->with("aziende",$aziende);
+		$studenti = Studente::orderBy('classe_id')->get();
+		$tutors = TutorScuola::all();
+		return  View::make("progetto/nuovoProgetto")->with("aziende",$aziende)->with("studenti",$studenti)->with("tutors",$tutors);
 	}
 }
