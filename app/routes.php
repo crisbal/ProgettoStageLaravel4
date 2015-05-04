@@ -36,3 +36,4 @@ Route::group(array('prefix' => 'api'), function()
 
 
 Route::get('/riempi', 'ExcelController@riempi');
+Route::get('/aggiuntaClasse', 'amministrazioneController@aggiuntaClasse');
