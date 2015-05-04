@@ -39,4 +39,29 @@ class AmministrazioneController extends BaseController {
 		return "Impossibile caricare il file!";
 	}
 
+	public function mostraCreaAziende(){
+
+		return View::make("amministrazione/aggiuntaAziende");
+	}
+
+	public function faiCreaAziende(){
+		if (Input::hasFile('excel'))
+		{
+			$file = Input::file('excel');
+			$file->move("tmp", "aziende");
+			
+			$arrayAziende = Excel::load("tmp/aziende", function($reader) {
+			})->get();
+
+
+			Eloquent::unguard();
+			foreach ($arrayAziende as $aziende) {// aggiungere classe e cap
+				Azienda::create(['pIva' => $aziende->pIva, 'denominazione' => $aziende->denominazione, 'associazione' => $aziende->associazione, 'settore' => $aziende->settore, 'sedeLegale' => $aziende->sedeLegale, 'citta' => $aziende->citta, 'note' => $aziende->note]);
+			}
+			return Redirect::action('StudentiController@mostraStudenti');
+
+		} else
+		return "Impossibile caricare il file!";
+	}
+
 }

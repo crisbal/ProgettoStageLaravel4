@@ -18,15 +18,11 @@ class CreateTableAziende extends Migration {
 
             $table->string('pIva');
             $table->string('denominazione');
-            $table->string('area');
             $table->string('associazione');
             $table->string('settore');
-            $table->string('mensa');
-            $table->string('descrizione');
             $table->string('sedeLegale');
             $table->string('citta');
-            $table->string('provincia');
-            $table->integer('cap');     
+            $table->string('note');     
 
             
             

@@ -38,6 +38,7 @@ Route::group(array('prefix' => 'amministrazione'), function()
 {
     Route::get('/aggiungiClasse', 'AmministrazioneController@mostraCreaClasse');
 	Route::post('/aggiungiClasse', 'AmministrazioneController@faiCreaClasse');
-});
 
-Route::get('/riempi', 'ExcelController@riempi');
+	Route::get('/aggiungiAziende', 'AmministrazioneController@mostraCreaAziende');
+	Route::post('/aggiungiAziende', 'AmministrazioneController@faiCreaAziende');
+});

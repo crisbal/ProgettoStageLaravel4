@@ -26,19 +26,19 @@ class DatabaseSeeder extends Seeder {
         $this->call('RappresentanteLegaleTableSeeder');
         $this->command->info('RappresentanteLegale table seeded!');
 
-        $this->call('AziendaTableSeeder');
+        //$this->call('AziendaTableSeeder');
         $this->command->info('Azienda table seeded!');
 
-        $this->call('StageTableSeeder');
+        //$this->call('StageTableSeeder');
         $this->command->info('Stage table seeded!');
 
-        $this->call('StudentiStageTableSeeder');
+        //$this->call('StudentiStageTableSeeder');
         $this->command->info('StudentiStage table seeded!'); 
 
-        $this->call('ProgettoFormativoTableSeeder');
+        //$this->call('ProgettoFormativoTableSeeder');
         $this->command->info('ProgettoFormativo table seeded!');
 
-        $this->call('TutorAziendaTableSeeder');
+        //$this->call('TutorAziendaTableSeeder');
         $this->command->info('TutorAzienda table seeded!');
     }
 
@@ -105,8 +105,8 @@ class AziendaTableSeeder extends Seeder {
     {
         
 
-        Azienda::create(['pIva' => '003254788911', 'denominazione' => 'Prosciutto SPA', 'area' => 'Informatica', 'associazione' => 'confindustria', 'settore' => 'Informatica', 'mensa' => 'Pastasciutta', 'descrizione' => 'Azienda informatica che vende prosiutto', 'sedeLegale' => 'Morirai', 'citta' => 'Premana', 'provincia' => 'LC', 'cap' => '58468', 'referente_id' => '1', 'rappresentanteLegale_id' => '1']);
-        Azienda::create(['pIva' => '2587413698', 'denominazione' => 'Melone SPA', 'area' => 'Meccanica', 'associazione' => 'Coldiretti', 'settore' => 'Meccanica', 'mensa' => 'Risotto', 'descrizione' => 'Azienda meccanica che vende meloni', 'sedeLegale' => 'Caltanissetta', 'citta' => 'Olginate', 'provincia' => 'LC', 'cap' => '87456', 'referente_id' => '2', 'rappresentanteLegale_id' => '2']);
+//        Azienda::create(['pIva' => '003254788911', 'denominazione' => 'Prosciutto SPA', 'area' => 'Informatica', 'associazione' => 'confindustria', 'settore' => 'Informatica', 'mensa' => 'Pastasciutta', 'descrizione' => 'Azienda informatica che vende prosiutto', 'sedeLegale' => 'Morirai', 'citta' => 'Premana', 'provincia' => 'LC', 'cap' => '58468', 'referente_id' => '1', 'rappresentanteLegale_id' => '1']);
+  //      Azienda::create(['pIva' => '2587413698', 'denominazione' => 'Melone SPA', 'area' => 'Meccanica', 'associazione' => 'Coldiretti', 'settore' => 'Meccanica', 'mensa' => 'Risotto', 'descrizione' => 'Azienda meccanica che vende meloni', 'sedeLegale' => 'Caltanissetta', 'citta' => 'Olginate', 'provincia' => 'LC', 'cap' => '87456', 'referente_id' => '2', 'rappresentanteLegale_id' => '2']);
 
     }
 
