@@ -2,22 +2,18 @@
 
 class Azienda extends Eloquent {
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
+
 	protected $table = 'aziende';
 
 	public function tutorAzienda(){
 
-		return $this->hasOne('TutorAzienda');
+		return $this->belongsTo('TutorAzienda', "tutor_azienda_id");
 
 	}
 
 	public function rappresentanteLegale(){
 
-		return $this->belongsTo('RappresentanteLegale', "rappresentanteLegale_id");
+		return $this->belongsTo('RappresentanteLegale', "rappresentante_legale_id");
 
 	}
 }

@@ -55,13 +55,15 @@ class AmministrazioneController extends BaseController {
 
 
 			Eloquent::unguard();
-			foreach ($arrayAziende as $aziende) {// aggiungere classe e cap
-				Azienda::create(['pIva' => $aziende->pIva, 'denominazione' => $aziende->denominazione, 'associazione' => $aziende->associazione, 'settore' => $aziende->settore, 'sedeLegale' => $aziende->sedeLegale, 'citta' => $aziende->citta, 'note' => $aziende->note]);
+            //return $arrayAziende;  //i nomi delle colonne in minuscolo!
+			foreach ($arrayAziende as $azienda) {// aggiungere classe e cap
+				Azienda::create(['pIva' => $azienda->piva, 'denominazione' => $azienda->denominazione, 'associazione' => $azienda->associazione, 'settore' => $azienda->settore, 'sedeLegale' => $azienda->sedeLegale, 'citta' => $azienda->citta, 'note' => '', 'associazione' => '', 'sedeLegale' => '', 'referente_id' => '1', 'rappresentante_legale_id' => '1', 'tutor_azienda_id' => '1']);
 			}
-			return Redirect::action('StudentiController@mostraStudenti');
+			return Redirect::action('AziendeController@mostraAziende');
 
-		} else
-		return "Impossibile caricare il file!";
+		} 
+        else
+		  return "Impossibile caricare il file!";
 	}
 
 }

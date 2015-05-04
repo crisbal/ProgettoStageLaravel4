@@ -21,7 +21,7 @@ class Stage extends Eloquent {
 	}
 
 	public function tutorScuola(){
-		return $this->belongsTo("TutorScuola", "tutorScuola_id");
+		return $this->belongsTo("TutorScuola", "tutor_scuola_id");
 	}
 
 }

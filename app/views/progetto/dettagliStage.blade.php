@@ -12,16 +12,16 @@ active
 @section('content')
 <div class="dettagliStage">
     <div class="page-header">
-      <h1>Progetto Stage {{ $stage->id }} <small>Creato in data 31/03/2015</small></h1>
+        <h1>Progetto Stage {{ $stage->id }} 
+            <small>Creato in data {{  date("d/m/Y",strtotime($stage->created_at)) }}</small>
+            <div class="pull-right">
+                <a href="{{ action('DocumentiController@generaConvenzione', array($stage->id)) }}"><button class="btn btn-success">Scarica Convenzione</button></a>
+            </div>
+        </h1>
+        
+        <div class="clearfix"></div>
     </div>
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-        Fase 3/5
-      </div>
-    </div>
-    
     <!-- DETTAGLI AZIENDE -->
-
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">Dettagli azienda</h3>
@@ -41,13 +41,9 @@ active
               <div class="col-lg-6">
                 <b>CAP</b>
                 <p>{{$stage->azienda->cap}}</p>
+
               </div>
-          </div>
-          <h3>Documenti <small>Clicca per scaricare</small></h3>
-          <ul class="list-group">
-            <li class="list-group-item"><a href="#">Convenzione Scuola-Lavoro</a></li>
-            <li class="list-group-item"><a href="#">Progetto Formativo</a></li>
-          </ul>
+            </div>
       </div>
     </div>
 
@@ -70,11 +66,18 @@ active
                         <p>{{ $studente->cognome }}</p>
 
                         <b>Classe</b>
-                        <p>{{ $studente->classe}}</p>
+                        <p>
+                            {{ $studente->classe->classe}}
+                            {{$studente->classe->articolazione}}
+                            {{$studente->classe->sezione}}
+                        </p>
                       </div>
                       <div class="col-lg-6">
                         <b>Codice Fiscale</b>
                         <p>{{ $studente->CF}}</p>
+
+                        <b>Progetto Formativo</b>
+                        <p><a href="{{ action('DocumentiController@generaProgettoFormativo', array($stage->id, $studente->id)) }}">Clicca per scaricare</a></p>
                       </div>
                   </div>
                 </li>

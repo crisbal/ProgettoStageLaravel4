@@ -50,7 +50,7 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->saveAs('documenti/progettoFormativo-' . $stage->id . '-' . $studente->id . '.docx');
 
 
-		return "Documento Generato";
+		return Response::download('documenti/progettoFormativo-' . $stage->id . '-' . $studente->id . '.docx');
 	}
 
 	public function generaConvenzione($stageId){
@@ -79,6 +79,7 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('rappresentanteLegale_cf', htmlspecialchars($rappresentanteLegale->cf));
 
 		$templateProcessor->saveAs('documenti/convenzione' . '-' . $stage->id . '.docx');
-		return "Documento Generato";	
+		
+        return Response::download('documenti/convenzione' . '-' . $stage->id . '.docx');	
 	}
 }

@@ -11,11 +11,11 @@ class DatabaseSeeder extends Seeder {
     {
         Eloquent::unguard();
 
-        $this->call('ClasseTableSeeder');
-        $this->command->info('Classe table seeded!');
+       // $this->call('ClasseTableSeeder');
+        //$this->command->info('Classe table seeded!');
 
-        $this->call('StudentiTableSeeder');
-        $this->command->info('Studenti table seeded!');
+        //$this->call('StudentiTableSeeder');
+        //$this->command->info('Studenti table seeded!');
 
         $this->call('ReferenteTableSeeder');
         $this->command->info('Referente table seeded!');
@@ -26,20 +26,20 @@ class DatabaseSeeder extends Seeder {
         $this->call('RappresentanteLegaleTableSeeder');
         $this->command->info('RappresentanteLegale table seeded!');
 
-        //$this->call('AziendaTableSeeder');
-        $this->command->info('Azienda table seeded!');
+        $this->call('TutorAziendaTableSeeder');
+        $this->command->info('TutorAzienda table seeded!');
 
-        //$this->call('StageTableSeeder');
-        $this->command->info('Stage table seeded!');
+        //$this->call('AziendaTableSeeder');
+        //$this->command->info('Azienda table seeded!');
+
+       // $this->call('StageTableSeeder');
+        //$this->command->info('Stage table seeded!');
 
         //$this->call('StudentiStageTableSeeder');
-        $this->command->info('StudentiStage table seeded!'); 
+        //$this->command->info('StudentiStage table seeded!'); 
 
         //$this->call('ProgettoFormativoTableSeeder');
-        $this->command->info('ProgettoFormativo table seeded!');
-
-        //$this->call('TutorAziendaTableSeeder');
-        $this->command->info('TutorAzienda table seeded!');
+       // $this->command->info('ProgettoFormativo table seeded!');
     }
 
 }
@@ -78,8 +78,8 @@ class StageTableSeeder extends Seeder {
     {
         
 
-        Stage::create(['descrizione' => 'Di Prova', 'azienda_id' => '1', 'tutorscuola_id' => '1']);
-        Stage::create(['descrizione' => 'Altro Esempio', 'azienda_id' => '2', 'tutorscuola_id' => '2']);
+        Stage::create(['descrizione' => 'Di Prova', 'azienda_id' => '1', 'tutor_scuola_id' => '1']);
+        Stage::create(['descrizione' => 'Altro Esempio', 'azienda_id' => '2', 'tutor_scuola_id' => '2']);
 
     }
 
@@ -105,8 +105,8 @@ class AziendaTableSeeder extends Seeder {
     {
         
 
-//        Azienda::create(['pIva' => '003254788911', 'denominazione' => 'Prosciutto SPA', 'area' => 'Informatica', 'associazione' => 'confindustria', 'settore' => 'Informatica', 'mensa' => 'Pastasciutta', 'descrizione' => 'Azienda informatica che vende prosiutto', 'sedeLegale' => 'Morirai', 'citta' => 'Premana', 'provincia' => 'LC', 'cap' => '58468', 'referente_id' => '1', 'rappresentanteLegale_id' => '1']);
-  //      Azienda::create(['pIva' => '2587413698', 'denominazione' => 'Melone SPA', 'area' => 'Meccanica', 'associazione' => 'Coldiretti', 'settore' => 'Meccanica', 'mensa' => 'Risotto', 'descrizione' => 'Azienda meccanica che vende meloni', 'sedeLegale' => 'Caltanissetta', 'citta' => 'Olginate', 'provincia' => 'LC', 'cap' => '87456', 'referente_id' => '2', 'rappresentanteLegale_id' => '2']);
+        Azienda::create(['pIva' => '003254788911', 'denominazione' => 'Prosciutto SPA', 'area' => 'Informatica', 'associazione' => 'confindustria', 'settore' => 'Informatica', 'mensa' => 'Pastasciutta', 'descrizione' => 'Azienda informatica che vende prosiutto', 'sedeLegale' => 'Morirai', 'citta' => 'Premana', 'provincia' => 'LC', 'cap' => '58468', 'referente_id' => '1', 'rappresentanteLegale_id' => '1']);
+        Azienda::create(['pIva' => '2587413698', 'denominazione' => 'Melone SPA', 'area' => 'Meccanica', 'associazione' => 'Coldiretti', 'settore' => 'Meccanica', 'mensa' => 'Risotto', 'descrizione' => 'Azienda meccanica che vende meloni', 'sedeLegale' => 'Caltanissetta', 'citta' => 'Olginate', 'provincia' => 'LC', 'cap' => '87456', 'referente_id' => '2', 'rappresentanteLegale_id' => '2']);
 
     }
 
@@ -118,8 +118,8 @@ class TutorAziendaTableSeeder extends Seeder {
     {
         
 
-        TutorAzienda::create(['nome' => 'Walter', 'cognome' => 'Rossi', 'telefono' => '25742854', 'cellulare' => '035478921', 'email' => 'sala@libero.iuty', 'azienda_id' => '1']);
-        TutorAzienda::create(['nome' => 'Matteo', 'cognome' => 'Arrigoni', 'telefono' => '311453453', 'cellulare' => '03121311', 'email' => 'felicello@libero.iuty', 'azienda_id' => '2']);    
+        TutorAzienda::create(['nome' => 'Walter', 'cognome' => 'Rossi', 'telefono' => '25742854', 'cellulare' => '035478921', 'email' => 'sala@libero.iuty']);
+        TutorAzienda::create(['nome' => 'Matteo', 'cognome' => 'Arrigoni', 'telefono' => '311453453', 'cellulare' => '03121311', 'email' => 'felicello@libero.iuty']);    
     }
 }
 

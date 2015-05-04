@@ -30,8 +30,9 @@ class StageController extends BaseController {
 		$stage = new Stage;
 		$stage->descrizione = "Generato";
 		$stage->azienda_id = Input::get('idAzienda');
-		$stage->tutorscuola_id = Input::get('idTutor');
+		$stage->tutor_scuola_id = Input::get('idTutor');
 		$stage->save();
+
 		$idStudenti = explode(",", Input::get('idStudenti'));
 		unset($idStudenti[0]);
 		
@@ -43,5 +44,6 @@ class StageController extends BaseController {
 			$partecipazioneStage->push();
 		}
 
+        return Redirect::action('StageController@mostraStage', array($stage->id));
 	}
 }

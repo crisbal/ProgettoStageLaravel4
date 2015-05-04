@@ -17,8 +17,11 @@ class AggiuntaColonnaAzienda extends Migration {
                 $table->integer('referente_id')->unsigned();
                 $table->foreign('referente_id')->references('id')->on('referenti');
 
-                $table->integer('rappresentanteLegale_id')->unsigned();
-                $table->foreign('rappresentanteLegale_id')->references('id')->on('rappresentantiLegali');
+                $table->integer('rappresentante_legale_id')->unsigned();
+                $table->foreign('rappresentante_legale_id')->references('id')->on('rappresentantiLegali');
+
+                $table->integer('tutor_azienda_id')->unsigned();
+                $table->foreign('tutor_azienda_id')->references('id')->on('tutorAzienda');
             }
         );
     }
@@ -33,8 +36,9 @@ class AggiuntaColonnaAzienda extends Migration {
         Schema::table("aziende",function($table)
         {
             $table->dropForeign('aziende_referente_id_foreign');
-            $table->dropForeign('aziende_rappresentanteLegale_id_foreign');
-            $table->dropColumn(['referente_id', 'rappresentanteLegale_id']);
+            $table->dropForeign('aziende_rappresentante_legale_id_foreign');
+            $table->dropForeign('aziende_tutor_azienda_id_foreign');
+            $table->dropColumn(['referente_id', 'rappresentante_legale_id', 'tutor_azienda_id']);
         }
         );
     }

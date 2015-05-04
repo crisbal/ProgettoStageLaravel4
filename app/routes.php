@@ -10,7 +10,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
 Route::get('/', 'StageController@index');
 Route::get('/stage', 'StageController@mostraNuovoProgetto');
 Route::post('/stage', 'StageController@faiNuovoProgetto');
@@ -23,9 +22,11 @@ Route::get('/studente/{id}', 'StudentiController@mostraSpecifico');
 Route::get('/aziende', 'AziendeController@mostraAziende');
 Route::get('/aziende/{id}', 'AziendeController@mostraSpecifica');
 
-
-Route::get('/documento/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaProgettoFormativo');
-Route::get('/documento/convenzione/{stageId}', 'DocumentiController@generaConvenzione');
+Route::group(array('prefix' => 'documento'), function()
+{
+    Route::get('/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaProgettoFormativo');
+    Route::get('/convenzione/{stageId}', 'DocumentiController@generaConvenzione');
+});
 
 Route::group(array('prefix' => 'api'), function()
 {

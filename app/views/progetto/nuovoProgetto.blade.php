@@ -210,12 +210,10 @@ active
 		$("#modaleTutor").modal('hide');
 		$("#step3").hide();
 		$("#stepConferma").show();
-		$("#idTutor").val(idAzienda);
+		$("#idTutor").val(idTutor);
 	});
 	$("#annullaTutor").click(function(){
 		$("#modaleTutor").modal('hide');
-		$("#step3").hide();
-		$("#stepConferma").show();
 	});
 
 	$("#vaiIndietro1").click(function(){
