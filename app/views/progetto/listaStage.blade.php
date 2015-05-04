@@ -15,7 +15,7 @@ active
   @foreach($stages as $stage)
     <div class="panel panel-info">
       <div class="panel-heading">
-      <a href="{{ action('StageController@mostraStage',$stage->id)}}">Stage N° {{ $stage->id }}</a> <span style="float:right">{{ $stage->azienda->denominazione }}</span>
+      <a href="{{ action('StageController@mostraStage',$stage->id) }}">Stage N° {{ $stage->id }}</a> <span style="float:right">{{ $stage->azienda->denominazione }}</span>
       </div>
       <div class="panel-body">
         {{ $stage->descrizione }}

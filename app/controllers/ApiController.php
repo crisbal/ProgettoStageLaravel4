@@ -9,4 +9,11 @@ class ApiController extends BaseController {
 
 		return $azienda;
 	}
+
+	public function mostraTutor($id){
+
+		$tutor = TutorScuola::find($id);
+
+		return $tutor;
+	}
 }
