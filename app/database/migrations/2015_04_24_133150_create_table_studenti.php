@@ -25,6 +25,7 @@ class CreateTableStudenti extends Migration {
             $table->string('indirizzo');
             $table->integer('cap');
             $table->string('comuneResidenza');
+            $table->string('articolazione');
 
             $table->timestamps();
         });

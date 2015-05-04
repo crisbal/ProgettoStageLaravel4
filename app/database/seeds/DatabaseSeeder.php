@@ -63,11 +63,11 @@ class StudentiTableSeeder extends Seeder {
     {
         
 
-        Studente::create(['nome' => 'Alessandro', 'cognome' => 'Caverio', 'CF' => 'PMOMRS', 'dataNascita' => '1996/06/13', 'comuneNascita' => 'Premana', 'indirizzo' => 'Risorgimento, 57a', 'cap' => '23834', 'comuneResidenza' => 'Premana', 'classe_id' => '1']);
-        Studente::create(['nome' => 'Mario', 'cognome' => 'Rossi', 'CF' => 'HKBJVYIHK', 'dataNascita' => '1512/10/12', 'comuneNascita' => 'Lecco', 'indirizzo' => 'Mazzini,3', 'cap' => '23854', 'comuneResidenza' => 'Lecco', 'classe_id' => '2']);
-        Studente::create(['nome' => 'Marco', 'cognome' => 'Verdi', 'CF' => 'sffrsfs', 'dataNascita' => '1512/10/12', 'comuneNascita' => 'Lecco', 'indirizzo' => 'Mazzini,3', 'cap' => '23854', 'comuneResidenza' => 'Lecco', 'classe_id' => '1']);
-        Studente::create(['nome' => 'Moris', 'cognome' => 'Nero', 'CF' => 'sffesrf', 'dataNascita' => '1512/10/12', 'comuneNascita' => 'Lecco', 'indirizzo' => 'Mazzini,3', 'cap' => '23854', 'comuneResidenza' => 'Lecco', 'classe_id' => '1']);
-        Studente::create(['nome' => 'John', 'cognome' => 'Red', 'CF' => 'gsrfsfe', 'dataNascita' => '1512/10/12', 'comuneNascita' => 'Lecco', 'indirizzo' => 'Mazzini,3', 'cap' => '23854', 'comuneResidenza' => 'Lecco', 'classe_id' => '2']);
+        Studente::create(['nome' => 'Alessandro', 'cognome' => 'Caverio', 'CF' => 'PMOMRS', 'dataNascita' => '1996/06/13', 'comuneNascita' => 'Premana', 'indirizzo' => 'Risorgimento, 57a', 'cap' => '23834', 'comuneResidenza' => 'Premana', 'articolazione' => 'Informatica','classe_id' => '1']);
+        Studente::create(['nome' => 'Mario', 'cognome' => 'Rossi', 'CF' => 'HKBJVYIHK', 'dataNascita' => '1512/10/12', 'comuneNascita' => 'Lecco', 'indirizzo' => 'Mazzini,3', 'cap' => '23854', 'comuneResidenza' => 'Lecco', 'articolazione' => 'Informatica', 'classe_id' => '2']);
+        Studente::create(['nome' => 'Marco', 'cognome' => 'Verdi', 'CF' => 'sffrsfs', 'dataNascita' => '1512/10/12', 'comuneNascita' => 'Lecco', 'indirizzo' => 'Mazzini,3', 'cap' => '23854', 'comuneResidenza' => 'Lecco', 'articolazione' => 'Informatica', 'classe_id' => '1']);
+        Studente::create(['nome' => 'Moris', 'cognome' => 'Nero', 'CF' => 'sffesrf', 'dataNascita' => '1512/10/12', 'comuneNascita' => 'Lecco', 'indirizzo' => 'Mazzini,3', 'cap' => '23854', 'comuneResidenza' => 'Lecco', 'articolazione' => 'Informatica', 'classe_id' => '1']);
+        Studente::create(['nome' => 'John', 'cognome' => 'Red', 'CF' => 'gsrfsfe', 'dataNascita' => '1512/10/12', 'comuneNascita' => 'Lecco', 'indirizzo' => 'Mazzini,3', 'cap' => '23854', 'comuneResidenza' => 'Lecco', 'articolazione' => 'Informatica', 'classe_id' => '2']);
     }
 
 }

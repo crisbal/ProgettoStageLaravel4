@@ -34,6 +34,10 @@ Route::group(array('prefix' => 'api'), function()
     Route::get('tutor/{idTutor}', 'ApiController@mostraTutor');
 });
 
+Route::group(array('prefix' => 'amministrazione'), function()
+{
+    Route::get('/aggiungiClasse', 'AmministrazioneController@mostraCreaClasse');
+	Route::post('/aggiungiClasse', 'AmministrazioneController@faiCreaClasse');
+});
 
 Route::get('/riempi', 'ExcelController@riempi');
-Route::get('/aggiuntaClasse', 'amministrazioneController@aggiuntaClasse');

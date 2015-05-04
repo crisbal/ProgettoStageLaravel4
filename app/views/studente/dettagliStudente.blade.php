@@ -36,6 +36,9 @@ active
 	                <b>Codice Fiscale</b>
 	                <p>{{$studente->CF}}</p>
 
+	                <b>Articolazione</b>
+	                <p>{{$studente->articolazione}}</p>
+
 	            </div>
 	            <div class="col-lg-6">
 	              	<b>Matricola</b>
