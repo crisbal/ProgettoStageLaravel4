@@ -24,8 +24,8 @@ active
 						<thead>
 							<tr>
 								<th>ID</th>
-								<th>Nome</th>
 								<th>Cognome</th>
+								<th>Nome</th>								
 								<th>CF</th>
 								<th>Dettagli</th>
 							</tr>
@@ -33,8 +33,8 @@ active
 						@foreach($classe->studenti as $studente)
 						<tr>
 							<td>{{$studente->id}}</td>
-							<td>{{$studente->nome}}</td>
 							<td>{{$studente->cognome}}</td>
+							<td>{{$studente->nome}}</td>
 							<td>{{$studente->CF}}</td>
 							<td><a href="{{ action('StudentiController@mostraSpecifico',$studente->id)}}">Dettagli Studente</a></td>
 						</tr>

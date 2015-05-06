@@ -16,13 +16,13 @@ class DocumentiController extends BaseController {
 		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/progettoFormativo.docx');
 		//----------------------------STAGE	   
 	    $templateProcessor->setValue('id_stage', htmlspecialchars($stageId));
-	    $templateProcessor->setValue('data_stage', htmlspecialchars($stage->created_at));
+	    $templateProcessor->setValue('data_stage', htmlspecialchars(date("d/m/Y",strtotime($stage->created_at))));
 
 	    //----------------------------STUDENTE
 	    $templateProcessor->setValue('nome_studente', htmlspecialchars($studente->nome));
 	    $templateProcessor->setValue('cognome_studente', htmlspecialchars($studente->cognome));
 	    $templateProcessor->setValue('comuneN_studente', htmlspecialchars($studente->comuneNascita));
-	    $templateProcessor->setValue('dataN_studente', htmlspecialchars($studente->dataNascita));
+	    $templateProcessor->setValue('dataN_studente', htmlspecialchars(date("d/m/Y",strtotime($studente->dataNascita))));
 	    $templateProcessor->setValue('comuneR_studente', htmlspecialchars($studente->comuneResidenza));
 	    $templateProcessor->setValue('indirizzo_studente', htmlspecialchars($studente->indirizzo));
 	    //----------------------------CLASSE
@@ -70,7 +70,7 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($rappresentanteLegale->nome));
 	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($rappresentanteLegale->cognome));
 	    $templateProcessor->setValue('rappresentanteLegale_luogoN', htmlspecialchars($rappresentanteLegale->luogoN));
-	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars($rappresentanteLegale->dataN));
+	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars(date("d/m/Y",strtotime($rappresentanteLegale->dataN))));
 	    $templateProcessor->setValue('rappresentanteLegale_cf', htmlspecialchars($rappresentanteLegale->cf));
 
 		$templateProcessor->saveAs('tmp/convenzione' . '-' . $stage->id . '.docx');

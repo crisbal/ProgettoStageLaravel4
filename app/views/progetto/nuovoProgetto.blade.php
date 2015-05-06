@@ -171,7 +171,7 @@ active
 
 		$.get( "api/azienda/" + idAzienda, function( azienda ) {
 			$("#nomeAzienda").html(azienda.denominazione);
-			$("#sedeLegaleAzienda").html(azienda.sedeLegale);
+			$("#sedeLegaleAzienda").html(azienda.sedeLegale + ", " + azienda.citta);
 			$("#modaleAzienda").modal('show');
 
 		});
@@ -192,6 +192,7 @@ active
 		$("#step3").show();
 
 		inputs = $("#tabellaStudenti tbody tr").find("input:checked");
+		$("#idStudenti").val("");
 		for(i=0;i<inputs.length;i++){
 			riga = $(inputs[i]).parent().parent();
 			$("#idStudenti").val($("#idStudenti").val() + "," + riga.attr("studente"));

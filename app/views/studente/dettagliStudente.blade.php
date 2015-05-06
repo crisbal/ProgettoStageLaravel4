@@ -48,7 +48,7 @@ active
 	                <p>{{$studente->indirizzo}}, {{$studente->comuneResidenza}}</p>
 
 	                <b>Data di Nascita</b>
-	                <p>{{$studente->dataNascita}}</p>
+	                <p>{{ date("d/m/Y",strtotime($studente->dataNascita))}}</p>
 
 	                <b>Comune di Nascita</b>
 	                <p>{{$studente->comuneNascita}}</p>
