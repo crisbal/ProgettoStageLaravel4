@@ -29,9 +29,6 @@ active
 	                <b>Settore</b>
 	                <p>{{$azienda->settore}} &nbsp;</p>
 
-	                <b>Area</b>
-	                <p>{{$azienda->area}} &nbsp;</p>
-
 	                <b>Associazione</b>
 	                <p>{{$azienda->associazione}} &nbsp;</p>
 

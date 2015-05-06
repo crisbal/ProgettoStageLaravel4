@@ -21,17 +21,17 @@ active
 			<tr>
 				<th>ID</th>
 				<th>Denominazione</th>
-				<th>Area</th>
-				<th>Provincia</th>
+				<th>Settore</th>
+				<th>Indirizzo</th>
 				<th>Dettagli</th>
 			</tr>
 		</thead>
 		@foreach($aziende as $azienda)
 		<tr>
 			<td>{{$azienda->id}}</td>
-			<td>{{$azienda->denominazione}}</td>
-			<td>{{$azienda->area}}</td>
-			<td>{{$azienda->sedeLegale}} ({{$azienda->provincia}})</td>
+			<td style="text-transform:capitalize;">{{ strtolower($azienda->denominazione) }}</td>
+			<td>{{$azienda->settore}}</td>
+			<td style="text-transform:capitalize;">{{ strtolower($azienda->citta . " , " .  $azienda->sedeLegale) }}</td>
 			<td><a href="{{ action('AziendeController@mostraSpecifica',$azienda->id)}}">Dettagli Azienda</a></td>
 		</tr>
 		@endforeach

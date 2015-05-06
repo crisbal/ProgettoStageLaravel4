@@ -57,7 +57,7 @@ class AmministrazioneController extends BaseController {
 			Eloquent::unguard();
             //return $arrayAziende;  //i nomi delle colonne in minuscolo!
 			foreach ($arrayAziende as $azienda) {// aggiungere classe e cap
-				Azienda::create(['pIva' => $azienda->piva, 'denominazione' => $azienda->denominazione, 'associazione' => $azienda->associazione, 'settore' => $azienda->settore, 'sedeLegale' => $azienda->sedeLegale, 'citta' => $azienda->citta, 'note' => '', 'associazione' => '', 'sedeLegale' => '', 'referente_id' => '1', 'rappresentante_legale_id' => '1', 'tutor_azienda_id' => '1']);
+				Azienda::create(['pIva' => $azienda->piva, 'denominazione' => $azienda->denominazione, 'associazione' => $azienda->associazione, 'settore' => $azienda->settore, 'sedeLegale' => $azienda->sedelegale, 'citta' => $azienda->citta, 'note' => '', 'associazione' => '', 'referente_id' => '1', 'rappresentante_legale_id' => '1', 'tutor_azienda_id' => '1']);
 			}
 			return Redirect::action('AziendeController@mostraAziende');
 
