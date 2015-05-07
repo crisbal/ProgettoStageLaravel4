@@ -23,7 +23,18 @@ class StageController extends BaseController {
 		$aziende = Azienda::all();
 		$studenti = Studente::orderBy('classe_id')->get();
 		$tutors = TutorScuola::all();
-		return  View::make("progetto/nuovoProgetto")->with("aziende",$aziende)->with("studenti",$studenti)->with("tutors",$tutors);
+		$config = [];
+		$config["dataInizio1"] = AppConfig::where('chiave', '=', 'dataInizio1')->firstOrFail();
+		$config["dataFine1"] = AppConfig::where('chiave', '=', 'dataFine1')->firstOrFail();
+
+		$config["dataInizio2"] = AppConfig::where('chiave', '=', 'dataInizio2')->firstOrFail();
+		$config["dataFine2"] = AppConfig::where('chiave', '=', 'dataFine2')->firstOrFail();
+
+		$config["dataInizio3"] = AppConfig::where('chiave', '=', 'dataInizio3')->firstOrFail();
+		$config["dataFine3"] = AppConfig::where('chiave', '=', 'dataFine3')->firstOrFail();
+
+
+		return  View::make("progetto/nuovoProgetto")->with("aziende",$aziende)->with("studenti",$studenti)->with("tutors",$tutors)->with('config',$config);
 	}
 
 	public function faiNuovoProgetto(){

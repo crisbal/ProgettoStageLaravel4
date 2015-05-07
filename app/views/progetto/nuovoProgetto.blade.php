@@ -60,26 +60,27 @@ active
 	    	<input id="filterStudenti" type="text" class="form-control" placeholder="Scrivi qui...">
 		</div>
 		<br>	
+		<button id="confermaStudenti" class="btn btn-info btn-lg btn-block">Conferma</button>
+		<br>
 		<table id="tabellaStudenti" class="table table-striped">
 		  	<tr>
-		  		<th>Nome</th>
 		  		<th>Cognome</th>
+		  		<th>Nome</th>
 		  		<th>Classe</th>
 		  		<th>Scegli</th>
 		  	</tr>
 		  	<tbody class="searchable">
 				@foreach($studenti as $studente)
 					<tr studente="{{ $studente->id }}">
-						<td>{{$studente->nome}}</td>
 						<td>{{$studente->cognome}}</td>
+						<td>{{$studente->nome}}</td>
 						<td>{{$studente->classe->classe}} {{$studente->classe->articolazione}} {{$studente->classe->sezione}}</td>
 						<td><input type="checkbox" autocomplete=off></td>
 					</tr>
 				@endforeach
 			</tbody>
 		</table>
-		<button id="confermaStudenti" class="btn btn-info btn-lg btn-block">Conferma</button>
-		<br>
+		
 		<button id="vaiIndietro1" style="transform:rotateY(180deg)" class="btn btn-default glyphicon glyphicon glyphicon-share-alt" ></button>
 	</div>
 	<div style="display:none;" id="step3">
@@ -124,6 +125,34 @@ active
 		        </div>
 		    </div>
 		</div>
+	</div>
+	<div style="display:none;" id="step4">
+		<h1>Creazione Nuovo Stage <small>Scelta dei periodi</small></h1>
+		<br>
+		<table id="tabellaPeriodi" class="table table-striped">
+		  	<tr>
+		  		<th>Data Inizio</th>
+		  		<th>Data Fine</th>
+		  		<th></th>
+		  	</tr>
+		  	<tbody>
+			  	<tr>
+			  		<td>{{ $config["dataInizio1"]->valore }}</td>
+			  		<td>{{ $config["dataFine1"]->valore }}</td>
+			  		<td><input type="checkbox"></td>
+			  	</tr>
+			  	<tr>
+			  		<td>{{ $config["dataInizio2"]->valore }}</td>
+			  		<td>{{ $config["dataFine2"]->valore }}</td>
+			  		<td><input type="checkbox"></td>
+			  	</tr>
+			  	<tr>
+			  		<td>{{ $config["dataInizio3"]->valore }}</td>
+			  		<td>{{ $config["dataFine3"]->valore }}</td>
+			  		<td><input type="checkbox"></td>
+			  	</tr>
+			</tbody>
+		</table>
 	</div>
 	<div id="stepConferma" style="display:none;">
 		<h1 style="text-align:center;">Hai inserito tutti i dati per la creazione dello stage.</h1>
@@ -210,7 +239,7 @@ active
 	$("#confermaTutor").click(function(){
 		$("#modaleTutor").modal('hide');
 		$("#step3").hide();
-		$("#stepConferma").show();
+		$("#step4").show();
 		$("#idTutor").val(idTutor);
 	});
 	$("#annullaTutor").click(function(){

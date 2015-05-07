@@ -17,8 +17,7 @@ class CreateTableStage extends Migration {
             $table->increments('id');
 
             $table->string('descrizione');
-
-         
+     
 
             $table->timestamps();
         });
