@@ -17,4 +17,10 @@ class AziendeController extends BaseController {
 		return  View::make("azienda/listaAziende")->with("aziende",$aziende);
 	}
 
+	public function modificaAzienda($id){
+
+		$azienda = Azienda::find($id);
+
+		return View::make("azienda/modificaAzienda")->with("azienda",$azienda);
+	}
 }

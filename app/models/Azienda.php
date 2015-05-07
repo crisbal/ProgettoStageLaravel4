@@ -16,4 +16,10 @@ class Azienda extends Eloquent {
 		return $this->belongsTo('RappresentanteLegale', "rappresentante_legale_id");
 
 	}
+
+	public function stages(){
+
+		return $this->hasMany('Stage');
+
+	}
 }

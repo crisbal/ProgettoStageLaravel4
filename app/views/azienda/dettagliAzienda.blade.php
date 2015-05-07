@@ -10,10 +10,17 @@ active
 @endsection
 
 @section('content')
+
+<div class="pull-right">
+                <a href="{{ action('AziendeController@modificaAzienda', $azienda->id) }}"><button class="btn btn-warning">Modifica Azienda</button></a>
+                <a href=""><button class="btn btn-danger"><div class="glyphicon glyphicon-trash"></div></button></a>
+            	
+            </div>
 <div class="dettagliStage">
     <div class="page-header">
       <h1>{{$azienda->denominazione}} <small>{{$azienda->pIva}}</small></h1>
     </div>
+    
     <!-- DETTAGLI azienda -->
 
     <div class="panel panel-info">
@@ -46,10 +53,28 @@ active
 	                <b>Descrizione</b>
 	                <p>{{$azienda->descrizione}} &nbsp;</p>
 	            </div>
-	            <div class="warning">
-	            	<p>Aggiungere lista stage a cui ha partecipato</p>
-	            </div>
           </div>
       </div>
     </div>
+	<!-- 	LISTA DEGLI STAGE	-->
+	@if(count($azienda->stages) > 0)
+	    <div class="list-group">
+	    <div class="list-group-item list-group-item-info">
+		   <h3 class="panel-title">Stage che ha ospitato</h3>
+		</div>
+	    @foreach($azienda->stages as $stage)
+	    <div class="list-group-item">
+		 <a href="{{ action('StageController@mostraStage',$stage->id) }}">Stage N° {{ $stage->id }} creato in data {{  date("d/m/Y",strtotime($stage->created_at)) }}</a>
+		</div>
+	       	
+	   	@endforeach
+	   	</div>
+	@else
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Questa azienda non ha ospitato alcuno stage</div>
+			</div>
+		</div>
+   	@endif
+
 @endsection

@@ -53,10 +53,27 @@ active
 	                <b>Comune di Nascita</b>
 	                <p>{{$studente->comuneNascita}}</p>
 	            </div>
-	            <div class="warning">
-	            	<p>Aggiungere lista stage a cui ha partecipato</p>
-	            </div>
-          </div>
-      </div>
+          	</div>
+      	</div>
     </div>
+    <!-- 	LISTA DEGLI STAGE	-->
+    @if(count($studente->stages) > 0)
+	    <div class="list-group">
+	    <div class="list-group-item list-group-item-info">
+		   <h3 class="panel-title">Stage a cui ha partecipato</h3>
+		</div>
+	    @foreach($studente->stages as $stage)
+	    <div class="list-group-item">
+		 <a href="{{ action('StageController@mostraStage',$stage->id) }}">Stage N° {{ $stage->id }} creato in data {{  date("d/m/Y",strtotime($stage->created_at)) }}</a>
+		 <span style="float:right; text-transform:capitalize;">Azienda: <a href="{{ action('AziendeController@mostraSpecifica',$stage->azienda->id)}}">{{ strtolower($stage->azienda->denominazione) }}</a></span>
+		</div> 	
+	   	@endforeach
+	   	</div>
+	@else
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Questo studente non ha partecipato a nessuno stage</div>
+			</div>
+		</div>
+	@endif
 @endsection
