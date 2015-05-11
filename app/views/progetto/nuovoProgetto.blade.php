@@ -137,22 +137,27 @@ active
 		  	</tr>
 		  	<tbody>
 			  	<tr>
-			  		<td>{{ $config["dataInizio1"]->valore }}</td>
-			  		<td>{{ $config["dataFine1"]->valore }}</td>
+			  		<td><input readonly class="dataInizio" value='{{ $config["dataInizio1"]->valore }}' /></td>
+			  		<td><input readonly class="dataFine" value='{{ $config["dataFine1"]->valore }}' /></td>
 			  		<td><input type="checkbox"></td>
 			  	</tr>
 			  	<tr>
-			  		<td>{{ $config["dataInizio2"]->valore }}</td>
-			  		<td>{{ $config["dataFine2"]->valore }}</td>
+			  		<td><input readonly class="dataInizio" value='{{ $config["dataInizio2"]->valore }}' /></td>
+			  		<td><input readonly class="dataFine" value='{{ $config["dataFine2"]->valore }}' /></td>
 			  		<td><input type="checkbox"></td>
+
 			  	</tr>
 			  	<tr>
-			  		<td>{{ $config["dataInizio3"]->valore }}</td>
-			  		<td>{{ $config["dataFine3"]->valore }}</td>
+			  		<td><input readonly class="dataInizio" value='{{ $config["dataInizio3"]->valore }}' /></td>
+			  		<td><input readonly class="dataFine" value='{{ $config["dataFine3"]->valore }}' /></td>
 			  		<td><input type="checkbox"></td>
+
 			  	</tr>
 			</tbody>
 		</table>
+		<br>	
+		<button id="confermaPeriodi" class="btn btn-info btn-lg btn-block">Conferma</button>
+		<br>
 	</div>
 	<div id="stepConferma" style="display:none;">
 		<h1 style="text-align:center;">Hai inserito tutti i dati per la creazione dello stage.</h1>
@@ -160,6 +165,8 @@ active
 			<input type="hidden" id="idAzienda" name="idAzienda" value="" autocomplete=off>
 			<input type="hidden" id="idStudenti" name="idStudenti" value="" autocomplete=off>
 			<input type="hidden" id="idTutor" name="idTutor" value="" autocomplete=off>
+			<input type="hidden" id="dateInizio" name="dateInizio" value="" autocomplete=off>
+			<input type="hidden" id="dataFine" name="dataFine" value="" autocomplete=off>
 			<input type="submit" class="btn btn-success btn-lg btn-block" value="Crea Stage">	
 		</form>
 	</div>
@@ -227,6 +234,23 @@ active
 			$("#idStudenti").val($("#idStudenti").val() + "," + riga.attr("studente"));
 		}
 	});
+
+	$("#confermaPeriodi").click(function(){
+		$("#step4").hide();
+		$("#stepConferma").show();
+
+		inputs = $("#tabellaPeriodi tbody tr").find("input:checked");
+		$("#dateInizio").val("");
+		$("#dateFine").val("");
+
+		for(i=0;i<inputs.length;i++){
+			riga = $(inputs[i]).parent().parent();
+			$("#dateInizio").val( $("#dateInizio").val() + "," + $(riga).find("input.dataInizio").val());
+			$("#dateFine").val( $("#dateFine").val() + "," + $(riga).find("input.dataFine").val());
+			
+		}
+	});
+
 
 	$(".scegliTutor").click(function(){
 		idTutor = $(this).closest("tr").attr("tutor");
