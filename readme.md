@@ -5,7 +5,9 @@ Periodo dello stage
 Distinguere tra stage estivo, stage invernale e alternanza
 Sistemare entità referente e rappresentante
 Sistemare bottoni modifica (manca link), elimina (manca link) azienda
-Numeri delle convenzioni si resettano ogni anno
+Numeri delle convenzioni (3 numerazioni diverse) si resettano ogni anno
+Prevedere chiusura stage/convenzione che salva i documenti (fare documento di prova e pulsante conferma per farlo diventare definitivo)
+Chiedere TUTTI i modelli di convenzioni, stage, minorenni, ...
 
 ++
 Eliminare Modificare Stage, classi, aziende, alunni
