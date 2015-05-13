@@ -42,6 +42,12 @@ class StageController extends BaseController {
 		$stage->descrizione = "Generato";
 		$stage->azienda_id = Input::get('idAzienda');
 		$stage->tutor_scuola_id = Input::get('idTutor');
+
+		$dateInizio = explode(",", Input::get('dateInizio'));
+		unset($dateInizio[0]);
+		$dateFine = explode(",", Input::get('dateFine'));
+		unset($dateFine[0]);
+
 		$stage->save();
 
 		$idStudenti = explode(",", Input::get('idStudenti'));
@@ -53,6 +59,13 @@ class StageController extends BaseController {
 			$partecipazioneStage->studente_id = $idStudente;
 			$partecipazioneStage->save();
 			$partecipazioneStage->push();
+		}
+
+		if (count(dateInizio) != count(dateFine))
+			return "ERRORE! count(dateInizio) != count(dateFine)";
+
+		for($i=0;$i<count($dateInizio);$i++){
+			
 		}
 
         return Redirect::action('StageController@mostraStage', array($stage->id));
