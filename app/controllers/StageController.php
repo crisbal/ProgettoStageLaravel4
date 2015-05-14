@@ -47,7 +47,7 @@ class StageController extends BaseController {
 		unset($dateInizio[0]);
 		$dateFine = explode(",", Input::get('dateFine'));
 		unset($dateFine[0]);
-
+		
 		$stage->save();
 
 		$idStudenti = explode(",", Input::get('idStudenti'));
@@ -61,7 +61,7 @@ class StageController extends BaseController {
 			$partecipazioneStage->push();
 		}
 
-		if (count(dateInizio) != count(dateFine))
+		if (count($dateInizio) != count($dateFine))
 			return "ERRORE! count(dateInizio) != count(dateFine)";
 
 		for($i=0;$i<count($dateInizio);$i++){

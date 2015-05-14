@@ -153,10 +153,34 @@ active
 			  		<td><input type="checkbox"></td>
 
 			  	</tr>
+			  	<tr>
+			  		<td><input class="dataInizio" placeholder='aaaa/mm/gg' /></td>
+			  		<td><input class="dataFine" placeholder='aaaa/mm/gg' /></td>
+			  		<td><input type="checkbox"></td>
+
+			  	</tr>
 			</tbody>
 		</table>
+		<button id="aggiungiPeriodi" class="btn btn-info btn-lg btn-block">Aggingi Periodo</button>
 		<br>	
+
 		<button id="confermaPeriodi" class="btn btn-info btn-lg btn-block">Conferma</button>
+		<br>
+	</div>
+	<div style="display:none;" id="step5">
+		<h1>Creazione Nuovo Stage <small>Assegnazione periodi</small></h1>
+		<br>	
+		<table id="listaStudenti">
+			<tr>
+				<td>Studente</td>
+				<td>Periodo</td>
+			</tr>
+			<tbody>
+				
+
+			</tbody>
+		</table>
+		<button id="assegnaPeriodi" class="btn btn-info btn-lg btn-block">Conferma</button>
 		<br>
 	</div>
 	<div id="stepConferma" style="display:none;">
@@ -166,7 +190,7 @@ active
 			<input type="hidden" id="idStudenti" name="idStudenti" value="" autocomplete=off>
 			<input type="hidden" id="idTutor" name="idTutor" value="" autocomplete=off>
 			<input type="hidden" id="dateInizio" name="dateInizio" value="" autocomplete=off>
-			<input type="hidden" id="dataFine" name="dataFine" value="" autocomplete=off>
+			<input type="hidden" id="dateFine" name="dateFine" value="" autocomplete=off>
 			<input type="submit" class="btn btn-success btn-lg btn-block" value="Crea Stage">	
 		</form>
 	</div>
@@ -237,7 +261,7 @@ active
 
 	$("#confermaPeriodi").click(function(){
 		$("#step4").hide();
-		$("#stepConferma").show();
+		$("#step5").show();
 
 		inputs = $("#tabellaPeriodi tbody tr").find("input:checked");
 		$("#dateInizio").val("");
@@ -251,6 +275,28 @@ active
 		}
 	});
 
+	$("#aggiungiPeriodi").click(function(){
+
+		var tableRef = document.getElementById('tabellaPeriodi').getElementsByTagName('tbody')[0];
+		var riga = tableRef.insertRow();
+		var campo1 = riga.insertCell();
+		var campo2 = riga.insertCell();
+		var campo3 = riga.insertCell();
+
+		campo1.innerHTML = "<input class='dataInizio' placeholder='aaaa/mm/gg' />";
+		campo2.innerHTML = "<input class='dataFine' placeholder='aaaa/mm/gg' />";
+		campo3.innerHTML = "<input type='checkbox'>";
+	});
+
+	$("#assegnaPeriodi").click(function(){
+		$("#step5").hide();
+		$("#stepConferma").show();
+
+		var tableRef = document.getElementById('listaStudenti').getElementsByTagName('tbody')[0];
+
+		
+		
+	});
 
 	$(".scegliTutor").click(function(){
 		idTutor = $(this).closest("tr").attr("tutor");
@@ -260,12 +306,14 @@ active
 			$("#modaleTutor").modal('show');
 		});
 	});
+
 	$("#confermaTutor").click(function(){
 		$("#modaleTutor").modal('hide');
 		$("#step3").hide();
 		$("#step4").show();
 		$("#idTutor").val(idTutor);
 	});
+
 	$("#annullaTutor").click(function(){
 		$("#modaleTutor").modal('hide');
 	});
