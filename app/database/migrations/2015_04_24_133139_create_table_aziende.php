@@ -24,12 +24,12 @@ class CreateTableAziende extends Migration {
             $table->string('sedeLegale');
             $table->string('citta');
             $table->string('cap')->nullable();
-            $table->string('note')->nullable();
             $table->string('telefono')->nullable();
             $table->string('email')->nullable();
             $table->string('indirizzoSedeTirocinio')->nullable();
             $table->string('capSedeTirocinio')->nullable();
             $table->string('cittaSedeTirocinio')->nullable();
+            
             $table->string('nomeRappresLegale')->nullable();
             $table->string('cognomeRappresLegale')->nullable();
             $table->string('CFRappresLegale')->nullable();
@@ -37,6 +37,10 @@ class CreateTableAziende extends Migration {
             $table->string('dataNascitaRappresLegale')->nullable();
             $table->string('nomeTutorAziend')->nullable();
             $table->string('cognomeTutorAziend')->nullable();
+
+
+
+            $table->string('note')->nullable();
 
             
             $table->timestamps();

@@ -39,19 +39,58 @@ active
 	                <b>Associazione</b>
 	                <p>{{$azienda->associazione}} &nbsp;</p>
 
+	                <b>Telefono</b>
+	                <p>{{$azienda->telefono}} &nbsp;</p>
+
+	                <b>Sede tirocinio</b>
+	                <p>{{$azienda->indirizzoSedeTirocinio}} ({{$azienda->cittaSedeTirocinio}}, {{$azienda->capSedeTirocinio}}) &nbsp;</p>
+
+	                <p>&nbsp;</p>
+
+	                <b>Rappresentante Legale</b>
+	                <p>{{$azienda->nomeRappresLegale}} {{$azienda->cognomeRappresLegale}} &nbsp;</p>
+
+					<b>Comune Nascita Rappresentante Legale</b>
+	                <p>{{$azienda->comuneNascitaRappresLegale}} &nbsp;</p>
+
+	                <p>&nbsp;</p>
+
+					<b>Nome Tutor Aziendale</b>
+	                <p>{{$azienda->nomeTutorAziend}} &nbsp;</p>
+
+
+
+
 	            </div>
 	            <div class="col-lg-6">
 	            	<b>Partita IVA</b>
 	                <p>{{$azienda->pIva}} &nbsp;</p>
 
+	                <b>Codice Fiscale</b>
+	                <p>{{$azienda->CFA}} &nbsp;</p>
+
 	                <b>Sede Legale</b>
-	                <p>{{$azienda->sedeLegale}} ({{$azienda->citta}}) &nbsp;</p>
+	                <p>{{$azienda->sedeLegale}} ({{$azienda->citta}}, {{$azienda->CAP}}) &nbsp;</p>
 
-	                <b>CAP</b>
-	                <p>{{$azienda->cap}} &nbsp;</p>
+	                <b>E-mail</b>
+	                <p>{{$azienda->email}} &nbsp;</p>
 
-	                <b>Descrizione</b>
-	                <p>{{$azienda->descrizione}} &nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+
+					<b>Codice Fiscale Rappresentante Legale</b>
+	                <p>{{$azienda->CFRappresLegale}} &nbsp;</p>
+
+					<b>Data Nascita Rappresentante Legale</b>
+	                <p>{{$azienda->dataNascitaRappresLegale}} &nbsp;</p>
+
+	                <p>&nbsp;</p>
+
+					<b>Cognome Tutor Aziendale</b>
+	                <p>{{$azienda->cognomeTutorAziend}} &nbsp;</p>
+
+
+
 	            </div>
           </div>
       </div>
