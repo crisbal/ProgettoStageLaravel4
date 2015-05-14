@@ -10,9 +10,10 @@ active
 @endsection
 
 @section('content')
+<form action="{{ action('AziendeController@faiModificaAzienda', $azienda->id) }}" method="POST" >
 <div class="pull-right">
-                <a href=""><button class="btn btn-success">Salva modifiche</button></a>
-            </div>
+        <input type="submit" class="btn btn-success" value="Salva Modifiche" />
+</div>
 <div class="dettagliStage">
     <div class="page-header">
       <h1>{{$azienda->denominazione}} <small>{{$azienda->pIva}}</small></h1>
@@ -28,73 +29,66 @@ active
             <div class="row">
 	            <div class="col-lg-6">
 	                <b>Denominazione</b>
-	                <form class="form-inline">
+	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->denominazione}}">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->denominazione}}" name="denominazione">
 					    </div>
 					  </div>
-					</form>
+					
 					<br>
 	                <b>Settore</b>
-	                <form class="form-inline">
+	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->settore}}">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->settore}}" name="settore">
 					    </div>
 					  </div>
-					</form>
+					
 					<br>
 	                <b>Associazione</b>
-	                <form class="form-inline">
+	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->associazione}}">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->associazione}}" name="associazione">
 					    </div>
 					  </div>
-					</form>
+					
 					<br>
 					<b>Note</b>
-	                <form class="form-inline">
+	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->note}}">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->note}}" name="note">
 					    </div>
 					  </div>
-					</form>
+					
 					<br>
 	            </div>
 	            <div class="col-lg-6">
 	            	<b>Partita IVA</b>
-	                <form class="form-inline">
+	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->pIva}}">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->pIva}}" name="pIva">
 					    </div>
 					  </div>
-					</form>
+					
 					<br>
 	                <b>Sede Legale</b>
-	                <form class="form-inline">
+	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->sedeLegale}}">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->sedeLegale}}" name="sedeLegale">
 					    </div>
 					  </div>
-					</form>
+					
 					<br>
-	                <b>CAP</b>
-	                <form class="form-inline">
-					 <div class="form-group">
-					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$azienda->cap}}">
-					    </div>
-					  </div>
-					</form>
-					<br>
+	             
 
 	            </div>
           </div>
       </div>
     </div>
+   </form> 
 @endsection

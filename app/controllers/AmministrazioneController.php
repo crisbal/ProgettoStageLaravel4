@@ -57,8 +57,11 @@ class AmministrazioneController extends BaseController {
 			Eloquent::unguard();
             //return $arrayAziende;  //i nomi delle colonne in minuscolo!
 			foreach ($arrayAziende as $azienda) {// aggiungere classe e cap
-				Azienda::create(['pIva' => $azienda->piva, 'denominazione' => $azienda->denominazione, 'associazione' => $azienda->associazione, 'settore' => $azienda->settore, 'sedeLegale' => $azienda->sedelegale, 'citta' => $azienda->citta, 'note' => '', 'associazione' => '', 'referente_id' => '1', 'rappresentante_legale_id' => '1', 'tutor_azienda_id' => '1']);
+				Azienda::create(['pIva' => $azienda->piva, 'CFA' => NULL, 'denominazione' => $azienda->denominazione, 'telefono' => $azienda->telefono, 'email' => $azienda->email, 'settore' => $azienda->settore, 'associazione' => $azienda->associazione, 'sedeLegale' => $azienda->sedelegale, 'cap' => $azienda->cap, 'citta' => $azienda->citta, 'indirizzoSedeTirocinio' => $azienda->indirizzoSedeTirocinio, 'capSedeTirocinio' => $azienda->capSedeTirocinio, 'cittaSedeTirocinio' => $azienda->cittaSedeTirocinio, 'nomeRappresLegale' => $azienda->nomeRappresLegale, 'cognomeRappresLegale' => $azienda->cognomeRappresLegale, 'CFRappresLegale' => $azienda->CFRappresLegale, 'comuneNascitaRappresLegale' => $azienda->comuneNascitaRappresLegale, 'dataNascitaRappresLegale' => $azienda->dataNascitaRappresLegale, 'nomeTutorAziend' => $azienda->nomeTutorAziend, 'cognomeTutorAziend' => $azienda->cognomeTutorAziend]);
 			}
+																																																																																									
+
+
 			return Redirect::action('AziendeController@mostraAziende');
 
 		} 

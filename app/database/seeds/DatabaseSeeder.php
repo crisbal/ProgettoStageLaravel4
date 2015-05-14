@@ -17,17 +17,17 @@ class DatabaseSeeder extends Seeder {
         //$this->call('StudentiTableSeeder');
         //$this->command->info('Studenti table seeded!');
 
-        $this->call('ReferenteTableSeeder');
-        $this->command->info('Referente table seeded!');
+        //$this->call('ReferenteTableSeeder');
+        //$this->command->info('Referente table seeded!');
     
         $this->call('TutorScuolaTableSeeder');
         $this->command->info('TutorScuola table seeded!');
 
-        $this->call('RappresentanteLegaleTableSeeder');
-        $this->command->info('RappresentanteLegale table seeded!');
+        //$this->call('RappresentanteLegaleTableSeeder');
+        //$this->command->info('RappresentanteLegale table seeded!');
 
-        $this->call('TutorAziendaTableSeeder');
-        $this->command->info('TutorAzienda table seeded!');
+        //$this->call('TutorAziendaTableSeeder');
+        //$this->command->info('TutorAzienda table seeded!');
 
         //$this->call('AziendaTableSeeder');
         //$this->command->info('Azienda table seeded!');
