@@ -1,4 +1,4 @@
-app/config/database.php
-tmp/*
+/app/config/database.php
+/tmp/*
 
 .*
