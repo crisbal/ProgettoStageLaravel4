@@ -33,6 +33,7 @@ Route::group(array('prefix' => 'api'), function()
 
     Route::get('azienda/{idAzienda}', 'ApiController@mostraAzienda');
     Route::get('tutor/{idTutor}', 'ApiController@mostraTutor');
+    Route::get('studente/{idTutor}', 'ApiController@mostraStudente');
 });
 
 Route::group(array('prefix' => 'amministrazione'), function()

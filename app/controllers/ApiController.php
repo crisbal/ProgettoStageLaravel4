@@ -16,4 +16,11 @@ class ApiController extends BaseController {
 
 		return $tutor;
 	}
+
+    public function mostraStudente($id){
+
+        $studente = Studente::find($id);
+
+        return $studente;
+    }
 }
