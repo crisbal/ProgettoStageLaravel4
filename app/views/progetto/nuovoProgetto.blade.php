@@ -9,8 +9,30 @@ active
 @endsection
 
 @section('content')
-	<div id="step1">
-		<h1>Creazione Nuovo Stage <small>Scelta dell'azienda</small></h1>
+    <style>
+    h1{
+        display: inline-block;
+    }
+
+    .indietro{
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    </style>
+    <div id="step0">
+        <h1>Creazione Nuovo Progetto <small>Scelta tipologia progetto</small></h1>
+        <div>
+            <br>
+            <button class="btn btn-lg btn-info btn-block" id="btnAlternanza">Alternanza Scuola-Lavoro</button>
+            <br>
+            <button class="btn btn-lg btn-info btn-block" id="btnStageE">Stage Estivo</button>
+            <br>
+            <button class="btn btn-lg btn-info btn-block" id="btnStageI">Stage Invernale</button>
+        </div>
+    </div>
+	<div style="display:none;" id="step1">
+		<button vai="0" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
+        <h1>Creazione Nuovo Progetto <small>Scelta dell'azienda</small></h1>
 		<br>
 		<div class="input-group"> 
 			<span class="input-group-addon">Filtra</span>
@@ -33,6 +55,8 @@ active
 				@endforeach
 			</tbody>
 		</table>
+        <br>
+       
 		<div id="modaleAzienda" class="modal fade"   data-keyboard="false" data-backdrop="static" >
 		    <div class="modal-dialog">
 		        <div class="modal-content">
@@ -53,8 +77,9 @@ active
 		</div>
 	</div>
 	<div style="display:none;" id="step2">
-		<h1>Creazione Nuovo Stage <small>Scelta degli studenti</small></h1>
-		<br>
+		<button vai="1" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
+        <h1>Creazione Nuovo Progetto <small>Scelta degli studenti</small></h1>
+        <br>
 		<div class="input-group"> 
 			<span class="input-group-addon">Filtra</span>
 	    	<input id="filterStudenti" type="text" class="form-control" placeholder="Scrivi qui...">
@@ -80,11 +105,10 @@ active
 				@endforeach
 			</tbody>
 		</table>
-		
-		<button id="vaiIndietro1" style="transform:rotateY(180deg)" class="btn btn-default glyphicon glyphicon glyphicon-share-alt" ></button>
 	</div>
 	<div style="display:none;" id="step3">
-		<h1>Creazione Nuovo Stage <small>Scelta del Tutor Scolastico</small></h1>
+        <button vai="2" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
+		<h1>Creazione Nuovo Progetto <small>Scelta del Tutor Scolastico</small></h1>
 		<br>
 		<div class="input-group"> 
 			<span class="input-group-addon">Filtra</span>
@@ -107,7 +131,7 @@ active
 				@endforeach
 			</tbody>
 		</table>
-		<button id="vaiIndietro2" style="transform:rotateY(180deg)" class="btn btn-default glyphicon glyphicon glyphicon-share-alt"></button>
+		<br>
 		<div id="modaleTutor" class="modal fade"   data-keyboard="false" data-backdrop="static" >
 		    <div class="modal-dialog">
 		        <div class="modal-content">
@@ -126,67 +150,50 @@ active
 		    </div>
 		</div>
 	</div>
-	<div style="display:none;" id="step4">
-		<h1>Creazione Nuovo Stage <small>Scelta dei periodi</small></h1>
-		<br>
-		<table id="tabellaPeriodi" class="table table-striped">
-		  	<tbody>
-			  	<tr>
-			  		<th>Data Inizio</th>
-			  		<th>Data Fine</th>
-			  		<th></th>
-			  	</tr>
-			  	<tr>
-			  		<td><input readonly class="dataInizio" value='{{ $config["dataInizio1"]->valore }}' /></td>
-			  		<td><input readonly class="dataFine" value='{{ $config["dataFine1"]->valore }}' /></td>
-			  		<td><input type="checkbox"></td>
-			  	</tr>
-			  	<tr>
-			  		<td><input readonly class="dataInizio" value='{{ $config["dataInizio2"]->valore }}' /></td>
-			  		<td><input readonly class="dataFine" value='{{ $config["dataFine2"]->valore }}' /></td>
-			  		<td><input type="checkbox"></td>
-
-			  	</tr>
-			  	<tr>
-			  		<td><input readonly class="dataInizio" value='{{ $config["dataInizio3"]->valore }}' /></td>
-			  		<td><input readonly class="dataFine" value='{{ $config["dataFine3"]->valore }}' /></td>
-			  		<td><input type="checkbox"></td>
-
-			  	</tr>
-			  	<tr>
-			  		<td><input class="dataInizio" placeholder='aaaa/mm/gg' /></td>
-			  		<td><input class="dataFine" placeholder='aaaa/mm/gg' /></td>
-			  		<td><input type="checkbox"></td>
-					
-			  	</tr>
-			</tbody>
-		</table>
-		<button id="aggiungiPeriodi" class="btn btn-default pull-right">+</button>
-		<br>	
-		<br>
-		<br>	
-		<button id="confermaPeriodi" class="btn btn-info btn-lg btn-block">Conferma</button>
-		<br>
-	</div>
 	<div style="display:none;" id="step5">
-		<h1>Creazione Nuovo Stage <small>Assegnazione periodi</small></h1>
+        <button vai="4" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
+		<h1>Creazione Nuovo Progetto <small>Assegnazione dei periodi</small></h1>
 		<br>	
-		<table id="listaStudenti">
-			<tr>
-				<td>Studente</td>
-				<td>Periodo</td>
-			</tr>
-			<tbody>
-				
-
-			</tbody>
-		</table>
+        <div id="periodiStudenti">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Nome Cognome</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>Data Inizio</th>
+                            <th>Data Fine</th>
+                            <th>Elimina</th>
+                        </tr>
+                        <tr>
+                            <td>aaaa-mm-dd</td>
+                            <td>aaaa-mm-dd</td>
+                            <td><button title="Elimina Periodo" class="btn btn-default glyphicon glyphicon-trash"></button></td>
+                        </tr>
+                        <tr>
+                            <td>aaaa-mm-dd</td>
+                            <td>aaaa-mm-dd</td>
+                            <td><button title="Elimina Periodo" class="btn btn-default glyphicon glyphicon-trash"></button></td>
+                        </tr>
+                    </table>
+                    <div class="pull-right">
+                        <button title="Aggiungi Periodo" class="btn btn-default glyphicon glyphicon-plus"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
 		<button id="assegnaPeriodi" class="btn btn-info btn-lg btn-block">Conferma</button>
 		<br>
 	</div>
 	<div id="stepConferma" style="display:none;">
-		<h1 style="text-align:center;">Hai inserito tutti i dati per la creazione dello stage.</h1>
-		<button id="btnCreaStage" class="btn btn-success btn-lg btn-block">Crea Progetto</button>
+        <br>
+        <button vai="5" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
+        <br>
+		<h2 style="text-align:center;">Hai inserito tutti i dati per la creazione del progetto.</h2>
+        <br>
+		<button id="btnCreaStage" class="btn btn-success btn-lg btn-block">Conferma Creazione Progetto</button>
+        
 		<!-- <form action="{{ action('StageController@faiNuovoProgetto') }}" method="POST">
 			<input type="hidden" id="idAzienda" name="idAzienda" value="" autocomplete=off>
 			<input type="hidden" id="idStudenti" name="idStudenti" value="" autocomplete=off>
@@ -200,5 +207,8 @@ active
 
 
 @section('script')
+<script>
+    urlPost = "{{ action('StageController@faiNuovoProgetto') }}";
+</script>
 <script src="js/nuovoProgetto.js"></script>
 @endsection

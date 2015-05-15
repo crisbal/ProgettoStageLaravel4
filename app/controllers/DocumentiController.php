@@ -50,8 +50,12 @@ class DocumentiController extends BaseController {
 	    
 	    $periodi = $partecipazione->periodi;
 
-	    return $partecipazione;
+        $strPeriodo = "";
+        foreach ($periodi as $periodo) {
+            $strPeriodo = $strPeriodo . "Dal " . htmlspecialchars(date("d/m/Y",strtotime($periodo["dataInizio"]))) . " al " . htmlspecialchars(date("d/m/Y",strtotime($periodo["dataFine"]))) . " \n"; 
+        }
 
+        $templateProcessor->setValue('periodo', $strPeriodo);
 
 	    $templateProcessor->saveAs('tmp/progettoFormativo-' . $stage->id . '-' . $studente->id . '.docx');
 
@@ -76,11 +80,11 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
 	    $templateProcessor->setValue('azienda_pIva', htmlspecialchars($azienda->pIva));
 	    //----------------------------RAPPRESENTANTE LEGALE
-	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($rappresentanteLegale->nome));
-	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($rappresentanteLegale->cognome));
-	    $templateProcessor->setValue('rappresentanteLegale_luogoN', htmlspecialchars($rappresentanteLegale->luogoN));
-	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars(date("d/m/Y",strtotime($rappresentanteLegale->dataN))));
-	    $templateProcessor->setValue('rappresentanteLegale_cf', htmlspecialchars($rappresentanteLegale->cf));
+	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($azienda->nomeRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($azienda->cognomeRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_luogoN', htmlspecialchars($azienda->comuneNascitaRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars(date("d/m/Y",strtotime($azienda->dataNascitaRappresLegale))));
+	    $templateProcessor->setValue('rappresentanteLegale_cf', htmlspecialchars($azienda->CFRappresLegale));
 
 		$templateProcessor->saveAs('tmp/convenzione' . '-' . $stage->id . '.docx');
 		
