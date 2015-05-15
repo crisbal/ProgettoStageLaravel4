@@ -6,7 +6,6 @@ Completare DB aziende
 Periodo dello stage
 Periodo dello stage per ogni studente
 Distinguere tra stage estivo, stage invernale e alternanza
-Sistemare entità referente e rappresentante
 Sistemare bottoni modifica (manca link), elimina (manca link) azienda
 Numeri delle convenzioni (3 numerazioni differenti) si resettano ogni anno
 Prevedere chiusura stage/convenzione che salva i documenti (fare documento di prova e pulsante conferma per farlo diventare definitivo)

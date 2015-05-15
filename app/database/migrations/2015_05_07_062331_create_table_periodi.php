@@ -19,8 +19,8 @@ class CreateTablePeriodi extends Migration {
             $table->date('dataInizio');
             $table->date('dataFine');
             
-            $table->integer('progetto_formativo_id')->unsigned();
-            $table->foreign('progetto_formativo_id')->references('id')->on('progettiFormativi');
+            $table->integer('partecipazione_stage_id')->unsigned();
+            $table->foreign('partecipazione_stage_id')->references('id')->on('partecipazione_stage');
 
             $table->timestamps();
         });

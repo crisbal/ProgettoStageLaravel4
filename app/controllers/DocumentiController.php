@@ -35,13 +35,22 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));
 	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
 
+//return $azienda;
 	    //---------------------------TUTOR AZIENDA
-	    $templateProcessor->setValue('tutorAzienda_nome', htmlspecialchars($azienda->tutorAzienda->nome));
-	    $templateProcessor->setValue('tutorAzienda_cognome', htmlspecialchars($azienda->tutorAzienda->cognome));
+	    $templateProcessor->setValue('tutorAzienda_nome', htmlspecialchars($azienda->nomeTutorAziend));
+	    $templateProcessor->setValue('tutorAzienda_cognome', htmlspecialchars($azienda->cognomeTutorAziend));
 
 	    //---------------------------TUTOR SCUOLA
 	    $templateProcessor->setValue('tutorScuola_nome', htmlspecialchars($tutorScuola->nome));
 	    $templateProcessor->setValue('tutorScuola_cognome', htmlspecialchars($tutorScuola->cognome));
+
+
+	    //---------------------------PERIODI
+	    $partecipazione = PartecipazioneStage::where('stage_id', '=', $stageId)->where('studente_id', '=', $studenteId)->firstOrFail();
+	    
+	    $periodi = $partecipazione->periodi;
+
+	    return $partecipazione;
 
 
 	    $templateProcessor->saveAs('tmp/progettoFormativo-' . $stage->id . '-' . $studente->id . '.docx');
