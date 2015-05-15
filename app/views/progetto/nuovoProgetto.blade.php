@@ -130,12 +130,12 @@ active
 		<h1>Creazione Nuovo Stage <small>Scelta dei periodi</small></h1>
 		<br>
 		<table id="tabellaPeriodi" class="table table-striped">
-		  	<tr>
-		  		<th>Data Inizio</th>
-		  		<th>Data Fine</th>
-		  		<th></th>
-		  	</tr>
 		  	<tbody>
+			  	<tr>
+			  		<th>Data Inizio</th>
+			  		<th>Data Fine</th>
+			  		<th></th>
+			  	</tr>
 			  	<tr>
 			  		<td><input readonly class="dataInizio" value='{{ $config["dataInizio1"]->valore }}' /></td>
 			  		<td><input readonly class="dataFine" value='{{ $config["dataFine1"]->valore }}' /></td>
@@ -157,13 +157,14 @@ active
 			  		<td><input class="dataInizio" placeholder='aaaa/mm/gg' /></td>
 			  		<td><input class="dataFine" placeholder='aaaa/mm/gg' /></td>
 			  		<td><input type="checkbox"></td>
-
+					
 			  	</tr>
 			</tbody>
 		</table>
-		<button id="aggiungiPeriodi" class="btn btn-info btn-lg btn-block">Aggingi Periodo</button>
+		<button id="aggiungiPeriodi" class="btn btn-default pull-right">+</button>
 		<br>	
-
+		<br>
+		<br>	
 		<button id="confermaPeriodi" class="btn btn-info btn-lg btn-block">Conferma</button>
 		<br>
 	</div>
@@ -185,148 +186,19 @@ active
 	</div>
 	<div id="stepConferma" style="display:none;">
 		<h1 style="text-align:center;">Hai inserito tutti i dati per la creazione dello stage.</h1>
-		<form action="{{ action('StageController@faiNuovoProgetto') }}" method="POST">
+		<button id="btnCreaStage" class="btn btn-success btn-lg btn-block">Crea Progetto</button>
+		<!-- <form action="{{ action('StageController@faiNuovoProgetto') }}" method="POST">
 			<input type="hidden" id="idAzienda" name="idAzienda" value="" autocomplete=off>
 			<input type="hidden" id="idStudenti" name="idStudenti" value="" autocomplete=off>
 			<input type="hidden" id="idTutor" name="idTutor" value="" autocomplete=off>
 			<input type="hidden" id="dateInizio" name="dateInizio" value="" autocomplete=off>
 			<input type="hidden" id="dateFine" name="dateFine" value="" autocomplete=off>
 			<input type="submit" class="btn btn-success btn-lg btn-block" value="Crea Stage">	
-		</form>
+		</form> -->
 	</div>
 @endsection
 
 
 @section('script')
-<script>
-	$(document).ready(function () {
-	    (function ($) {
-	        $('.filterable').keyup(function () {
-	            var rex = new RegExp($(this).val(), 'i');
-	            $('.searchable tr').hide();
-	            $('.searchable tr').filter(function () {
-	                return rex.test($(this).text());
-	            }).show();
-	        })
-	    }(jQuery));
-	});
-
-	$(document).ready(function () {
-	    (function ($) {
-	        $('#filterStudenti').keyup(function () {
-	            var rex = new RegExp($(this).val(), 'i');
-
-	            var trBuone = $('.searchable tr input:not(:checked)').parent().parent();
-
-	            trBuone.hide();
-	            $('.searchable tr').filter(function () {
-	                return rex.test($(this).text());
-	            }).show();
-	        })
-	    }(jQuery));
-	});
-	
-	$(".scegliAzienda").click(function(){
-		idAzienda = $(this).closest("tr").attr("azienda");
-
-		$.get( "api/azienda/" + idAzienda, function( azienda ) {
-			$("#nomeAzienda").html(azienda.denominazione);
-			$("#sedeLegaleAzienda").html(azienda.sedeLegale + ", " + azienda.citta);
-			$("#modaleAzienda").modal('show');
-
-		});
-	});
-	$("#confermaAzienda").click(function(){
-		$("#modaleAzienda").modal('hide');
-		$("#step1").hide();
-		$("#step2").show();
-		$("#idAzienda").val(idAzienda);
-	});
-	$("#annullaAzienda").click(function(){
-		$("#modaleAzienda").modal('hide');
-	});
-
-
-	$("#confermaStudenti").click(function(){
-		$("#step2").hide();
-		$("#step3").show();
-
-		inputs = $("#tabellaStudenti tbody tr").find("input:checked");
-		$("#idStudenti").val("");
-		for(i=0;i<inputs.length;i++){
-			riga = $(inputs[i]).parent().parent();
-			$("#idStudenti").val($("#idStudenti").val() + "," + riga.attr("studente"));
-		}
-	});
-
-	$("#confermaPeriodi").click(function(){
-		$("#step4").hide();
-		$("#step5").show();
-
-		inputs = $("#tabellaPeriodi tbody tr").find("input:checked");
-		$("#dateInizio").val("");
-		$("#dateFine").val("");
-
-		for(i=0;i<inputs.length;i++){
-			riga = $(inputs[i]).parent().parent();
-			$("#dateInizio").val( $("#dateInizio").val() + "," + $(riga).find("input.dataInizio").val());
-			$("#dateFine").val( $("#dateFine").val() + "," + $(riga).find("input.dataFine").val());
-			
-		}
-	});
-
-	$("#aggiungiPeriodi").click(function(){
-
-		var tableRef = document.getElementById('tabellaPeriodi').getElementsByTagName('tbody')[0];
-		var riga = tableRef.insertRow();
-		var campo1 = riga.insertCell();
-		var campo2 = riga.insertCell();
-		var campo3 = riga.insertCell();
-
-		campo1.innerHTML = "<input class='dataInizio' placeholder='aaaa/mm/gg' />";
-		campo2.innerHTML = "<input class='dataFine' placeholder='aaaa/mm/gg' />";
-		campo3.innerHTML = "<input type='checkbox'>";
-	});
-
-	$("#assegnaPeriodi").click(function(){
-		$("#step5").hide();
-		$("#stepConferma").show();
-
-		var tableRef = document.getElementById('listaStudenti').getElementsByTagName('tbody')[0];
-
-		
-		
-	});
-
-	$(".scegliTutor").click(function(){
-		idTutor = $(this).closest("tr").attr("tutor");
-
-		$.get( "api/tutor/" + idTutor, function( tutor ) {
-			$("#nomeCognomeTutor").html(tutor.cognome + " " + tutor.nome);
-			$("#modaleTutor").modal('show');
-		});
-	});
-
-	$("#confermaTutor").click(function(){
-		$("#modaleTutor").modal('hide');
-		$("#step3").hide();
-		$("#step4").show();
-		$("#idTutor").val(idTutor);
-	});
-
-	$("#annullaTutor").click(function(){
-		$("#modaleTutor").modal('hide');
-	});
-
-	$("#vaiIndietro1").click(function(){
-		$("#step2").hide();
-		$("#step1").show();
-	});
-	$("#vaiIndietro2").click(function(){
-		$("#step3").hide();
-		$("#step2").show();
-	});
-
-	
-	</script>
+<script src="js/nuovoProgetto.js"></script>
 @endsection
