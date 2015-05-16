@@ -21,8 +21,7 @@ active
       <h1>{{$azienda->denominazione}} <small>{{$azienda->pIva}}</small></h1>
     </div>
     
-    <!-- DETTAGLI azienda -->
-
+    
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">Dettagli Azienda</h3>
@@ -71,7 +70,7 @@ active
 	            </div>
 	            <div class="col-lg-6">
 	                <b>CAP</b>
-	                <p>{{$azienda->CAP}} &nbsp;</p>
+	                <p>{{$azienda->cap}} &nbsp;</p>
 	            </div>
           </div>
       </div>
