@@ -13,7 +13,7 @@ class PartecipazioneStage extends Eloquent {
 	
 
 	public function periodi(){
-		return $this->belongsTo("Periodi", "partecipazione_stage_id");
+		return $this->hasMany("Periodo", "partecipazione_stage_id");
 	}
 
 }

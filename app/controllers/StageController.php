@@ -9,7 +9,7 @@ class StageController extends BaseController {
 	 */
 	public function index()
 	{
-		$stages = Stage::all();
+		$stages = Stage::orderBy('id','DESC')->get();
     	return  View::make("progetto/listaStage")->with("stages",$stages);
 	}
 
@@ -38,36 +38,35 @@ class StageController extends BaseController {
 	}
 
 	public function faiNuovoProgetto(){
+
+        $data = json_decode(Input::get('json'),true);
+
 		$stage = new Stage;
 		$stage->descrizione = "Generato";
-		$stage->azienda_id = Input::get('idAzienda');
-		$stage->tutor_scuola_id = Input::get('idTutor');
-
-		$dateInizio = explode(",", Input::get('dateInizio'));
-		unset($dateInizio[0]);
-		$dateFine = explode(",", Input::get('dateFine'));
-		unset($dateFine[0]);
-		
+		$stage->azienda_id = $data["azienda"];
+		$stage->tutor_scuola_id = $data["tutor"];
+        $stage->tipo = $data["tipoStage"];
 		$stage->save();
 
-		$idStudenti = explode(",", Input::get('idStudenti'));
-		unset($idStudenti[0]);
-		
-		foreach($idStudenti as $idStudente){
+		$studenti = $data["studenti"];
+				
+		foreach($studenti as $studente){
+
 			$partecipazioneStage = new PartecipazioneStage;
 			$partecipazioneStage->stage_id = $stage->id;
-			$partecipazioneStage->studente_id = $idStudente;
+			$partecipazioneStage->studente_id = $studente["idStudente"];
 			$partecipazioneStage->save();
-			$partecipazioneStage->push();
-		}
 
-		if (count($dateInizio) != count($dateFine))
-			return "ERRORE! count(dateInizio) != count(dateFine)";
-
-		for($i=0;$i<count($dateInizio);$i++){
 			
+            for($i=0;$i<count($studente["dateInizio"]);$i++){
+                $periodo = new Periodo;
+                $periodo->dataInizio = $studente["dateInizio"][$i];
+                $periodo->dataFine = $studente["dateFine"][$i];
+                $periodo->partecipazione_stage_id = $partecipazioneStage->id;
+                $periodo->save();
+            }
 		}
 
-        return Redirect::action('StageController@mostraStage', array($stage->id));
+		return action("StageController@mostraStage",array($stage->id));
 	}
 }

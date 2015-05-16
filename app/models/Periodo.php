@@ -1,7 +1,7 @@
 <?php
 
 
-class Periodi extends Eloquent {
+class Periodo extends Eloquent {
 
 
 	/**
