@@ -41,26 +41,6 @@ active
 
 	                <b>Telefono</b>
 	                <p>{{$azienda->telefono}} &nbsp;</p>
-
-	                <b>Sede tirocinio</b>
-	                <p>{{$azienda->indirizzoSedeTirocinio}} ({{$azienda->cittaSedeTirocinio}}, {{$azienda->capSedeTirocinio}}) &nbsp;</p>
-
-	                <p>&nbsp;</p>
-
-	                <b>Rappresentante Legale</b>
-	                <p>{{$azienda->nomeRappresLegale}} {{$azienda->cognomeRappresLegale}} &nbsp;</p>
-
-					<b>Comune Nascita Rappresentante Legale</b>
-	                <p>{{$azienda->comuneNascitaRappresLegale}} &nbsp;</p>
-
-	                <p>&nbsp;</p>
-
-					<b>Nome Tutor Aziendale</b>
-	                <p>{{$azienda->nomeTutorAziend}} &nbsp;</p>
-
-
-
-
 	            </div>
 	            <div class="col-lg-6">
 	            	<b>Partita IVA</b>
@@ -69,32 +49,102 @@ active
 	                <b>Codice Fiscale</b>
 	                <p>{{$azienda->CFA}} &nbsp;</p>
 
-	                <b>Sede Legale</b>
-	                <p>{{$azienda->sedeLegale}} ({{$azienda->citta}}, {{$azienda->CAP}}) &nbsp;</p>
-
 	                <b>E-mail</b>
 	                <p>{{$azienda->email}} &nbsp;</p>
-
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-
-					<b>Codice Fiscale Rappresentante Legale</b>
-	                <p>{{$azienda->CFRappresLegale}} &nbsp;</p>
-
-					<b>Data Nascita Rappresentante Legale</b>
-	                <p>{{$azienda->dataNascitaRappresLegale}} &nbsp;</p>
-
-	                <p>&nbsp;</p>
-
-					<b>Cognome Tutor Aziendale</b>
-	                <p>{{$azienda->cognomeTutorAziend}} &nbsp;</p>
-
-
-
 	            </div>
           </div>
       </div>
     </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sede Legale</h3>
+      </div>
+      <div class="panel-body">
+            <div class="row">
+	            <div class="col-lg-6">
+	                <b>Città</b>
+	                <p>{{$azienda->citta}} &nbsp;</p>
+
+	                <b>Indirizzo</b>
+	                <p>{{$azienda->sedeLegale}} &nbsp;</p>
+	            </div>
+	            <div class="col-lg-6">
+	                <b>CAP</b>
+	                <p>{{$azienda->CAP}} &nbsp;</p>
+	            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sede Tirocinio</h3>
+      </div>
+      <div class="panel-body">
+            <div class="row">
+	            <div class="col-lg-6">
+	                <b>Città</b>
+	                <p>{{$azienda->cittaSedeTirocinio}} &nbsp;</p>
+
+	                <b>Indirizzo</b>
+	                <p>{{$azienda->indirizzoSedeTirocinio}} &nbsp;</p>
+	            </div>
+	            <div class="col-lg-6">
+
+	                <b>CAP</b>
+	                <p>{{$azienda->capSedeTirocinio}} &nbsp;</p>
+	            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Rappresentante Legale</h3>
+      </div>
+      <div class="panel-body">
+            <div class="row">
+	            <div class="col-lg-6">
+	                <b>Nome</b>
+	                <p>{{$azienda->nomeRappresLegale}} &nbsp;</p>
+	            	
+	            	<b>Codice Fiscale</b>
+	                <p>{{$azienda->CFRappresLegale}} &nbsp;</p>
+
+					<b>Comune di Nascita</b>
+	                <p>{{$azienda->comuneNascitaRappresLegale}} &nbsp;</p>
+	            </div>
+	            <div class="col-lg-6">
+	                <b>Cognome</b>
+	                <p>{{$azienda->cognomeRappresLegale}} &nbsp;</p>
+
+					<b>Data di Nascita</b>
+	                <p>{{$azienda->dataNascitaRappresLegale}} &nbsp;</p>
+	            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Tutor Aziendale</h3>
+      </div>
+      <div class="panel-body">
+            <div class="row">
+	            <div class="col-lg-6">
+					<b>Nome Tutor Aziendale</b>
+	                <p>{{$azienda->nomeTutorAziend}} &nbsp;</p>
+	            </div>
+	            <div class="col-lg-6">
+					<b>Cognome Tutor Aziendale</b>
+	                <p>{{$azienda->cognomeTutorAziend}} &nbsp;</p>
+	            </div>
+          </div>
+      </div>
+    </div>
+
+
 	<!-- 	LISTA DEGLI STAGE	-->
 	@if(count($azienda->stages) > 0)
 	    <div class="list-group">
