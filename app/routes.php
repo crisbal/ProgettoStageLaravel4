@@ -43,9 +43,9 @@ Route::group(array('prefix' => 'amministrazione'), function()
 
 	Route::get('/aggiungiAziende', 'AmministrazioneController@mostraCreaAziende');
 	Route::post('/aggiungiAziende', 'AmministrazioneController@faiCreaAziende');
+
 	Route::get('/azienda/{idAzienda}/modifica', 'AziendeController@modificaAzienda');
 	Route::get('/studente/{idStudente}/modifica', 'StudentiController@mostraModificaStudente');
 	Route::post('/studente/{idStudente}/modifica', 'StudentiController@faiModificaStudente');
-	Route::post('/studente/{idStudente}/modifica', 'AziendeController@faiModificaAzienda');
 });
 

@@ -29,22 +29,28 @@ class StudentiController extends BaseController {
 			$studente = Studente::find($id);
 
 			$nome = Input::get('nome');
+			$matricola = Input::get('matricola');
+			$dataNascita = Input::get('dataNascita');
+			$indirizzo = Input::get('indirizzo');
+			$articolazione = Input::get('articolazione');
+
 			$cognome = Input::get('cognome');
 			$CF = Input::get('CF');
-			$articolazione = Input::get('articolazione');
-			$indirizzo = Input::get('indirizzo');
-			$comuneResidenza = Input::get('comuneResidenza');
-			$dataNascita = Input::get('dataNascita');
 			$comuneNascita = Input::get('comuneNascita');
+			$comuneResidenza = Input::get('comuneResidenza');
+
+
 
 			$studente->nome = $nome;
+			$studente->matricola = $matricola;
+			$studente->dataNascita = $dataNascita;
+			$studente->indirizzo = $indirizzo;
+			$studente->articolazione = $articolazione;
+
 			$studente->cognome = $cognome;
 			$studente->CF = $CF;
-			$studente->articolazione = $articolazione;
-			$studente->indirizzo = $indirizzo;
-			$studente->comuneResidenza = $comuneResidenza;
-			$studente->dataNascita = $dataNascita;
 			$studente->comuneNascita = $comuneNascita;
+			$studente->comuneResidenza = $comuneResidenza;
 
 			$studente->save();
 

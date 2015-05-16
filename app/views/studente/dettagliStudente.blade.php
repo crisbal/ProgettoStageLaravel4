@@ -30,35 +30,36 @@ active
       <div class="panel-body">
             <div class="row">
 	            <div class="col-lg-6">
-	              	
-	              	<b>ID</b>
-	                <p>{{$studente->id}}</p>
 
 	                <b>Nome</b>
-	                <p>{{$studente->nome}}</p>
+	                <p>{{$studente->nome}} &nbsp;</p>
 
-	                <b>Cogmome</b>
-	                <p>{{$studente->cognome}}</p>
+	              	<b>Matricola</b>
+	                <p>{{$studente->matricola}} &nbsp;</p>
 
-	                <b>Codice Fiscale</b>
-	                <p>{{$studente->CF}}</p>
+	                <b>Data di Nascita</b>
+	                <p>{{ date("d/m/Y",strtotime($studente->dataNascita))}} &nbsp;</p>
+
+	                <b>Indirizzo</b>
+	                <p>{{$studente->indirizzo}} &nbsp;</p>
 
 	                <b>Articolazione</b>
-	                <p>{{$studente->articolazione}}</p>
+	                <p>{{$studente->articolazione}} &nbsp; &nbsp; &nbsp;</p>
 
 	            </div>
 	            <div class="col-lg-6">
-	              	<b>Matricola</b>
-	                <p>{{$studente->matricola}}</p>
 
-	                <b>Indirizzo</b>
-	                <p>{{$studente->indirizzo}}, {{$studente->comuneResidenza}}</p>
+	                <b>Cognome</b>
+	                <p>{{$studente->cognome}} &nbsp; &nbsp;</p>
 
-	                <b>Data di Nascita</b>
-	                <p>{{ date("d/m/Y",strtotime($studente->dataNascita))}}</p>
+	                <b>Codice Fiscale</b>
+	                <p>{{$studente->CF}} &nbsp;</p>
 
 	                <b>Comune di Nascita</b>
-	                <p>{{$studente->comuneNascita}}</p>
+	                <p>{{$studente->comuneNascita}} &nbsp;</p>
+
+	                <b>Comune di Residenza</b>
+	                <p>{{$studente->comuneResidenza}} &nbsp;</p>
 	            </div>
           	</div>
       	</div>

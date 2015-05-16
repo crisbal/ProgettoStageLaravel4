@@ -23,7 +23,6 @@ class CreateTableStudenti extends Migration {
             $table->date('dataNascita');
             $table->string('comuneNascita');
             $table->string('indirizzo');
-            $table->integer('cap');
             $table->string('comuneResidenza');
             $table->string('articolazione');
 

@@ -22,83 +22,83 @@ active
     <!-- Modifica studente -->
 
     <div class="panel panel-info">
-        <div class="panel-heading">
-        	<h3 class="panel-title">Modifica Studente</h3>
-        </div>
-      	<div class="panel-body">
+      <div class="panel-heading">
+        <h3 class="panel-title">Dettagli Studente</h3>
+      </div>
+      <div class="panel-body">
             <div class="row">
 	            <div class="col-lg-6">
-	                <b>Nome</b>
-	                
-					 <div class="form-group">
+
+					<b>Nome</b>	                
+					<div class="form-group">
 					    <div class="input-group">
 					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->nome}}" name="nome">
 					    </div>
-					  </div>
-					<br>
-	                <b>Cognome</b>
-	                
-					 <div class="form-group">
+					</div>
+
+					<b>Matricola</b>	                
+					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->cognome}}" name="cognome">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->matricola}}" name="matricola">
 					    </div>
-					  </div>
-					<br>
-	                <b>Codice Fiscale</b>
-	                
-					 <div class="form-group">
-					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->CF}}" name="CF">
-					    </div>
-					  </div>
-					<br>
-					<b>Articolazione</b>
-	                
-					 <div class="form-group">
-					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->articolazione}}" name="articolazione">
-					    </div>
-					  </div>
-					<br>
-	            </div>
-	            
-	            <div class="col-lg-6">
-	            	<b>Indirizzo</b>
-	                
-					 <div class="form-group">
-					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->indirizzo}}" name="indirizzo">
-					    </div>
-					  </div>
-					<br>
-	                <b>Residenza</b>
-	                
-					 <div class="form-group">
-					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->comuneResidenza}}" name="comuneResidenza">
-					    </div>
-					  </div>
-					<br>
-	                <b>Data di Nascita</b>
-	                
-					 <div class="form-group">
+					</div>
+
+					<b>Data di Nascita</b>	                
+					<div class="form-group">
 					    <div class="input-group">
 					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->dataNascita}}" name="dataNascita">
 					    </div>
-					  </div>
-					<br>
-					<b>Luogo di Nascita</b>
-	                
-					 <div class="form-group">
+					</div>
+
+					<b>Indirizzo</b>	                
+					<div class="form-group">
+					    <div class="input-group">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->indirizzo}}" name="indirizzo">
+					    </div>
+					</div>
+
+					<b>Articolazione</b>	                
+					<div class="form-group">
+					    <div class="input-group">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->articolazione}}" name="articolazione">
+					    </div>
+					</div>
+	            </div>
+	            <div class="col-lg-6">
+
+					<b>Cognome</b>	                
+					<div class="form-group">
+					    <div class="input-group">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->cognome}}" name="cognome">
+					    </div>
+					</div>
+
+					<b>Codice Fiscale</b>	                
+					<div class="form-group">
+					    <div class="input-group">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->CF}}" name="CF">
+					    </div>
+					</div>
+
+					<b>Comune di Nascita</b>	                
+					<div class="form-group">
 					    <div class="input-group">
 					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->comuneNascita}}" name="comuneNascita">
 					    </div>
-					  </div>
-					<br>
+					</div>
+
+					<b>Comune di Residenza</b>	                
+					<div class="form-group">
+					    <div class="input-group">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->comuneResidenza}}" name="comuneResidenza">
+					    </div>
+					</div>
 	            </div>
-            </div>
-        </div>
+          	</div>
+      	</div>
     </div>
+
+    
 </div>
 </form>
 @endsection
