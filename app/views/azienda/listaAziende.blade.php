@@ -10,6 +10,9 @@ active
 @endsection
 
 @section('content')
+<div class="pull-right">
+    <a href="{{action('AziendeController@mostraNuovaAzienda')}}"><input type="button" class="btn btn-success" value="Aggiungi Azienda" /></a>
+</div>
 <h1>Lista Aziende</h1>
 <table class="table table-hover">
 	<thead>

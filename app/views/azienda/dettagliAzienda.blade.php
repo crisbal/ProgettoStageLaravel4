@@ -13,7 +13,7 @@ active
 
 <div class="pull-right">
                 <a href="{{ action('AziendeController@modificaAzienda', $azienda->id) }}"><button class="btn btn-warning">Modifica Azienda</button></a>
-                <a href=""><button class="btn btn-danger"><div class="glyphicon glyphicon-trash"></div></button></a>
+                <a href="{{ action('AziendeController@eliminaAzienda', $azienda->id) }}"><button class="btn btn-danger"><div class="glyphicon glyphicon-trash"></div></button></a>
             	
             </div>
 <div class="dettagliStage">

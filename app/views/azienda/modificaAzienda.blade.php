@@ -2,7 +2,11 @@
 
 
 @section('title')
+@if($modifica == true)
 Modifica Azienda {{$azienda->denominazione}} 
+@else
+	Nuova Azienda
+@endif
 @endsection
 
 @section('navAziende')
@@ -10,15 +14,24 @@ active
 @endsection
 
 @section('content')
-<form action="{{ action('AziendeController@faiModificaAzienda', $azienda->id) }}" method="POST" >
+@if($modifica == true)
+	<form action="{{ action('AziendeController@faiModificaAzienda', $azienda->id) }}" method="POST" >
+@else
+	<form action="{{ action('AziendeController@faiNuovaAzienda') }}" method="POST" >
+@endif
 <div class="pull-right">
-        <input type="submit" class="btn btn-success" value="Salva Modifiche" />
+        <input type="submit" class="btn btn-success" value="Salva Azienda" />
 </div>
 <div class="dettagliStage">
-    <div class="page-header">
-      <h1>{{$azienda->denominazione}} <small>{{$azienda->pIva}}</small></h1>
-    </div>
-    
+	@if($modifica == true)
+	    <div class="page-header">
+	      <h1>{{$azienda->denominazione}} <small>{{$azienda->pIva}}</small></h1>
+	    </div>
+    @else
+		<div class="page-header">
+	      <h1>Creazione Nuova Azienda</h1>
+	    </div>
+    @endif
     
     <div class="panel panel-info">
       <div class="panel-heading">

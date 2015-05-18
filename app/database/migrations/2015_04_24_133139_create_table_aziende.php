@@ -18,11 +18,11 @@ class CreateTableAziende extends Migration {
 
             $table->string('pIva');
             $table->string('CFA')->nullable();
-            $table->string('denominazione');
+            $table->string('denominazione')->nullable();
             $table->string('associazione')->nullable();
             $table->string('settore')->nullable();
-            $table->string('sedeLegale');
-            $table->string('citta');
+            $table->string('sedeLegale')->nullable();
+            $table->string('citta')->nullable();
             $table->string('cap')->nullable();
             $table->string('telefono')->nullable();
             $table->string('email')->nullable();
