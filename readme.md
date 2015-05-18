@@ -2,9 +2,9 @@
 
 
 ## Priorità 1
-* Completare DB aziende
-* Periodi non vengono inseriti correttamente nel db (*non è problema*)
+* Periodi non vengono inseriti correttamente nel db (*non è problema per chrome*)
 * Vista e dati (che non abbiamo) tutor scuola
+* sistemare amministrazione
 
 ### Priorità 2
 * Numeri delle convenzioni (3 numerazioni differenti) si resettano ogni anno (?)
