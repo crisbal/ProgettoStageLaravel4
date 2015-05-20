@@ -2,3 +2,5 @@ app/config/database.php
 tmp/*
 vendor/composer/autoload_classmap.php
 .*
+public/documenti/*
+!public/documenti/.gitkeep
