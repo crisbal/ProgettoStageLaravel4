@@ -1,6 +1,24 @@
 # TODO
 
 
+
+
+
+
+# PRE - PRESIDE
+1) Caricare tutte le aziende
+2) Controllare e segnare quali aziende non sono complete per fare le convenzioni
+3) Caricare tutte le classi (una non è pronta perchè è mista)
+4) Controllare che funzioni tutto
+5) Cancellare tutti i progetti inventati
+6) Fare backup database
+7) Wait for the boss...
+
+
+
+
+
+
 ## Priorità 1
 * Prevedere chiusura stage/convenzione che salva i documenti (fare documento di prova e pulsante conferma per farlo diventare definitivo)
 * Sistemare modelli convenzioni e progetti formativi (template, obiettivi, crocette)
