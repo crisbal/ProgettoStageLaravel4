@@ -10,12 +10,12 @@ class StageController extends BaseController {
 	public function index()
 	{
 		$stages = Stage::orderBy('id','DESC')->get();
-    	return  View::make("progetto/listaStage")->with("stages",$stages);
+    	return  View::make("progetto/listaProgetti")->with("stages",$stages);
 	}
 
 	public function mostraStage($id){
 		$stage = Stage::find($id);
-		return  View::make("progetto/dettagliStage")->with("stage",$stage);
+		return  View::make("progetto/dettagliProgetto")->with("stage",$stage);
 	}
 
 
@@ -46,6 +46,7 @@ class StageController extends BaseController {
 		$stage->azienda_id = $data["azienda"];
 		$stage->tutor_scuola_id = $data["tutor"];
         $stage->tipo = $data["tipoStage"];
+        $stage->archiviato = false;
 		$stage->save();
 
 		$studenti = $data["studenti"];
@@ -65,6 +66,22 @@ class StageController extends BaseController {
                 $periodo->partecipazione_stage_id = $partecipazioneStage->id;
                 $periodo->save();
             }
+		}
+
+		return action("StageController@mostraStage",array($stage->id));
+	}
+
+
+	public function faiArchiviaProgetto($id){
+		$stage = Stage::find($id);
+		$stage->archiviato = true;
+		$stage->save();
+
+		DocumentiController::generaConvenzione($id,null);
+
+		$studenti = $stage->studenti;
+		foreach ($studenti as $studente) {
+			DocumentiController::generaProgettoFormativo($id, $studente->id);
 		}
 
 		return action("StageController@mostraStage",array($stage->id));

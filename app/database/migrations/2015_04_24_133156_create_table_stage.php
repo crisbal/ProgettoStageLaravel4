@@ -18,7 +18,8 @@ class CreateTableStage extends Migration {
 
             $table->string('descrizione');
             $table->string('tipo');     
-
+            $table->boolean('archiviato');     
+            
             $table->timestamps();
         });
     }

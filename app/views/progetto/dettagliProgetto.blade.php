@@ -16,6 +16,7 @@ active
             <small>Creato in data {{  date("d/m/Y",strtotime($stage->created_at)) }}</small>
             <div class="pull-right">
                 <a href="{{ action('DocumentiController@generaConvenzione', array($stage->id)) }}"><button class="btn btn-success">Scarica Convenzione</button></a>
+                <a href="{{ action('DocumentiController@generaConvenzione', array($stage->id)) }}"><button title="Conferma Documenti" class="btn btn-{{ $stage->archiviato? 'warning' : 'default' }} glyphicon glyphicon-star"></button></a>
             </div>
         </h1>
         
@@ -57,7 +58,7 @@ active
         @foreach($stage->studenti as $studente)
             <ul class="list-group">
                 <li class="list-group-item">
-                    <div class="row">
+                  <div class="row">
                       <div class="col-lg-6">
                         <b>Nome</b>
                         <p>{{ $studente->nome }}</p>
@@ -76,9 +77,12 @@ active
                         <b>Codice Fiscale</b>
                         <p>{{ $studente->CF}}</p>
 
-                        <b>Progetto Formativo</b>
-                        <p><a href="{{ action('DocumentiController@generaProgettoFormativo', array($stage->id, $studente->id)) }}">Clicca per scaricare</a></p>
                       </div>
+                  </div>
+                  <div class="row">
+                    <div class="text-center">
+                        <a href="{{ action('DocumentiController@generaProgettoFormativo', array($stage->id, $studente->id)) }}"><button class="btn btn-success">Scarica Progetto Formativo</button></a>
+                    </div>
                   </div>
                 </li>
             </ul>
