@@ -25,7 +25,7 @@ Route::get('/aziende/{id}', 'AziendeController@mostraSpecifica');
 Route::group(array('prefix' => 'documento'), function()
 {
     Route::get('/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaProgettoFormativo');
-    Route::get('/convenzione/{stageId}', 'DocumentiController@generaConvenzione');
+    Route::get('/convenzione/{stageId}', 'DocumentiController@generaDownloadConvenzione');
 });
 
 Route::group(array('prefix' => 'api'), function()

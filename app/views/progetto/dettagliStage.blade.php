@@ -15,7 +15,7 @@ active
         <h1>Progetto Stage {{ $stage->id }} 
             <small>Creato in data {{  date("d/m/Y",strtotime($stage->created_at)) }}</small>
             <div class="pull-right">
-                <a href="{{ action('DocumentiController@generaConvenzione', array($stage->id)) }}"><button class="btn btn-success">Scarica Convenzione</button></a>
+                <a href="{{ action('DocumentiController@generaDownloadConvenzione', array($stage->id)) }}"><button class="btn btn-success">Scarica Convenzione</button></a>
             </div>
         </h1>
         

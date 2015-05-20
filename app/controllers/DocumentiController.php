@@ -3,7 +3,41 @@
 class DocumentiController extends BaseController {
 
 
+	public function generaConvenzione($stageId,$studenteId){
+		$stage = Stage::find($stageId);
+		$tipo = $stage->tipo;
+
+		$nomeFile;
+
+		if(strpos($tipo,'Alternanza') !== false){
+			//Alternanza
+			$nomeFile = generaConvenzioneAlternanza($stageId, $studenteId);
+		}
+
+		if(strpos($tipo,'Stage') !== false){
+			//Stage
+			$nomeFile = generaConvenzioneStage($stageId, $studenteId);
+		}
+
+		return $nomeFile;
+	}
+
+	public function generaDonwloadConvenzione($stageId,$studenteId){
+		$stage = Stage::find($stageId);
+
+		if($stage->archiviato)
+			return Response::download('public/documenti/' . $stage->id . '/convenzione.docx');
+		else
+			$nomeFile = generaConvenzione($stageId,$studenteId);
+		
+		return Response::download($nomeFile);
+	}
+
 	public function generaProgettoFormativo($stageId,$studenteId){
+
+	}
+
+	public function generaProgettoFormativoAlternanza($stageId,$studenteId){
 
 		$stage = Stage::find($stageId);
 
@@ -57,13 +91,13 @@ class DocumentiController extends BaseController {
 
         $templateProcessor->setValue('periodo', $strPeriodo);
 
-	    $templateProcessor->saveAs('tmp/progettoFormativo-' . $stage->id . '-' . $studente->id . '.docx');
+	    $templateProcessor->saveAs('public/documenti/' . $stage->id . '/progettoFormativo-' .$studente->cognome ."-". $studente->nome. '.docx');
 
 
-		return Response::download('tmp/progettoFormativo-' . $stage->id . '-' . $studente->id . '.docx');
+		return 'public/documenti/' . $stage->id . '/progettoFormativo-' .$studente->cognome ."-". $studente->nome. '.docx';
 	}
 
-	public function generaConvenzione($stageId){
+	public function generaConvenzioneAlternanza($stageId, $studenteId){
 		$stage = Stage::find($stageId);
 
 		$azienda = $stage->azienda;
@@ -86,8 +120,11 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars(date("d/m/Y",strtotime($azienda->dataNascitaRappresLegale))));
 	    $templateProcessor->setValue('rappresentanteLegale_cf', htmlspecialchars($azienda->CFRappresLegale));
 
-		$templateProcessor->saveAs('tmp/convenzione' . '-' . $stage->id . '.docx');
+		$templateProcessor->saveAs('public/documenti/' . $stage->id . '/convenzione.docx');
 		
-        return Response::download('tmp/convenzione' . '-' . $stage->id . '.docx');	
+        return 'public/documenti/' . $stage->id . '/convenzione.docx';	
 	}
+
+	public function generaConvenzioneStage(){}
+	public function generaProgettoFormativoStage(){}
 }
