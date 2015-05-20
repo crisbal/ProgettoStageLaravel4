@@ -77,13 +77,14 @@ class StageController extends BaseController {
 		$stage->archiviato = true;
 		$stage->save();
 
-		DocumentiController::generaConvenzione($id,null);
+		$a = new DocumentiController;
+		$a->generaConvenzione($id,null);
 
 		$studenti = $stage->studenti;
 		foreach ($studenti as $studente) {
-			DocumentiController::generaProgettoFormativo($id, $studente->id);
+			$a->generaProgettoFormativo($id, $studente->id);
 		}
 
-		return action("StageController@mostraStage",array($stage->id));
+		return Redirect::action("StageController@mostraStage",array($stage->id));
 	}
 }

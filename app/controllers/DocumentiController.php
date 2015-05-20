@@ -3,6 +3,19 @@
 class DocumentiController extends BaseController {
 
 
+
+	/*Convenzioni*/
+	public function faiDownloadConvenzione($stageId,$studenteId){
+		$stage = Stage::find($stageId);
+
+		if($stage->archiviato)
+			return Response::download('public/documenti/' . $stage->id . '/convenzione.docx');
+		else
+			$nomeFile = $this->generaConvenzione($stageId,$studenteId);
+		
+		return Response::download($nomeFile);
+	}
+
 	public function generaConvenzione($stageId,$studenteId){
 		$stage = Stage::find($stageId);
 		$tipo = $stage->tipo;
@@ -11,30 +24,81 @@ class DocumentiController extends BaseController {
 
 		if(strpos($tipo,'Alternanza') !== false){
 			//Alternanza
-			$nomeFile = generaConvenzioneAlternanza($stageId, $studenteId);
+			$nomeFile = $this->generaConvenzioneAlternanza($stageId, $studenteId);
 		}
 
 		if(strpos($tipo,'Stage') !== false){
 			//Stage
-			$nomeFile = generaConvenzioneStage($stageId, $studenteId);
+			$nomeFile = $this->generaConvenzioneStage($stageId, $studenteId);
 		}
 
 		return $nomeFile;
 	}
 
-	public function generaDonwloadConvenzione($stageId,$studenteId){
+	public function generaConvenzioneAlternanza($stageId, $studenteId){
 		$stage = Stage::find($stageId);
 
+		$azienda = $stage->azienda;
+
+		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/modelli/alternanza/convenzione.docx');
+		//----------------------------STAGE
+		$templateProcessor->setValue('id_stage', htmlspecialchars($stageId));
+	    $templateProcessor->setValue('data_stage', htmlspecialchars($stage->created_at));
+	    //----------------------------AZIENDA
+		$templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
+	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));
+	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
+	    $templateProcessor->setValue('azienda_pIva', htmlspecialchars($azienda->pIva));
+	     $templateProcessor->setValue('azienda_cap', htmlspecialchars($azienda->cap));
+	    //----------------------------RAPPRESENTANTE LEGALE
+	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($azienda->nomeRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($azienda->cognomeRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_luogoN', htmlspecialchars($azienda->comuneNascitaRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars(date("d/m/Y",strtotime($azienda->dataNascitaRappresLegale))));
+	    $templateProcessor->setValue('rappresentanteLegale_cf', htmlspecialchars($azienda->CFRappresLegale));
+
+	    if (!file_exists('public/documenti/' . $stage->id . '/')) {
+    		mkdir('public/documenti/' . $stage->id . '/', 0777, true);
+		}
+
+		$templateProcessor->saveAs('public/documenti/' . $stage->id . '/convenzione.docx');
+		
+        return 'public/documenti/' . $stage->id . '/convenzione.docx';	
+	}
+	public function generaConvenzioneStage(){
+		//todo
+	}
+
+	/*PF*/
+	public function faiDownloadProgettoFormativo($stageId,$studenteId){
+		$stage = Stage::find($stageId);
+		$studente = Studente::find($studenteId);
+
 		if($stage->archiviato)
-			return Response::download('public/documenti/' . $stage->id . '/convenzione.docx');
+			return Response::download('public/documenti/' . $stage->id . '/progettoFormativo-' .$studente->cognome ."-". $studente->nome. '.docx');
 		else
-			$nomeFile = generaConvenzione($stageId,$studenteId);
+			$nomeFile = $this->generaProgettoFormativo($stageId,$studenteId);
 		
 		return Response::download($nomeFile);
 	}
 
 	public function generaProgettoFormativo($stageId,$studenteId){
+		$stage = Stage::find($stageId);
+		$tipo = $stage->tipo;
 
+		$nomeFile;
+
+		if(strpos($tipo,'Alternanza') !== false){
+			//Alternanza
+			$nomeFile = $this->generaProgettoFormativoAlternanza($stageId, $studenteId);
+		}
+
+		if(strpos($tipo,'Stage') !== false){
+			//Stage
+			$nomeFile = $this->generaProgettoFormativoStage($stageId, $studenteId);
+		}
+
+		return $nomeFile;
 	}
 
 	public function generaProgettoFormativoAlternanza($stageId,$studenteId){
@@ -69,7 +133,7 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));
 	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
 
-//return $azienda;
+		//return $azienda;
 	    //---------------------------TUTOR AZIENDA
 	    $templateProcessor->setValue('tutorAzienda_nome', htmlspecialchars($azienda->nomeTutorAziend));
 	    $templateProcessor->setValue('tutorAzienda_cognome', htmlspecialchars($azienda->cognomeTutorAziend));
@@ -97,34 +161,5 @@ class DocumentiController extends BaseController {
 		return 'public/documenti/' . $stage->id . '/progettoFormativo-' .$studente->cognome ."-". $studente->nome. '.docx';
 	}
 
-	public function generaConvenzioneAlternanza($stageId, $studenteId){
-		$stage = Stage::find($stageId);
-
-		$azienda = $stage->azienda;
-		$rappresentanteLegale = $azienda->rappresentanteLegale;
-
-
-		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/convenzione.docx');
-		//----------------------------STAGE
-		$templateProcessor->setValue('id_stage', htmlspecialchars($stageId));
-	    $templateProcessor->setValue('data_stage', htmlspecialchars($stage->created_at));
-	    //----------------------------AZIENDA
-		$templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
-	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));
-	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
-	    $templateProcessor->setValue('azienda_pIva', htmlspecialchars($azienda->pIva));
-	    //----------------------------RAPPRESENTANTE LEGALE
-	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($azienda->nomeRappresLegale));
-	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($azienda->cognomeRappresLegale));
-	    $templateProcessor->setValue('rappresentanteLegale_luogoN', htmlspecialchars($azienda->comuneNascitaRappresLegale));
-	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars(date("d/m/Y",strtotime($azienda->dataNascitaRappresLegale))));
-	    $templateProcessor->setValue('rappresentanteLegale_cf', htmlspecialchars($azienda->CFRappresLegale));
-
-		$templateProcessor->saveAs('public/documenti/' . $stage->id . '/convenzione.docx');
-		
-        return 'public/documenti/' . $stage->id . '/convenzione.docx';	
-	}
-
-	public function generaConvenzioneStage(){}
 	public function generaProgettoFormativoStage(){}
 }

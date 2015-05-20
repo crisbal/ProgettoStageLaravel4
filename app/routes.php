@@ -11,10 +11,10 @@
 |
 */
 Route::get('/', 'StageController@index');
-Route::get('/stage', 'StageController@mostraNuovoProgetto');
-Route::post('/stage', 'StageController@faiNuovoProgetto');
+Route::get('/progetto', 'StageController@mostraNuovoProgetto');
+Route::post('/progetto', 'StageController@faiNuovoProgetto');
 
-Route::get('/stage/{id}', 'StageController@mostraStage');
+Route::get('/progetto/{id}', 'StageController@mostraStage');
 
 Route::get('/studenti', 'StudentiController@mostraStudenti');
 Route::get('/studente/{id}', 'StudentiController@mostraSpecifico');
@@ -24,8 +24,11 @@ Route::get('/aziende/{id}', 'AziendeController@mostraSpecifica');
 
 Route::group(array('prefix' => 'documento'), function()
 {
-    Route::get('/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@generaProgettoFormativo');
-    Route::get('/convenzione/{stageId}', 'DocumentiController@generaDownloadConvenzione');
+    Route::get('/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@faiDownloadProgettoFormativo');
+    Route::get('/convenzione/{stageId}/{studenteId}', 'DocumentiController@faiDownloadConvenzione');
+
+    Route::get('/progetto/{stageId}', 'StageController@faiArchiviaProgetto');
+
 });
 
 Route::group(array('prefix' => 'api'), function()
