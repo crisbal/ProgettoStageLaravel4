@@ -1,6 +1,6 @@
 # TODO
 
-
+https://docs.google.com/document/d/1AMWkm7uvz4g7zqWX93oVoRBj48gUnTjM8sTQEqUH5io/edit?usp=sharing
 
 ## Priorità 1
 * Sistemare nome classe durante upload e parte del documento progetto formativo per alternanza che dipende dall'indirizzo
