@@ -16,6 +16,7 @@
 * Numeri delle convenzioni (3 numerazioni differenti) si resettano ogni anno (?)
 * I docx che si scaricano non si aprono subito in word
 * Periodi non vengono inseriti correttamente nel db (*non è problema per chrome, ma solo per firefox*)
+* Pulsante copia per copiare sede tirocinio
 
 #### Priorità 3
 * Log In per amministratore, segreteria, tutor, aziende
