@@ -4,6 +4,7 @@ https://docs.google.com/document/d/1AMWkm7uvz4g7zqWX93oVoRBj48gUnTjM8sTQEqUH5io/
 
 ## Priorità 1
 * Sistemare nome classe durante upload e parte del documento progetto formativo per alternanza che dipende dall'indirizzo
+* Aggiungere aziende nel foglio excel del preside
 * Prevedere chiusura stage/convenzione che salva i documenti (fare documento di prova e pulsante conferma per farlo diventare definitivo)
 * Sistemare modelli convenzioni e progetti formativi (template, obiettivi, crocette)
 * La ricerca continua anche nelle fasi successive (non si azzera)
