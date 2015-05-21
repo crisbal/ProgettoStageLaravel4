@@ -2,27 +2,13 @@
 
 
 
-
-
-
-# PRE - PRESIDE
-1) Caricare tutte le aziende
-2) Controllare e segnare quali aziende non sono complete per fare le convenzioni
-3) Caricare tutte le classi (una non è pronta perchè è mista)
-4) Inserire Tutor Scuola
-5) Controllare che funzioni tutto
-6) Cancellare tutti i progetti inventati
-7) Fare backup database
-8) Wait for the boss...
-
-
-
-
-
-
 ## Priorità 1
+* Sistemare nome classe durante upload e parte del documento progetto formativo per alternanza che dipende dall'indirizzo
 * Prevedere chiusura stage/convenzione che salva i documenti (fare documento di prova e pulsante conferma per farlo diventare definitivo)
 * Sistemare modelli convenzioni e progetti formativi (template, obiettivi, crocette)
+* La ricerca continua anche nelle fasi successive (non si azzera)
+* Sistemare tasto indietro durante creazione progetto
+* Numerazione convenzioni
 
 ### Priorità 2
 * Sistemare amministrazione

@@ -155,10 +155,20 @@ class DocumentiController extends BaseController {
 
         $templateProcessor->setValue('periodo', $strPeriodo);
 
-	    $templateProcessor->saveAs('public/documenti/' . $stage->id . '/progettoFormativo-' .$studente->cognome ."-". $studente->nome. '.docx');
+        // nei nomi e cognomi si eliminano accenti e apostrofi
+        $studente->cognome = str_replace("'", "", str_replace("\"", "", $studente->cognome));
+        $studente->nome = str_replace("'", "", str_replace("\"", "", $studente->nome));
+        
+        $nomeFile = 'public/documenti/' . $stage->id . '/progettoFormativo-' . $studente->cognome ."-". $studente->nome. '.docx';
+       
+        if (!file_exists('public/documenti/' . $stage->id . '/')) {
+    		mkdir('public/documenti/' . $stage->id . '/', 0777, true);
+		}
+
+	    $templateProcessor->saveAs($nomeFile);
 
 
-		return 'public/documenti/' . $stage->id . '/progettoFormativo-' .$studente->cognome ."-". $studente->nome. '.docx';
+		return $nomeFile;
 	}
 
 	public function generaProgettoFormativoStage(){}
