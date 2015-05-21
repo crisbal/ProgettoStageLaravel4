@@ -9,6 +9,7 @@ https://docs.google.com/document/d/1AMWkm7uvz4g7zqWX93oVoRBj48gUnTjM8sTQEqUH5io/
 * La ricerca continua anche nelle fasi successive (non si azzera)
 * Sistemare tasto indietro durante creazione progetto
 * Numerazione convenzioni
+* Foglio per minorenni (lo ha fatto il Sala?)
 
 ### Priorità 2
 * Sistemare amministrazione
