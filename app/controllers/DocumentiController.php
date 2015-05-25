@@ -47,7 +47,7 @@ class DocumentiController extends BaseController {
 
 		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/modelli/alternanza/convenzione.docx');
 		//----------------------------STAGE
-		$templateProcessor->setValue('id_stage', htmlspecialchars($stege->numero));
+		$templateProcessor->setValue('id_stage', htmlspecialchars($stage->numero));
 	    $templateProcessor->setValue('data_stage', htmlspecialchars($stage->created_at));
 	    //----------------------------AZIENDA
 		$templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
