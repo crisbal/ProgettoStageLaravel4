@@ -1,7 +1,5 @@
 # TODO
 
-
-
 ## Priorità 1
 * Sistemare nome classe durante upload e parte del documento progetto formativo per alternanza che dipende dall'indirizzo
 * Prevedere chiusura stage/convenzione che salva i documenti (fare documento di prova e pulsante conferma per farlo diventare definitivo)
