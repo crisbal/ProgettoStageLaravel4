@@ -16,6 +16,7 @@ class CreateTableStage extends Migration {
         {
             $table->increments('id');
 
+            $table->string('numero');
             $table->string('descrizione');
             $table->string('tipo');     
             $table->boolean('archiviato');     

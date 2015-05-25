@@ -8,12 +8,17 @@ class DocumentiController extends BaseController {
 	public function faiDownloadConvenzione($stageId,$studenteId){
 		$stage = Stage::find($stageId);
 
+		$headers = array(
+		  'Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+		);
+
 		if($stage->archiviato)
-			return Response::download('public/documenti/' . $stage->id . '/convenzione.docx');
+			return Response::download('public/documenti/' . $stage->id . '/convenzione.docx', 'convenzione.docx',$headers);
 		else
 			$nomeFile = $this->generaConvenzione($stageId,$studenteId);
 		
-		return Response::download($nomeFile);
+
+		return Response::download($nomeFile,'convenzione.docx', $headers);
 	}
 
 	public function generaConvenzione($stageId,$studenteId){
@@ -42,7 +47,7 @@ class DocumentiController extends BaseController {
 
 		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/modelli/alternanza/convenzione.docx');
 		//----------------------------STAGE
-		$templateProcessor->setValue('id_stage', htmlspecialchars($stageId));
+		$templateProcessor->setValue('id_stage', htmlspecialchars($stege->numero));
 	    $templateProcessor->setValue('data_stage', htmlspecialchars($stage->created_at));
 	    //----------------------------AZIENDA
 		$templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
@@ -113,7 +118,7 @@ class DocumentiController extends BaseController {
 
 		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/progettoFormativo.docx');
 		//----------------------------STAGE	   
-	    $templateProcessor->setValue('id_stage', htmlspecialchars($stageId));
+	    $templateProcessor->setValue('id_stage', htmlspecialchars($stage->numero));
 	    $templateProcessor->setValue('data_stage', htmlspecialchars(date("d/m/Y",strtotime($stage->created_at))));
 
 	    //----------------------------STUDENTE
@@ -126,7 +131,7 @@ class DocumentiController extends BaseController {
 	    //----------------------------CLASSE
 	    $templateProcessor->setValue('studente_classe', htmlspecialchars($studente->classe->classe));
 	    $templateProcessor->setValue('studente_sezione', htmlspecialchars($studente->classe->sezione));
-	    $templateProcessor->setValue('studente_classe_indirizzo', htmlspecialchars($studente->classe->articolazione));
+	    $templateProcessor->setValue('studente_classe_indirizzo', htmlspecialchars($studente->articolazione));
 
 	    //----------------------------AZIENDA
 	    $templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
@@ -141,6 +146,23 @@ class DocumentiController extends BaseController {
 	    //---------------------------TUTOR SCUOLA
 	    $templateProcessor->setValue('tutorScuola_nome', htmlspecialchars($tutorScuola->nome));
 	    $templateProcessor->setValue('tutorScuola_cognome', htmlspecialchars($tutorScuola->cognome));
+
+
+	    if(trim($studente->articolazione)[0] == "M") //meccanica
+	    {
+	    	$obiettivi = "- Saper applicare comportamenti coerenti alle norme infortunistiche, di igiene personale e di sicurezza del lavoro.\n- Saper utilizzare e produrre semplici documentazioni tecniche.\nAttività previste e modalità di svolgimento:\n- Eseguire, sotto la direzione del personale dell’ufficio, semplici operazioni di progettazione con  esecuzione, montaggio e verifica di apparecchiature o manufatti.";
+	    }
+	    else if(trim($studente->articolazione)[0] == "E") //informatica
+	    {
+	    	$obiettivi = "- Sorveglia che i parametri elettrici siano nella norma e predispone manovre per interventi correttivi\n- Utilizza metodi di raccolta, elaborazione ed analisi dei dati\n- Esegue interventi di cablaggio, assemblaggio e messa in servizio di apparecchiature elettriche ed e elettroniche\n- Collauda gli impianti ed i sistemi installati e ne verifica la funzionalità";
+	    }
+	    else if(trim($studente->articolazione)[0] == "I") //informatica
+	    {
+	    	$obiettivi ="- Realizza l'applicazione o nuove funzionalità a partire da requisiti, specifiche tecniche e documentazione;\n- Fornisce assistenza al cliente per l'utilizzazione di SW e HW;\n- Installa e configura la rete, le macchine o i software di base, per la sicurezza e applicativi (sia Server che Client) secondo i parametri richiesti dal cliente;\n- Sa analizzare e integrare sistemi e soluzioni hardware e software per l'acquisizione, l'elaborazione e la memorizzazione di segnali analogici e digitali;";
+	    }
+
+
+	    $templateProcessor->setValue('obiettivi_alternanza',$obiettivi);
 
 
 	    //---------------------------PERIODI

@@ -1,5 +1,5 @@
 $("#btnAlternanza").click(function() {
-    tipoStage = "Alternanza Scuola-Lavoro";
+    tipoStage = "Alternanza";
     $("#step0").hide();
     $("#step1").show();
 });
@@ -92,7 +92,7 @@ $("#confermaStudenti").click(function(){
             $("#periodiStudenti").append('<div class="panel panel-info dateStudente" id="dateStudente' + studente.id + '">' +
                                             '<div class="panel-heading">' +
                                                 '<h3 class="panel-title pull-left"> <b>' + studente.cognome + ' ' + studente.nome + '</b></h3>' +
-                                                '<div class="pull-right"><button type="button" class="btn btn-default glyphicon glyphicon-paste btnCopia"></button></div>' +
+                                                '' +
                                                 '<div class="clearfix"></div>' +
                                             '</div>' +
                                             '<div class="panel-body">' + 
@@ -109,14 +109,7 @@ $("#confermaStudenti").click(function(){
                                                 '</div>' +
                                             '</div>' +
                                         '</div>');
-            
-            $(".btnCopia").off('click');
-            $(".btnCopia").click(function(){
-                    console.log("here");
-                    tableContent = $(this).parent().parent().parent().find('table').clone();
-                    $(".dateStudente").find('table').html(tableContent);
-                });
-            
+
             $(".btnCancellaRiga").click(function () {
                 $(this).parent().parent().remove(); 
             });
@@ -172,6 +165,8 @@ $("#btnCreaStage").click(function() {
 	data.azienda = idAzienda;
 	data.tutor = idTutor;
 	data.studenti = [];
+    data.numeroStage = $("#numeroProgetto").val();
+
     for(i=0 ; i<idStudenti.length ; i++){
         dateInizio = $("#dateStudente"+idStudenti[i]).find('.dataInizio');
         dateFine =  $("#dateStudente"+idStudenti[i]).find('.dataFine');

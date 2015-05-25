@@ -151,7 +151,7 @@ active
 		</div>
 	</div>
 	<div style="display:none;" id="step5">
-        <button vai="4" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
+        <button vai="3" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
 		<h1>Creazione Nuovo Progetto <small>Assegnazione dei periodi</small></h1>
 		<br>	
         <div id="periodiStudenti">
@@ -163,7 +163,12 @@ active
         <br>
         <button vai="5" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
         <br>
-		<h2 style="text-align:center;">Hai inserito tutti i dati per la creazione del progetto.</h2>
+		<h1>Creazione Nuovo Progetto <small>Numero Progetto e conclusione</small></h1>
+        <br>
+        <h3>Numero Progetto</h3>
+        <input type="text" id="numeroProgetto" placeholder="Scrivi qui...">
+        <br>
+        <br>
         <br>
 		<button id="btnCreaStage" class="btn btn-success btn-lg btn-block">Conferma Creazione Progetto</button>
         
