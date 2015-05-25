@@ -36,7 +36,7 @@ active
 		<br>
 		<div class="input-group"> 
 			<span class="input-group-addon">Filtra</span>
-	    	<input id="filterAzienda" type="text" class="filterable form-control" placeholder="Scrivi qui...">
+	    	<input id="filterAzienda" type="text" class="filterableAzienda form-control" placeholder="Scrivi qui...">
 		</div>
 		<br>	
 		<table id="tabellaAziende" class="table table-striped">
@@ -45,7 +45,7 @@ active
 		  		<th>Partita Iva</th>
 		  		<th></th>
 		  	</tr>
-		  	<tbody class="searchable">
+		  	<tbody class="searchableAzienda">
 			  	@foreach($aziende as $azienda)
 				<tr azienda="{{ $azienda->id }}">
 					<td>{{$azienda->denominazione}}</td>
@@ -57,7 +57,7 @@ active
 		</table>
         <br>
        
-		<div id="modaleAzienda" class="modal fade"   data-keyboard="false" data-backdrop="static" >
+		<div id="modaleAzienda" class="modal fade" data-keyboard="false" data-backdrop="static" >
 		    <div class="modal-dialog">
 		        <div class="modal-content">
 		            <div class="modal-header">
@@ -94,7 +94,7 @@ active
 		  		<th>Classe</th>
 		  		<th>Scegli</th>
 		  	</tr>
-		  	<tbody class="searchable">
+		  	<tbody class="searchableStudente">
 				@foreach($studenti as $studente)
 					<tr studente="{{ $studente->id }}">
 						<td>{{$studente->cognome}}</td>
@@ -112,7 +112,7 @@ active
 		<br>
 		<div class="input-group"> 
 			<span class="input-group-addon">Filtra</span>
-	    	<input id="filterTutorScuola" type="text" class="filterable form-control" placeholder="Scrivi qui...">
+	    	<input id="filterTutorScuola" type="text" class="filterableTutor form-control" placeholder="Scrivi qui...">
 		</div>
 		<br>	
 		<table id="tabellaScuola" class="table table-striped">
@@ -121,7 +121,7 @@ active
 		  		<th>Cognome</th>
 		  		<th>Scegli</th>
 		  	</tr>
-		  	<tbody class="searchable">
+		  	<tbody class="searchableTutor">
 			  	@foreach($tutors as $tutor)
 					<tr tutor="{{ $tutor->id }}">
 						<td>{{$tutor->nome}}</td>
@@ -151,37 +151,10 @@ active
 		</div>
 	</div>
 	<div style="display:none;" id="step5">
-        <button vai="4" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
+        <button vai="3" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
 		<h1>Creazione Nuovo Progetto <small>Assegnazione dei periodi</small></h1>
 		<br>	
         <div id="periodiStudenti">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Nome Cognome</h3>
-                </div>
-                <div class="panel-body">
-                    <table class="table">
-                        <tr>
-                            <th>Data Inizio</th>
-                            <th>Data Fine</th>
-                            <th>Elimina</th>
-                        </tr>
-                        <tr>
-                            <td>aaaa-mm-dd</td>
-                            <td>aaaa-mm-dd</td>
-                            <td><button title="Elimina Periodo" class="btn btn-default glyphicon glyphicon-trash"></button></td>
-                        </tr>
-                        <tr>
-                            <td>aaaa-mm-dd</td>
-                            <td>aaaa-mm-dd</td>
-                            <td><button title="Elimina Periodo" class="btn btn-default glyphicon glyphicon-trash"></button></td>
-                        </tr>
-                    </table>
-                    <div class="pull-right">
-                        <button title="Aggiungi Periodo" class="btn btn-default glyphicon glyphicon-plus"></button>
-                    </div>
-                </div>
-            </div>
         </div>
 		<button id="assegnaPeriodi" class="btn btn-info btn-lg btn-block">Conferma</button>
 		<br>
@@ -190,7 +163,12 @@ active
         <br>
         <button vai="5" class="btn btn-default glyphicon glyphicon-chevron-left indietro" ></button>
         <br>
-		<h2 style="text-align:center;">Hai inserito tutti i dati per la creazione del progetto.</h2>
+		<h1>Creazione Nuovo Progetto <small>Numero Progetto e conclusione</small></h1>
+        <br>
+        <h3>Numero Progetto</h3>
+        <input type="text" id="numeroProgetto" placeholder="Scrivi qui...">
+        <br>
+        <br>
         <br>
 		<button id="btnCreaStage" class="btn btn-success btn-lg btn-block">Conferma Creazione Progetto</button>
         

@@ -28,7 +28,7 @@
           <li class="@yield('navStudenti')"><a href="{{ action('StudentiController@mostraStudenti')}}">Alunni</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="@yield('navAmministrazione')"><a style="font-size:1.5em" class="glyphicon glyphicon-cog" href="{{ action('AmministrazioneController@mostraCreaClasse')}}"></a></li>
+          <li class="@yield('navAmministrazione')"><a style="font-size:1.5em" class="glyphicon glyphicon-cog" href="{{ action('AmministrazioneController@menu')}}"></a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

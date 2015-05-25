@@ -1,5 +1,5 @@
 $("#btnAlternanza").click(function() {
-    tipoStage = "Alternanza Scuola-Lavoro";
+    tipoStage = "Alternanza";
     $("#step0").hide();
     $("#step1").show();
 });
@@ -21,21 +21,30 @@ $("#btnStageI").click(function() {
 $(document).ready(function () {
     (function ($) {
 
-    	$('.filterable').keyup(function () {
+    	$('.filterableAzienda').keyup(function () {
             var rex = new RegExp($(this).val(), 'i');
-            $('.searchable tr').hide();
-            $('.searchable tr').filter(function () {
+            $('.searchableAzienda tr').hide();
+            $('.searchableAzienda tr').filter(function () {
                 return rex.test($(this).text());
             }).show();
         });
 
+        $('.filterableTutor').keyup(function () {
+            var rex = new RegExp($(this).val(), 'i');
+            $('.searchableTutor tr').hide();
+            $('.searchableTutor tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+        });
+
+
         $('#filterStudenti').keyup(function () {
             var rex = new RegExp($(this).val(), 'i');
 
-            var trBuone = $('.searchable tr input:not(:checked)').parent().parent();
+            var trBuone = $('.searchableStudente tr input:not(:checked)').parent().parent();
 
             trBuone.hide();
-            $('.searchable tr').filter(function () {
+            $('.searchableStudente tr').filter(function () {
                 return rex.test($(this).text());
             }).show();
         });
@@ -80,12 +89,14 @@ $("#confermaStudenti").click(function(){
 		idStudenti.push(idStudente);
 
         $.get( "api/studente/" + idStudente, function( studente ) {
-            $("#periodiStudenti").append('<div class="panel panel-default" id="dateStudente' + studente.id + '">' +
+            $("#periodiStudenti").append('<div class="panel panel-info dateStudente" id="dateStudente' + studente.id + '">' +
                                             '<div class="panel-heading">' +
-                                                '<h3 class="panel-title"> <b>' + studente.cognome + ' ' + studente.nome + '</b></h3>' +
+                                                '<h3 class="panel-title pull-left"> <b>' + studente.cognome + ' ' + studente.nome + '</b></h3>' +
+                                                '' +
+                                                '<div class="clearfix"></div>' +
                                             '</div>' +
                                             '<div class="panel-body">' + 
-                                                '<table class="table">' +
+                                                '<table class="table tableDate">' +
                                                     '<tr>' +
                                                         '<th>Data Inizio</th> <th>Data Fine</th> <th>Elimina</th>' +
                                                     '</tr>' +
@@ -98,7 +109,7 @@ $("#confermaStudenti").click(function(){
                                                 '</div>' +
                                             '</div>' +
                                         '</div>');
-            
+
             $(".btnCancellaRiga").click(function () {
                 $(this).parent().parent().remove(); 
             });
@@ -110,7 +121,6 @@ $("#confermaStudenti").click(function(){
                                                                     <td><input type="date" required class="dataFine" /></td>  \
                                                                     <td><button title="Elimina Periodo" class="btn btn-default glyphicon glyphicon-trash btnCancellaRiga"></button></td>  \
                                                                     </tr> ');
-                
                 console.log("here");
                 $(".btnCancellaRiga").click(function () {
                     $(this).parent().parent().remove(); 
@@ -155,6 +165,8 @@ $("#btnCreaStage").click(function() {
 	data.azienda = idAzienda;
 	data.tutor = idTutor;
 	data.studenti = [];
+    data.numeroStage = $("#numeroProgetto").val();
+
     for(i=0 ; i<idStudenti.length ; i++){
         dateInizio = $("#dateStudente"+idStudenti[i]).find('.dataInizio');
         dateFine =  $("#dateStudente"+idStudenti[i]).find('.dataFine');

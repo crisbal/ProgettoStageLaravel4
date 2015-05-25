@@ -47,6 +47,7 @@ class StageController extends BaseController {
 		$stage->tutor_scuola_id = $data["tutor"];
         $stage->tipo = $data["tipoStage"];
         $stage->archiviato = false;
+        $stage->numero = $data["numeroStage"];
 		$stage->save();
 
 		$studenti = $data["studenti"];

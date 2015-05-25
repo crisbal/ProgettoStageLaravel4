@@ -2,7 +2,7 @@
 
 
 @section('title')
-Stage {{ $stage->id }}
+{{$stage->tipo}} N° {{ $stage->numero }}
 @endsection
 
 @section('navProgetto')
@@ -12,7 +12,7 @@ active
 @section('content')
 <div class="dettagliStage">
     <div class="page-header">
-        <h1>Progetto Stage {{ $stage->id }} 
+        <h1>{{$stage->tipo}} N° {{ $stage->numero }}
             <small>Creato in data {{  date("d/m/Y",strtotime($stage->created_at)) }}</small>
             <div class="pull-right">
                 <a href="{{ action('DocumentiController@faiDownloadConvenzione', [$stage->id, $stage->id]) }}"><button class="btn btn-success">Scarica Convenzione</button></a>

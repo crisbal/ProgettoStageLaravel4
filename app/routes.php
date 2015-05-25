@@ -41,6 +41,7 @@ Route::group(array('prefix' => 'api'), function()
 
 Route::group(array('prefix' => 'amministrazione'), function()
 {
+	Route::get('/', 'AmministrazioneController@menu');
     Route::get('/aggiungiClasse', 'AmministrazioneController@mostraCreaClasse');
 	Route::post('/aggiungiClasse', 'AmministrazioneController@faiCreaClasse');
 
