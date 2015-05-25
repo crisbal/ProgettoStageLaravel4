@@ -19,10 +19,10 @@ active
     <div class="panel-body">
 	    <div class="row">
 	        <div class="col-lg-6 text-center">
-	        	<button class="btn btn-lg btn-primary glyphicon glyphicon-book"><br>Inserisci Aziende</button>
+	        	<a href="{{ action('AmministrazioneController@mostraCreaAziende') }}"><button class="btn btn-lg btn-primary glyphicon glyphicon-briefcase"><br>Inserisci<br>Aziende</button></a>
 	        </div>
 	        <div class="col-lg-6 text-center">
-	        	<button class="btn btn-block btn-primary">Inserisci Aziende</button>
+	        	<a href="{{ action('AmministrazioneController@mostraCreaClasse') }}"><button class="btn btn-lg btn-primary glyphicon glyphicon-user"><br>Inserisci<br>Classe</button></a>
 	        </div>
 	    </div>
     </div>

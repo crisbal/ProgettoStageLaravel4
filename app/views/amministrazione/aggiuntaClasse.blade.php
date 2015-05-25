@@ -23,11 +23,15 @@ active
 	<h3>Articolazione</h3>
 	<select class="form-control" name="articolazione">
 	  <option>Informatica</option>
-	  <option>Meccanica</option>
-	  <option>Elettronica</option>
 	  <option>Telecomunicazioni</option>
-	  <option>Automazione</option>
+	  <option>Informatica e Telecomunicazioni</option>
+	  <option>Meccanica</option>
 	  <option>Meccatronica ed Energia</option>
+	  <option>Meccanica, Meccatronica ed Energia</option>
+	  <option>Elettrotecnica</option>
+	  <option>Automazione</option>
+	  <option>Elettrotecnica e Automazione</option>
+	  <option>Ambiente, Costruzione e Territorio</option>
 	  <option>Liceo Scientifico</option>
 	</select>
 	<h3>Sezione</h3>
@@ -41,6 +45,12 @@ active
 	  <option>G</option>
 	  <option>H</option>
 	  <option>I</option>
+	  <option>J</option>
+	  <option>K</option>
+	  <option>L</option>
+	  <option>M</option>
+	  <option>N</option>
+	  <option>O</option>
 	</select>
 	<h3>File Excel Studenti</h3>
 	<input type="file" name="excel">

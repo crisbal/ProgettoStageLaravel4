@@ -65,8 +65,37 @@ class DocumentiController extends BaseController {
 		
         return 'public/documenti/' . $stage->id . '/convenzione.docx';	
 	}
-	public function generaConvenzioneStage(){
+	public function generaConvenzioneStage($stageId, $studenteId){
 		//todo
+		$stage = Stage::find($stageId);
+
+		$azienda = $stage->azienda;
+		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/modelli/stage/convenzione.docx');
+		//----------------------------STAGE
+		$templateProcessor->setValue('id_stage', htmlspecialchars($stageId));
+	    $templateProcessor->setValue('data_stage', htmlspecialchars($stage->created_at));
+	    //----------------------------AZIENDA
+		$templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
+	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));
+	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
+	    $templateProcessor->setValue('azienda_pIva', htmlspecialchars($azienda->pIva));
+	    $templateProcessor->setValue('azienda_cap', htmlspecialchars($azienda->cap));
+	    $templateProcessor->setValue('azienda_sede_tirocinio', htmlspecialchars($azienda->indirizzoSedeTirocinio));
+	    $templateProcessor->setValue('azienda_citta_tirocinio', htmlspecialchars($azienda->cittaSedeTirocinio));
+
+	    //----------------------------RAPPRESENTANTE LEGALE
+	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($azienda->nomeRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($azienda->cognomeRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_luogoN', htmlspecialchars($azienda->comuneNascitaRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars(date("d/m/Y",strtotime($azienda->dataNascitaRappresLegale))));
+	
+	    if (!file_exists('public/documenti/' . $stage->id . '/')) {
+    		mkdir('public/documenti/' . $stage->id . '/', 0777, true);
+		}
+
+		$templateProcessor->saveAs('public/documenti/' . $stage->id . '/convenzione.docx');
+
+		return 'public/documenti/' . $stage->id . '/convenzione.docx';
 	}
 
 	/*PF*/
