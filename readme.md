@@ -1,8 +1,8 @@
 # TODO
 
 ## Priorità 1
+* Le articolazioni di 4ait sono sbagliate
 * Sistemare nome classe durante upload, evitare che si chiamano allo stesso modo
-* Progetto formativo per alternanza che dipende dall'indirizzo
 * Aggiungere aziende nel foglio excel del preside
 * Sistemare modelli convenzioni e progetti formativi (template, obiettivi, crocette)
 * Foglio per minorenni (lo ha fatto il Sala?)
