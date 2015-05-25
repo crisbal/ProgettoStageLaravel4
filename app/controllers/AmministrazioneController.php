@@ -3,6 +3,11 @@
 class AmministrazioneController extends BaseController {
 
 
+	public function menu(){
+		return View::make("amministrazione/menuAmministrazione");
+	}
+
+
 	public function mostraCreaClasse(){
 
 		return View::make("amministrazione/aggiuntaClasse");
