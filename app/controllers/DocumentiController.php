@@ -180,11 +180,11 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('tutorScuola_cognome', htmlspecialchars($tutorScuola->cognome));
 
 
-	    if(trim($studente->articolazione)[0] == "M" or substr(trim($studente->articolazione), 0, 2) == "ENE") //meccanica ed energia
+	    if(trim($studente->articolazione)[0] == "M" or substr(trim($studente->articolazione), 0, 3) == "ENE") //meccanica ed energia
 	    {
 	    	$obiettivi = "- Saper applicare comportamenti coerenti alle norme infortunistiche, di igiene personale e di sicurezza del lavoro.\n- Saper utilizzare e produrre semplici documentazioni tecniche.\nAttività previste e modalità di svolgimento:\n- Eseguire, sotto la direzione del personale dell’ufficio, semplici operazioni di progettazione con  esecuzione, montaggio e verifica di apparecchiature o manufatti.";
 	    }
-	    else if(substr(trim($studente->articolazione), 0, 2) == "ELE" or trim($studente->articolazione)[0] == "A") //elettronica e automazione
+	    else if(substr(trim($studente->articolazione), 0, 3) == "ELE" or trim($studente->articolazione)[0] == "A") //elettronica e automazione
 	    {
 	    	$obiettivi = "- Sorveglia che i parametri elettrici siano nella norma e predispone manovre per interventi correttivi\n- Utilizza metodi di raccolta, elaborazione ed analisi dei dati\n- Esegue interventi di cablaggio, assemblaggio e messa in servizio di apparecchiature elettriche ed e elettroniche\n- Collauda gli impianti ed i sistemi installati e ne verifica la funzionalità";
 	    }
