@@ -111,8 +111,9 @@ $("#confermaStudenti").click(function(){
                                         '</div>');
             
             $( ".date" ).datepicker({
-                format: 'mm/dd/yyyy',
+                format: 'dd/mm/yyyy',
                 orientation: 'top',
+                language: 'it'
             });
 
             $(".btnCancellaRiga").click(function () {
