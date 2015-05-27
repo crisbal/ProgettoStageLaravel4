@@ -58,7 +58,6 @@ class AziendeController extends BaseController {
 			$nomeTutorAziend = Input::get('nomeTutorAziend');
 			$cognomeTutorAziend = Input::get('cognomeTutorAziend');
 
-
 			$azienda->pIva = $pIva;
 			$azienda->CFA = $CFA;
 			$azienda->denominazione = $denominazione;

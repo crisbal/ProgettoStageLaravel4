@@ -44,7 +44,7 @@ active
 	            	<b>Denominazione</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$azienda->denominazione}}" name="denominazione">
+					      <input type="text" class="form-control" id="" value="{{$azienda->denominazione}}" name="denominazione" required>
 					    </div>
 					  </div>
 
@@ -74,7 +74,7 @@ active
 	            	<b>Partita IVA</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$azienda->pIva}}" name="pIva">
+					      <input type="text" class="form-control" id="" value="{{$azienda->pIva}}" name="pIva" required>
 					    </div>
 					  </div>
 
@@ -110,14 +110,14 @@ active
 	            	<b>Città</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="sedeLegaleCitta" value="{{$azienda->citta}}" name="citta">
+					      <input type="text" class="form-control" id="sedeLegaleCitta" value="{{$azienda->citta}}" name="citta" required>
 					    </div>
 					  </div>
 
 					  <b>Indirizzo</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="sedeLegaleIndirizzo" value="{{$azienda->sedeLegale}}" name="sedeLegale">
+					      <input type="text" class="form-control" id="sedeLegaleIndirizzo" value="{{$azienda->sedeLegale}}" name="sedeLegale" required> 
 					    </div>
 					  </div>
 	            </div>
@@ -125,7 +125,7 @@ active
 	                <b>CAP</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="sedeLegaleCAP" value="{{$azienda->cap}}" name="cap">
+					      <input type="text" class="form-control" id="sedeLegaleCAP" value="{{$azienda->cap}}" name="cap" required>
 					    </div>
 					  </div>
 	            </div>
@@ -143,14 +143,14 @@ active
 	                <b>Citta</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="sedeTirocinioCitta" value="{{$azienda->cittaSedeTirocinio}}" name="cittaSedeTirocinio">
+					      <input type="text" class="form-control" id="sedeTirocinioCitta" value="{{$azienda->cittaSedeTirocinio}}" name="cittaSedeTirocinio" required>
 					    </div>
 					  </div>
 
 					  <b>Indirizzo</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="sedeTirocinioIndirizzo" value="{{$azienda->indirizzoSedeTirocinio}}" name="indirizzoSedeTirocinio">
+					      <input type="text" class="form-control" id="sedeTirocinioIndirizzo" value="{{$azienda->indirizzoSedeTirocinio}}" name="indirizzoSedeTirocinio" required> 
 					    </div>
 					  </div>
 	            </div>
@@ -158,7 +158,7 @@ active
 	            	<b>CAP</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="sedeTirocinioCAP" value="{{$azienda->capSedeTirocinio}}" name="capSedeTirocinio">
+					      <input type="text" class="form-control" id="sedeTirocinioCAP" value="{{$azienda->capSedeTirocinio}}" name="capSedeTirocinio" required>
 					    </div>
 					  </div>
 	            </div>
@@ -176,21 +176,21 @@ active
 	            	<b>Nome</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$azienda->nomeRappresLegale}}" name="nomeRappresLegale">
+					      <input type="text" class="form-control" id="" value="{{$azienda->nomeRappresLegale}}" name="nomeRappresLegale" required>
 					    </div>
 					  </div>
 
 					  <b>Codice Fiscale</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$azienda->CFRappresLegale}}" name="CFRappresLegale">
+					      <input type="text" class="form-control" id="" value="{{$azienda->CFRappresLegale}}" name="CFRappresLegale" required>
 					    </div>
 					  </div>
 
 					  <b>Comune di Nascita</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$azienda->comuneNascitaRappresLegale}}" name="comuneNascitaRappresLegale">
+					      <input type="text" class="form-control" id="" value="{{$azienda->comuneNascitaRappresLegale}}" name="comuneNascitaRappresLegale" required>
 					    </div>
 					  </div>
 	            </div>
@@ -198,14 +198,14 @@ active
 	            	<b>Cognome</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$azienda->cognomeRappresLegale}}" name="cognomeRappresLegale">
+					      <input type="text" class="form-control" id="" value="{{$azienda->cognomeRappresLegale}}" name="cognomeRappresLegale" required>
 					    </div>
 					  </div>
 
 					  <b>Data di Nascita</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$azienda->dataNascitaRappresLegale}}" name="dataNascitaRappresLegale">
+					      <input type="text" class="form-control" id="" value="{{$azienda->dataNascitaRappresLegale}}" name="dataNascitaRappresLegale" required>
 					    </div>
 					  </div>
 	            </div>
@@ -223,7 +223,7 @@ active
 					<b>Nome</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$azienda->nomeTutorAziend}}" name="nomeTutorAziend">
+					      <input type="text" class="form-control" id="" value="{{$azienda->nomeTutorAziend}}" name="nomeTutorAziend" required>
 					    </div>
 					  </div>
 	            </div>
@@ -231,7 +231,7 @@ active
 	            	<b>Cognome</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$azienda->cognomeTutorAziend}}" name="cognomeTutorAziend">
+					      <input type="text" class="form-control" id="" value="{{$azienda->cognomeTutorAziend}}" name="cognomeTutorAziend" required>
 					    </div>
 					  </div>
 	            </div>
