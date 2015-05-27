@@ -170,6 +170,9 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));
 	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
 
+	    $templateProcessor->setValue('azienda_sede_tirocinio', htmlspecialchars($azienda->indirizzoSedeTirocinio));
+	    $templateProcessor->setValue('azienda_citta_tirocinio', htmlspecialchars($azienda->cittaSedeTirocinio));
+
 		//return $azienda;
 	    //---------------------------TUTOR AZIENDA
 	    $templateProcessor->setValue('tutorAzienda_nome', htmlspecialchars($azienda->nomeTutorAziend));

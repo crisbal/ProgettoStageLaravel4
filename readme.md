@@ -1,12 +1,13 @@
 # TODO
 
 ## Priorità 1
-* Le articolazioni di 4ait sono sbagliate  --> le articolazioni servono?
-* Sistemare nome classe durante upload, evitare che si chiamino allo stesso modo
+* Sistemare nome classe durante upload, evitare che si chiamano allo stesso modo
 * Aggiungere aziende nel foglio excel del preside
-* Sistemare modelli convenzioni e progetti formativi (template, obiettivi, crocette)
+* Sistemare modelli progetti formativi (template, obiettivi, crocette)
 * Foglio per minorenni (lo ha fatto il Sala?)
 * config responsabile funzione sperimentale
+* mettere controllo dati necessari da inserire nell'azienda
+* promozione classi
 
 ### Priorità 2
 * Sistemare amministrazione
