@@ -112,6 +112,7 @@ $("#confermaStudenti").click(function(){
             
             $( ".date" ).datepicker({
                 format: 'mm/dd/yyyy',
+                orientation: 'top',
             });
 
             $(".btnCancellaRiga").click(function () {
