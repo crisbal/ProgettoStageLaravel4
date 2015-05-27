@@ -101,7 +101,7 @@ $("#confermaStudenti").click(function(){
                                                         '<th>Data Inizio</th> <th>Data Fine</th> <th>Elimina</th>' +
                                                     '</tr>' +
                                                     '<tr>' +
-                                                        '<td><input type="date" required class="dataInizio" /></td> <td><input type="date" required class="dataFine" /></td> <td><button title="Elimina Periodo" class="btn btn-default glyphicon glyphicon-trash btnCancellaRiga"></button></td>' +
+                                                        '<td><input type="text" required class="date dataInizio" /></td> <td><input type="text" required class="date dataFine" /></td> <td><button title="Elimina Periodo" class="btn btn-default glyphicon glyphicon-trash btnCancellaRiga"></button></td>' +
                                                     '</tr>' +
                                                 '</table>' +
                                                 '<div class="pull-right">' +
@@ -109,6 +109,10 @@ $("#confermaStudenti").click(function(){
                                                 '</div>' +
                                             '</div>' +
                                         '</div>');
+            
+            $( ".date" ).datepicker({
+                format: 'mm/dd/yyyy',
+            });
 
             $(".btnCancellaRiga").click(function () {
                 $(this).parent().parent().remove(); 
@@ -175,8 +179,8 @@ $("#btnCreaStage").click(function() {
         aDateFine = [];
 
         for(j=0;j< $(dateInizio).length;j++){
-            aDateInizio.push($(dateInizio[j]).val());
-            aDateFine.push($(dateFine[j]).val());
+            aDateInizio.push($(dateInizio[j]).data('datepicker').getFormattedDate('yyyy-mm-dd'));
+            aDateFine.push($(dateFine[j]).data('datepicker').getFormattedDate('yyyy-mm-dd'));
         }
         
         data.studenti.push({

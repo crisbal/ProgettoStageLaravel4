@@ -189,4 +189,6 @@ active
     urlPost = "{{ action('StageController@faiNuovoProgetto') }}";
 </script>
 <script src="js/nuovoProgetto.js"></script>
+<script src="js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="js/bootstrap-datepicker3.min.css">
 @endsection
