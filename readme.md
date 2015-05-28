@@ -18,6 +18,7 @@
 
 #### Priorità 3
 * Sistemare grafica in generale logo badoni
+* L'upload da excel termina dopo max 60 secondi --> togliere questo limite (se ci sono tante aziende non riesce a caricarle)
 
 ##### Priorità 4
 * Vista per promuovere studenti
