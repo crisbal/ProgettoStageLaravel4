@@ -26,7 +26,7 @@ active
   </div>
   <br>
   
-  <h3 id="titolo" style="text-align:center;"></h3>
+  <h3 id="titolo" style="text-align:center;">SCEGLI UNA CATEGORIA</h3>
 
   <br>
 
@@ -38,109 +38,184 @@ active
             <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#pannelloStageInvernali" href="#invernaliInCorso">STAGE INVERNALI IN CORSO</a>
           </div>
       </div>
-    </div>
-    <div id="invernaliInCorso" class="panel-collapse collapse" style="padding: 0.5em 1em;">
+      <div id="invernaliInCorso" class="panel-collapse collapse" style="padding: 0.5em 1em;">
         <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Numero</th>
-              <th>Azienda</th>
-              <th>Settore</th>
-              <th>Dettagli</th>
-            </tr>
-          </thead>
-          @foreach($stages as $stage)
-          @if(strpos($stage->tipo,'nvern') !== false)
-            <tr>
+        <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Azienda</th>
+            <th>Settore</th>
+            <th>Dettagli</th>
+          </tr>
+        </thead>
+        @foreach($stages as $stage)
+        @if(strpos($stage->tipo,'nvern') !== false AND $stage->archiviato == 0)
+          <tr>
+            <td>{{ $stage->numero }}</td>
+            <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->denominazione)}}</td>
+            <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->settore) }}</td>
+            <td><a href="{{ action('StageController@mostraStage',$stage->id)}}">Dettagli Stage</a></td>
+          </tr>
+        @endif
+        @endforeach
+      </table>
+    </div>
+  </div>
+    <br>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#pannelloStageInvernali" href="#invernaliArchiviati">STAGE INVERNALI ARCHIVIATI</a>
+          </div>
+        </div>
+        <div id="invernaliArchiviati" class="panel-collapse collapse" style="padding: 0.5em 1em;">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Numero</th>
+                <th>Azienda</th>
+                <th>Settore</th>
+                <th>Dettagli</th>
+              </tr>
+            </thead>
+            @foreach($stages as $stage)
+            @if(strpos($stage->tipo,'nvern') !== false AND $stage->archiviato == 1)
+              <tr>
+                <td>{{ $stage->numero }}</td>
+                <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->denominazione)}}</td>
+                <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->settore) }}</td>
+                <td><a href="{{ action('StageController@mostraStage',$stage->id)}}">Dettagli Stage</a></td>
+              </tr>
+            @endif
+            @endforeach
+          </table>
+        </div>
+    </div>
+</div>
+
+<!-- ........................ALTERNANZE COLLAPSE FATTO............................... -->
+<div class="panel-group" id="pannelloAlternanze">
+  <div class="panel panel-info">
+      <div class="panel-heading">
+          <div class="panel-title">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#pannelloAlternanze" href="#alternanzeInCorso">ALTERNANZE IN CORSO</a>
+          </div>
+      </div>
+      <div id="alternanzeInCorso" class="panel-collapse collapse" style="padding: 0.5em 1em;">
+        <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Azienda</th>
+            <th>Settore</th>
+            <th>Dettagli</th>
+          </tr>
+        </thead>
+        @foreach($stages as $stage)
+        @if(strpos($stage->tipo,'lternanz') !== false AND $stage->archiviato == 0)
+          <tr>
+            <td>{{ $stage->numero }}</td>
+            <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->denominazione)}}</td>
+            <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->settore) }}</td>
+            <td><a href="{{ action('StageController@mostraStage',$stage->id)}}">Dettagli Stage</a></td>
+          </tr>
+        @endif
+        @endforeach
+      </table>
+    </div>
+  </div>
+  <br>
+  <div class="panel panel-success">
+      <div class="panel-heading">
+          <div class="panel-title">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#pannelloAlternanze" href="#alternanzeArchiviate">ALTERNANZE ARCHIVIATE</a>
+          </div>
+      </div>
+      <div id="alternanzeArchiviate" class="panel-collapse collapse" style="padding: 0.5em 1em;">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Azienda</th>
+            <th>Settore</th>
+            <th>Dettagli</th>
+          </tr>
+        </thead>
+        @foreach($stages as $stage)
+          @if(strpos($stage->tipo,'lternanz') !== false and $stage->archiviato == 1)
+          <tr>
               <td>{{ $stage->numero }}</td>
               <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->denominazione)}}</td>
               <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->settore) }}</td>
               <td><a href="{{ action('StageController@mostraStage',$stage->id)}}">Dettagli Stage</a></td>
-            </tr>
+          </tr>
           @endif
-          @endforeach
+        @endforeach
+      </table>
+      </div>
+  </div>
+</div>
+
+<!-- ........................STAGE ESTIVI COLLAPSE FATTO............................. -->
+<div class="panel-group" id="pannelloStageEstivi">
+  <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#pannelloStageEstivi" href="#estiviInCorso">STAGE ESTIVI IN CORSO</a>
+        </div>
+      </div>
+      <div id="estiviInCorso" class="panel-collapse collapse" style="padding: 0.5em 1em;">
+      
+        <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Azienda</th>
+            <th>Settore</th>
+            <th>Dettagli</th>
+          </tr>
+        </thead>
+        @foreach($stages as $stage)
+        @if(strpos($stage->tipo,'stiv') !== false and $stage->archiviato == 0)
+          <tr>
+            <td>{{ $stage->numero }}</td>
+            <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->denominazione)}}</td>
+            <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->settore) }}</td>
+            <td><a href="{{ action('StageController@mostraStage',$stage->id)}}">Dettagli Stage</a></td>
+          </tr>
+        @endif
+        @endforeach
       </table>
     </div>
-    <br>
-    <div class="panel panel-danger">
-        <div class="panel-heading">
-          <div class="panel-title">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#pannelloStageInvernali" href="#invernaliTerminati">STAGE INVERNALI TERMINATI</a>
-          </div>
+  </div>
+  <br>
+  <div class="panel panel-success">
+      <div class="panel-heading">
+        <div class="panel-title">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#pannelloStageEstivi" href="#estiviArchiviati">STAGE ESTIVI ARCHIVIATI</a>
         </div>
-        <div id="invernaliTerminati" class="panel-collapse collapse" style="padding: 0.5em 1em;">
-        LOREM IPSUM
-        </div>
-    </div>
-</div>
-
-
-<!-- ........................ALTERNANZE MANCA COLLAPSE............................... -->
-<div id="pannelloAlternanze">
-  <div class="panel panel-info">
-      <div class="panel-heading">
-      ALTERNANZE IN CORSO
       </div>
-      <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Numero</th>
-          <th>Azienda</th>
-          <th>Settore</th>
-          <th>Dettagli</th>
-        </tr>
-      </thead>
-      @foreach($stages as $stage)
-      @if(strpos($stage->tipo,'lternanz') !== false)
-        <tr>
-          <td>{{ $stage->numero }}</td>
-          <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->denominazione)}}</td>
-          <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->settore) }}</td>
-          <td><a href="{{ action('StageController@mostraStage',$stage->id)}}">Dettagli Stage</a></td>
-        </tr>
-      @endif
-      @endforeach
-    </table>
-  </div>
-
-  <div class="panel panel-danger">
-      <div class="panel-heading">
-      ALTERNANZE TERMINATE
-      </div>
-  </div>
-</div>
-
-<!-- ........................STAGE ESTIVI MANCA COLLAPSE............................. -->
-<div id="pannelloStageEstivi">
-  <div class="panel panel-info">
-      <div class="panel-heading">
-      STAGE ESTIVI IN CORSO
-      </div>
-      <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Numero</th>
-          <th>Azienda</th>
-          <th>Settore</th>
-          <th>Dettagli</th>
-        </tr>
-      </thead>
-      @foreach($stages as $stage)
-      @if(strpos($stage->tipo,'stiv') !== false)
-        <tr>
-          <td>{{ $stage->numero }}</td>
-          <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->denominazione)}}</td>
-          <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->settore) }}</td>
-          <td><a href="{{ action('StageController@mostraStage',$stage->id)}}">Dettagli Stage</a></td>
-        </tr>
-      @endif
-      @endforeach
-    </table>
-  </div>
-
-  <div class="panel panel-danger">
-      <div class="panel-heading">
-      STAGE ESTIVI TERMINATI
+      <div id="estiviArchiviati" class="panel-collapse collapse" style="padding: 0.5em 1em;">
+        <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Azienda</th>
+            <th>Settore</th>
+            <th>Dettagli</th>
+          </tr>
+        </thead>
+          @foreach($stages as $stage)
+          @if(strpos($stage->tipo,'stiv') !== false and $stage->archiviato == 1)
+          <tr>
+              <td>{{ $stage->numero }}</td>
+              <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->denominazione)}}</td>
+              <td style="text-transform:capitalize;">{{ strtolower($stage->azienda->settore) }}</td>
+              <td><a href="{{ action('StageController@mostraStage',$stage->id)}}">Dettagli Stage</a></td>
+          </tr>
+          @endif
+          @endforeach
+        </table>
       </div>
   </div>
 </div>

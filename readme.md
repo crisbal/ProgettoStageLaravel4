@@ -5,7 +5,6 @@
 * Modificare progetto formativo stage
 * Sistemare locazione modelli
 * Aggiungere LOGIN (https)
-* Finire nuova home (localhost:8000/beta)
 * Aggiungere filtri per le route (non permettere agli utenti base di accedere via URL alle pagine di amministrazione)
 * Sistemare nome classe durante upload, evitare che si chiamano allo stesso modo
 * Sistemare modelli progetti formativi (template, obiettivi, crocette)
@@ -30,6 +29,19 @@
 
 ##### SEGRETERIA 
 * Impossibile sincronizzare git perchè i file hanno un altro percorso in segreteria (se si fa il pull non funziona più)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ##### Cartella condivisa che faranno preside, segreteria, tutor, ....
