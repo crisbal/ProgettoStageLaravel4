@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/beta', 'StageController@beta');
-
-
+//Route::get('/beta', 'StageController@beta');
 Route::get('/', 'StageController@index');
 
 Route::get('/progetto', 'StageController@mostraNuovoProgetto');
