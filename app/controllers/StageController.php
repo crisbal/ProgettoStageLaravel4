@@ -7,7 +7,7 @@ class StageController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function beta()
 	{
 		$stages = Stage::orderBy('id','DESC')->get();
     	return  View::make("progetto/listaProgetti")->with("stages",$stages);
@@ -87,5 +87,12 @@ class StageController extends BaseController {
 		}
 
 		return Redirect::action("StageController@mostraStage",array($stage->id));
+	}
+
+	//----------------HOMEPAGE NUOVA
+
+	public function index(){
+		$stages = Stage::orderBy('id','DESC')->get();
+		return  View::make("progetto/listaProgettiBeta")->with("stages",$stages);
 	}
 }
