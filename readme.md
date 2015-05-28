@@ -1,13 +1,11 @@
 # TODO
 
 ## Priorità 1
-* Modificare convenzione stage -> togliere studente
 * Modificare progetto formativo stage
 * Sistemare locazione modelli
 * Aggiungere LOGIN (https)
 * Aggiungere filtri per le route (non permettere agli utenti base di accedere via URL alle pagine di amministrazione)
 * Sistemare nome classe durante upload, evitare che si chiamano allo stesso modo
-* Sistemare modelli progetti formativi (template, obiettivi, crocette)
 * Foglio per minorenni (lo ha fatto il Sala?)
 * config responsabile funzione sperimentale
 * promozione classi
