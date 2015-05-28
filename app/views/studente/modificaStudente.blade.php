@@ -32,7 +32,7 @@ active
 					<b>Nome</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->nome}}" name="nome">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->nome}}" name="nome" required>
 					    </div>
 					</div>
 
@@ -46,14 +46,14 @@ active
 					<b>Data di Nascita</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->dataNascita}}" name="dataNascita">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->dataNascita}}" name="dataNascita" required>
 					    </div>
 					</div>
 
 					<b>Indirizzo</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->indirizzo}}" name="indirizzo">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->indirizzo}}" name="indirizzo" required>
 					    </div>
 					</div>
 
@@ -69,28 +69,28 @@ active
 					<b>Cognome</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->cognome}}" name="cognome">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->cognome}}" name="cognome" required>
 					    </div>
 					</div>
 
 					<b>Codice Fiscale</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->CF}}" name="CF">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->CF}}" name="CF" required>
 					    </div>
 					</div>
 
 					<b>Comune di Nascita</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->comuneNascita}}" name="comuneNascita">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->comuneNascita}}" name="comuneNascita" required>
 					    </div>
 					</div>
 
 					<b>Comune di Residenza</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->comuneResidenza}}" name="comuneResidenza">
+					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->comuneResidenza}}" name="comuneResidenza" required>
 					    </div>
 					</div>
 	            </div>

@@ -43,6 +43,9 @@ active
                 <b>CAP</b>
                 <p>{{$stage->azienda->cap}}</p>
 
+                <b>Citta'</b>
+                <p>{{$stage->azienda->citta}}</p>
+
               </div>
             </div>
       </div>
