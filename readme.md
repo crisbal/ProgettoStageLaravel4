@@ -2,6 +2,7 @@
 
 ## Priorità 1
 * Modificare progetto formativo stage
+* Quando si aggiungono periodi non compare + il picker
 * Sistemare locazione modelli
 * Aggiungere LOGIN (https)
 * Aggiungere filtri per le route (non permettere agli utenti base di accedere via URL alle pagine di amministrazione)
