@@ -1,11 +1,11 @@
 # TODO
 
 ## Priorità 1
+* aggiungere bottone per scaricare appendice minorenni sotto il progetto formativo
 * Sistemare locazione modelli
 * Aggiungere LOGIN (https) <--- no
 * Aggiungere filtri per le route (non permettere agli utenti base di accedere via URL alle pagine di amministrazione)
 * Sistemare nome classe durante upload, evitare che si chiamano allo stesso modo
-* Foglio per minorenni (lo ha fatto il Sala?)
 * config responsabile funzione sperimentale
 * promozione classi
 
