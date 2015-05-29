@@ -14,13 +14,13 @@ active
   <div class="panel-body">
       <div class="row">
           <div class="col-lg-4 text-center">
-            <button id="sInvernali" class="btn btn-lg btn-primary glyphicon glyphicon-education" style="width:200px; height:200px; font-size:1.5em;"><br>Stage<br>Invernali</button>
+            <button id="sInvernali" class="btn btn-lg btn-primary glyphicon glyphicon-asterisk" style="width:200px; font-size:1.5em;"><br>Stage<br>Invernali</button>
           </div>
           <div class="col-lg-4 text-center">
-            <button id="alternanze" class="btn btn-lg btn-primary glyphicon glyphicon-home" style="width:200px; height:200px; font-size:1.5em;"><br>Alternanze<br>Scuola-Lavoro</button>
+            <button id="alternanze" class="btn btn-lg btn-primary glyphicon glyphicon-home" style="width:200px; font-size:1.5em;"><br>Alternanze<br>Scuola-Lavoro</button>
           </div>
           <div class="col-lg-4 text-center">
-            <button id="sEstivi" class="btn btn-lg btn-primary glyphicon glyphicon-certificate" style="width:200px; height:200px; font-size:1.5em;"><br>Stage<br>Estivi</button>
+            <button id="sEstivi" class="btn btn-lg btn-primary glyphicon glyphicon-certificate" style="width:200px; font-size:1.5em;"><br>Stage<br>Estivi</button>
           </div>
       </div>
   </div>

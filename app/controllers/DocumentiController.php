@@ -81,11 +81,9 @@ class DocumentiController extends BaseController {
 			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/modelli/stage/convenzione_invernale.docx');	
 		//----------------------------STAGE
 		$templateProcessor->setValue('id_stage', htmlspecialchars($stage->numero));
-<<<<<<< HEAD
-	    $templateProcessor->setValue('data_stage', htmlspecialchars($stage->created_at));
-=======
+
+
 	    $templateProcessor->setValue('data_stage', htmlspecialchars(date("d/m/Y",strtotime($stage->created_at))));
->>>>>>> e5180797685593434dc1d6f0e7609c41bdf954d1
 	    //----------------------------AZIENDA
 		$templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
 	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));

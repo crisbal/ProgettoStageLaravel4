@@ -12,7 +12,11 @@
 */
 
 //Route::get('/beta', 'StageController@beta');
-Route::get('/', 'StageController@index');
+Route::get('/home', 'StageController@index');
+Route::get('/', function()
+{
+    		return View::make("login");
+});
 
 Route::get('/progetto', 'StageController@mostraNuovoProgetto');
 Route::post('/progetto', 'StageController@faiNuovoProgetto');

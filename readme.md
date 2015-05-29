@@ -3,7 +3,7 @@
 ## Priorità 1
 * Modificare progetto formativo stage
 * Sistemare locazione modelli
-* Aggiungere LOGIN (https)
+* Aggiungere LOGIN (https) <--- no
 * Aggiungere filtri per le route (non permettere agli utenti base di accedere via URL alle pagine di amministrazione)
 * Sistemare nome classe durante upload, evitare che si chiamano allo stesso modo
 * Foglio per minorenni (lo ha fatto il Sala?)
