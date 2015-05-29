@@ -10,7 +10,7 @@ active
 @endsection
 
 @section('content')
-  <a href="{{ action('StageController@mostraNuovoProgetto') }}"><button type="button" class="btn btn-default btn-lg" style="width:100%;margin-bottom:1em">Nuovo Progetto</button></a>
+  <a href="{{ action('StageController@mostraNuovoProgetto') }}"><button type="button" class="btn btn-info btn-lg" style="width:100%;margin-bottom:1em">Nuovo Progetto</button></a>
   <div class="panel-body">
       <div class="row">
           <div class="col-lg-4 text-center">

@@ -123,13 +123,19 @@ $("#confermaStudenti").click(function(){
             $(".btnAggiungiRiga").off('click');
             $(".btnAggiungiRiga").click(function(){
                 $(this).parent().parent().find('table').append('<tr>  \
-                                                                    <td><input type="date" required class="dataInizio" /></td>  \
-                                                                    <td><input type="date" required class="dataFine" /></td>  \
+                                                                    <td><input type="text" required class=" date dataInizio" /></td>  \
+                                                                    <td><input type="text" required class="date dataFine" /></td>  \
                                                                     <td><button title="Elimina Periodo" class="btn btn-default glyphicon glyphicon-trash btnCancellaRiga"></button></td>  \
                                                                     </tr> ');
                 console.log("here");
                 $(".btnCancellaRiga").click(function () {
                     $(this).parent().parent().remove(); 
+                });
+
+                $( ".date" ).datepicker({
+                    format: 'dd/mm/yyyy',
+                    orientation: 'top',
+                    language: 'it'
                 });
             });
         });

@@ -17,11 +17,21 @@
 
     <style>
     body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eee;
-    }
+    padding-top: 2em;
+    background-color: whitesmoke;
+    text-align: center;
+}
 
+    .container{
+        display: inline-block;
+        text-align: center;
+        background-color: white;
+        padding: 2em;
+        border: 1px solid gray;
+        border-radius: 15px;
+
+        width: auto;
+    }
     .form-signin {
     max-width: 330px;
     padding: 15px;
@@ -62,18 +72,16 @@
   </head>
 
   <body>
-      <div class="text-center" style="background-color:#D5E6FF;">
+    <div class="container">
+      <div class="text-center" style=";">
         <br>
         <h1 style="color:#024389; font-size:4em;">AGAS</h1>
         <h3 ><span style="color:#186AC2;">A</span>utomazione <span style="color:#186AC2;">G</span>estione <span style="color:#186AC2;">A</span>lternanze e <span style="color:#186AC2;">S</span>tage</h3>
         <br>
       </div>
-    <div class="container">
-      
-      <form class="form-signin">
-        <h2 class="form-signin-heading text-center">Esegui il Login</h2>
+      <form class="form-signin" method="GET" action="/home">
         <label for="inputEmail" class="sr-only">Nome Utente</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Nome Utente" required autofocus>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Nome Utente" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <div class="checkbox">
@@ -81,7 +89,7 @@
             <input type="checkbox" value="remember-me"> Ricorda i miei dati
           </label>
         </div>
-        <a href="{{ action('StageController@index')}}" style="text-decoration:none"><button class="btn btn-lg btn-primary btn-block" type="button"><span class="glyphicon glyphicon-lock"></span> Login sicuro</button></a>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-lock"></span> Login sicuro</button>
       </form>
 
     </div> <!-- /container -->

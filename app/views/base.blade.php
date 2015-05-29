@@ -19,11 +19,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">IIS A. Badoni</a>
+        <a class="navbar-brand" href="/home">AGAS - IIS Badoni</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="@yield('navProgetto')"><a href="{{ action('StageController@index')}}">Progetti</a></li>
+          <li class="@yield('navProgetto')"><a href="/home">Progetti</a></li>
           <li class="@yield('navAziende')"><a href="{{ action('AziendeController@mostraAziende')}}">Aziende</a></li>
           <li class="@yield('navStudenti')"><a href="{{ action('StudentiController@mostraStudenti')}}">Alunni</a></li>
         </ul>

@@ -9,7 +9,7 @@ class DocumentiController extends BaseController {
 
 
 */
-	private $path = '/home/progettoStage/documenti/modelli/';
+	private $path = 'documenti/modelli/';
 
 	/*Convenzioni*/
 	public function faiDownloadConvenzione($stageId,$studenteId){
