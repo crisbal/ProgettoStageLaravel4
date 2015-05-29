@@ -2,7 +2,7 @@
 
 class DocumentiController extends BaseController {
 
-
+	private $path = 'documenti/modelli/';
 
 	/*Convenzioni*/
 	public function faiDownloadConvenzione($stageId,$studenteId){
@@ -45,7 +45,7 @@ class DocumentiController extends BaseController {
 
 		$azienda = $stage->azienda;
 
-		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/modelli/alternanza/convenzione.docx');
+		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'alternanza/convenzione.docx');
 		//----------------------------STAGE
 		$templateProcessor->setValue('id_stage', htmlspecialchars($stage->numero));
 	    $templateProcessor->setValue('data_stage', htmlspecialchars(date("d/m/Y",strtotime($stage->created_at))));
@@ -76,16 +76,12 @@ class DocumentiController extends BaseController {
 
 		$azienda = $stage->azienda;
 		if(strpos($stage->tipo,'Estivo') !== false)
-			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/modelli/stage/convenzione_estivo.docx');
+			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'stage/convenzione_estivo.docx');
 		else
-			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/modelli/stage/convenzione_invernale.docx');	
+			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'stage/convenzione_invernale.docx');	
 		//----------------------------STAGE
 		$templateProcessor->setValue('id_stage', htmlspecialchars($stage->numero));
-<<<<<<< HEAD
-	    $templateProcessor->setValue('data_stage', htmlspecialchars($stage->created_at));
-=======
 	    $templateProcessor->setValue('data_stage', htmlspecialchars(date("d/m/Y",strtotime($stage->created_at))));
->>>>>>> e5180797685593434dc1d6f0e7609c41bdf954d1
 	    //----------------------------AZIENDA
 		$templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
 	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));
@@ -152,7 +148,7 @@ class DocumentiController extends BaseController {
 
 		$tutorScuola = $stage->tutorScuola;
 
-		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('documenti/progettoFormativo.docx');
+		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'alternanza/progettoFormativo.docx');
 		//----------------------------STAGE	   
 	    $templateProcessor->setValue('id_stage', htmlspecialchars($stage->numero));
 	    $templateProcessor->setValue('data_stage', htmlspecialchars(date("d/m/Y",strtotime($stage->created_at))));
@@ -238,5 +234,92 @@ class DocumentiController extends BaseController {
 		return $nomeFile;
 	}
 
-	public function generaProgettoFormativoStage(){}
+//***********************PROGETTO FORMATIVO STAGE********************
+	public function generaProgettoFormativoStage($stageId,$studenteId){
+
+		$stage = Stage::find($stageId);
+
+		$azienda = $stage->azienda;
+
+		$studente = Studente::find($studenteId);
+
+		$tutorScuola = $stage->tutorScuola;
+
+		/*
+
+		*/
+
+		if(strpos($stage->tipo,'Estivo') !== false)
+			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'stage/progetto_formativo_estate.docx');
+		else
+			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'stage/progetto_formativo_invernale.docx');	
+
+		//----------------------------STAGE	   
+	    $templateProcessor->setValue('stage_numero', htmlspecialchars($stage->numero));
+	    $data = htmlspecialchars(date("d/m/Y",strtotime($stage->created_at)));
+	    $templateProcessor->setValue('data_stage', $data);
+
+	    //----------------------------STUDENTE
+	    $templateProcessor->setValue('nome_studente', htmlspecialchars($studente->nome));
+	    $templateProcessor->setValue('cognome_studente', htmlspecialchars($studente->cognome));
+	    $templateProcessor->setValue('comuneN_studente', htmlspecialchars($studente->comuneNascita));
+	    $templateProcessor->setValue('dataN_studente', htmlspecialchars(date("d/m/Y",strtotime($studente->dataNascita))));
+	    $templateProcessor->setValue('comuneR_studente', htmlspecialchars($studente->comuneResidenza));
+	    $templateProcessor->setValue('indirizzo_studente', htmlspecialchars($studente->indirizzo));
+	    $templateProcessor->setValue('cf_studente', htmlspecialchars($studente->CF));
+	    $templateProcessor->setValue('studente_articolazione', htmlspecialchars($studente->articolazione));
+
+	    //----------------------------AZIENDA
+	    $templateProcessor->setValue('azienda_denominazione', htmlspecialchars($azienda->denominazione));
+	    $templateProcessor->setValue('azienda_sede_legale', htmlspecialchars($azienda->sedeLegale));
+	    $templateProcessor->setValue('azienda_citta', htmlspecialchars($azienda->citta));
+	    $templateProcessor->setValue('azienda_cap', htmlspecialchars($azienda->cap));
+	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($azienda->nomeRappresLegale));
+	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($azienda->cognomeRappresLegale));
+	    $templateProcessor->setValue('azienda_telefono', htmlspecialchars($azienda->telefono));
+	    $templateProcessor->setValue('azienda_email', htmlspecialchars($azienda->email));
+	    $templateProcessor->setValue('azienda_settore', htmlspecialchars($azienda->settore));
+	    $templateProcessor->setValue('azienda_pIva', htmlspecialchars($azienda->pIva));
+	    $templateProcessor->setValue('azienda_CFA', htmlspecialchars($azienda->CFA));
+
+	    $templateProcessor->setValue('azienda_sede_tirocinio', htmlspecialchars($azienda->indirizzoSedeTirocinio));
+	    $templateProcessor->setValue('azienda_citta_tirocinio', htmlspecialchars($azienda->cittaSedeTirocinio));
+
+		//return $azienda;
+	    //---------------------------TUTOR AZIENDA
+	    $templateProcessor->setValue('tutorAzienda_nome', htmlspecialchars($azienda->nomeTutorAziend));
+	    $templateProcessor->setValue('tutorAzienda_cognome', htmlspecialchars($azienda->cognomeTutorAziend));
+
+	    //---------------------------TUTOR SCUOLA
+	    $templateProcessor->setValue('tutorScuola_nome', htmlspecialchars($tutorScuola->nome));
+	    $templateProcessor->setValue('tutorScuola_cognome', htmlspecialchars($tutorScuola->cognome));
+
+
+	    //---------------------------PERIODI
+	    $partecipazione = PartecipazioneStage::where('stage_id', '=', $stageId)->where('studente_id', '=', $studenteId)->firstOrFail();
+	    
+	    $periodi = $partecipazione->periodi;
+
+        $strPeriodo = "";
+        foreach ($periodi as $periodo) {
+            $strPeriodo = $strPeriodo . "Dal " . htmlspecialchars(date("d/m/Y",strtotime($periodo["dataInizio"]))) . " al " . htmlspecialchars(date("d/m/Y",strtotime($periodo["dataFine"]))) . " \n"; 
+        }
+
+        $templateProcessor->setValue('periodo', $strPeriodo);
+
+        // nei nomi e cognomi si eliminano accenti e apostrofi
+        $studente->cognome = str_replace("'", "", str_replace("\"", "", $studente->cognome));
+        $studente->nome = str_replace("'", "", str_replace("\"", "", $studente->nome));
+        
+        $nomeFile = 'public/documenti/' . $stage->id . '/progettoFormativo-' . $studente->cognome ."-". $studente->nome. '.docx';
+       
+        if (!file_exists('public/documenti/' . $stage->id . '/')) {
+    		mkdir('public/documenti/' . $stage->id . '/', 0777, true);
+		}
+
+	    $templateProcessor->saveAs($nomeFile);
+
+
+		return $nomeFile;
+	}
 }
