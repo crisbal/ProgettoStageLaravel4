@@ -43,6 +43,8 @@ class DatabaseSeeder extends Seeder {
 
         $this->call('ConfigTableSeeder');
         $this->command->info('Config table seeded!');
+        $this->call('UsersTableSeeder');
+        $this->command->info('Users table seeded!');
     }
 
 }
@@ -57,6 +59,15 @@ class ClasseTableSeeder extends Seeder {
 
 }
 
+class UsersTableSeeder extends Seeder {
+
+    public function run()
+    {
+        User::create(['username' => 'segreteria', 'password' => Hash::make('badonistage')]);
+        User::create(['username' => 'amministrazione', 'password' => Hash::make('badonistageamministrazione')]);
+    }
+
+}
 
 class StudentiTableSeeder extends Seeder {
 

@@ -79,11 +79,11 @@
         <h3 ><span style="color:#186AC2;">A</span>utomazione <span style="color:#186AC2;">G</span>estione <span style="color:#186AC2;">A</span>lternanze e <span style="color:#186AC2;">S</span>tage</h3>
         <br>
       </div>
-      <form class="form-signin" method="GET" action="/home">
+      <form class="form-signin" method="post" action="{{action('LoginController@faiLogin')}}">
         <label for="inputEmail" class="sr-only">Nome Utente</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="Nome Utente" required autofocus>
+        <input name="username" type="text" id="inputEmail" class="form-control" placeholder="Nome Utente" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Ricorda i miei dati
