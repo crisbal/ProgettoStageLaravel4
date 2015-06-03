@@ -19,16 +19,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/home">AGAS - IIS Badoni</a>
+        <a class="navbar-brand" href="/">AGAS - IIS Badoni</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="@yield('navProgetto')"><a href="/home">Progetti</a></li>
+          <li class="@yield('navProgetto')"><a href="/">Progetti</a></li>
           <li class="@yield('navAziende')"><a href="{{ action('AziendeController@mostraAziende')}}">Aziende</a></li>
           <li class="@yield('navStudenti')"><a href="{{ action('StudentiController@mostraStudenti')}}">Alunni</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="@yield('navAmministrazione')"><a style="font-size:1.5em" class="glyphicon glyphicon-cog" href="{{ action('AmministrazioneController@menu')}}"></a></li>
+          <li><a href="/logout"><button class="btn btn-primary">Logout</button></a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
