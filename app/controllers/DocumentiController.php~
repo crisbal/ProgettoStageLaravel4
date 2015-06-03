@@ -55,6 +55,8 @@ class DocumentiController extends BaseController {
 
 		$azienda = $stage->azienda;
 
+return $this->path . 'alternanza/convenzione.docx';
+
 		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'alternanza/convenzione.docx');
 		//----------------------------STAGE
 		$templateProcessor->setValue('id_stage', htmlspecialchars($stage->numero));
@@ -193,6 +195,7 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('azienda_sede_tirocinio', htmlspecialchars($azienda->indirizzoSedeTirocinio));
 	    $templateProcessor->setValue('azienda_citta_tirocinio', htmlspecialchars($azienda->cittaSedeTirocinio));
 
+		//return $azienda;
 	    //---------------------------TUTOR AZIENDA
 	    $templateProcessor->setValue('tutorAzienda_nome', htmlspecialchars($azienda->nomeTutorAziend));
 	    $templateProcessor->setValue('tutorAzienda_cognome', htmlspecialchars($azienda->cognomeTutorAziend));
@@ -264,7 +267,9 @@ class DocumentiController extends BaseController {
 
 		$tutorScuola = $stage->tutorScuola;
 
-	
+		/*
+
+		*/
 
 		if(strpos($stage->tipo,'Estivo') !== false)
 			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'stage/progetto_formativo_estate.docx');
@@ -302,6 +307,7 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('azienda_sede_tirocinio', htmlspecialchars($azienda->indirizzoSedeTirocinio));
 	    $templateProcessor->setValue('azienda_citta_tirocinio', htmlspecialchars($azienda->cittaSedeTirocinio));
 
+		//return $azienda;
 	    //---------------------------TUTOR AZIENDA
 	    $templateProcessor->setValue('tutorAzienda_nome', htmlspecialchars($azienda->nomeTutorAziend));
 	    $templateProcessor->setValue('tutorAzienda_cognome', htmlspecialchars($azienda->cognomeTutorAziend));
