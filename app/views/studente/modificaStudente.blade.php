@@ -32,35 +32,35 @@ active
 					<b>Nome</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->nome}}" name="nome" required>
+					      <input type="text" class="form-control"  value="{{$studente->nome}}" name="nome" required>
 					    </div>
 					</div>
 
 					<b>Matricola</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->matricola}}" name="matricola">
+					      <input type="text" class="form-control"  value="{{$studente->matricola}}" name="matricola">
 					    </div>
 					</div>
 
 					<b>Data di Nascita</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->dataNascita}}" name="dataNascita" required>
+					      <input type="text" class="form-control"  value="{{$studente->dataNascita}}" name="dataNascita" required>
 					    </div>
 					</div>
 
 					<b>Indirizzo</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->indirizzo}}" name="indirizzo" required>
+					      <input type="text" class="form-control"  value="{{$studente->indirizzo}}" name="indirizzo" required>
 					    </div>
 					</div>
 
 					<b>Articolazione</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->articolazione}}" name="articolazione">
+					      <input type="text" required class="form-control" id="articolazione" value="{{$studente->articolazione}}" name="articolazione">
 					    </div>
 					</div>
 	            </div>
@@ -69,28 +69,40 @@ active
 					<b>Cognome</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->cognome}}" name="cognome" required>
+					      <input type="text" class="form-control"  value="{{$studente->cognome}}" name="cognome" required>
 					    </div>
 					</div>
 
 					<b>Codice Fiscale</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->CF}}" name="CF" required>
+					      <input type="text" class="form-control"  value="{{$studente->CF}}" name="CF" required>
 					    </div>
 					</div>
 
 					<b>Comune di Nascita</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->comuneNascita}}" name="comuneNascita" required>
+					      <input type="text" class="form-control"  value="{{$studente->comuneNascita}}" name="comuneNascita" required>
 					    </div>
 					</div>
 
 					<b>Comune di Residenza</b>	                
 					<div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" value="{{$studente->comuneResidenza}}" name="comuneResidenza" required>
+					      <input type="text" class="form-control"  value="{{$studente->comuneResidenza}}" name="comuneResidenza" required>
+					    </div>
+					</div>
+
+					<b>Classe</b>	                
+					<div class="form-group">
+					    <div class="input-group">
+					      <select name="classe" id="classe">
+					      	<option value="{{$studente->classe_id}}">{{$studente->classe->classe}} {{$studente->classe->articolazione}} {{$studente->classe->sezione}}</option>
+					      	@foreach($classi as $classe)
+								<option value="{{$classe->id}}">{{$classe->classe}} {{$classe->articolazione}} {{$classe->sezione}}</option>
+							@endforeach
+					      </select>
 					    </div>
 					</div>
 	            </div>
@@ -101,4 +113,13 @@ active
     
 </div>
 </form>
+@endsection
+
+
+@section('script')
+<script>
+$('#classe').on('change', function() {
+  $("#articolazione").val("");
+});
+</script>
 @endsection

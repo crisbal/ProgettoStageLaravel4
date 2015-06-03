@@ -20,8 +20,9 @@ class StudentiController extends BaseController {
 	public function mostraModificaStudente($id){
 
 		$studente = Studente::find($id);
+		$classi = Classe::all();
 
-		return View::make("studente/modificaStudente")->with("studente",$studente);
+		return View::make("studente/modificaStudente")->with("studente",$studente)->with("classi",$classi);
 	}
 
 	public function faiModificaStudente($id){
@@ -39,6 +40,7 @@ class StudentiController extends BaseController {
 			$comuneNascita = Input::get('comuneNascita');
 			$comuneResidenza = Input::get('comuneResidenza');
 
+			$id_classe = Input::get('classe');
 
 
 			$studente->nome = $nome;
@@ -51,7 +53,7 @@ class StudentiController extends BaseController {
 			$studente->CF = $CF;
 			$studente->comuneNascita = $comuneNascita;
 			$studente->comuneResidenza = $comuneResidenza;
-
+			$studente->classe_id = $id_classe;
 			$studente->save();
 
 			return Redirect::action("StudentiController@mostraSpecifico", array($studente->id));
