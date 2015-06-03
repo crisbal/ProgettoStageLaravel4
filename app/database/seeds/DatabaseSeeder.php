@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder {
         //$this->call('ReferenteTableSeeder');
         //$this->command->info('Referente table seeded!');
     
-        $this->call('TutorScuolaTableSeeder');
+       // $this->call('TutorScuolaTableSeeder');
         $this->command->info('TutorScuola table seeded!');
 
         //$this->call('RappresentanteLegaleTableSeeder');
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder {
         //$this->call('ProgettoFormativoTableSeeder');
        // $this->command->info('ProgettoFormativo table seeded!');
 
-        $this->call('ConfigTableSeeder');
+        //$this->call('ConfigTableSeeder');
         $this->command->info('Config table seeded!');
         $this->call('UsersTableSeeder');
         $this->command->info('Users table seeded!');

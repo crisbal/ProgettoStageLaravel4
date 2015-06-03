@@ -79,7 +79,9 @@
         <h3 ><span style="color:#186AC2;">A</span>utomazione <span style="color:#186AC2;">G</span>estione <span style="color:#186AC2;">A</span>lternanze e <span style="color:#186AC2;">S</span>tage</h3>
         <br>
       </div>
-      <form class="form-signin" method="post" action="{{action('LoginController@faiLogin')}}">
+<!--      <form class="form-signin" method="post" action="{{action('LoginController@faiLogin')}}">
+-->
+      <form class="form-signin" method="post" action="{{action('StageController@index')}}">
         <label for="inputEmail" class="sr-only">Nome Utente</label>
         <input name="username" type="text" id="inputEmail" class="form-control" placeholder="Nome Utente" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
