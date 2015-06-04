@@ -27,10 +27,14 @@
           <li class="@yield('navAziende')"><a href="{{ action('AziendeController@mostraAziende')}}">Aziende</a></li>
           <li class="@yield('navStudenti')"><a href="{{ action('StudentiController@mostraStudenti')}}">Alunni</a></li>
         </ul>
+        @if(Auth::getUser()->username == "amministrazione")
         <ul class="nav navbar-nav navbar-right">
           <li class="@yield('navAmministrazione')"><a style="font-size:1.5em" class="glyphicon glyphicon-cog" href="{{ action('AmministrazioneController@menu')}}"></a></li>
-          <li><a href="/logout"><button class="btn btn-primary">Logout</button></a></li>
         </ul>
+        @endif
+        <form class="navbar-form navbar-right">
+          <a href="/logout"><button class="btn btn-primary" type="button">Logout</button></a>
+        </form>
       </div><!--/.nav-collapse -->
     </div>
   </nav>
