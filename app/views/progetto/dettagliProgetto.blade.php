@@ -22,6 +22,7 @@ active
         
         <div class="clearfix"></div>
     </div>
+
     <!-- DETTAGLI AZIENDE -->
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -52,7 +53,6 @@ active
     </div>
 
 <!-- DETTAGLI STUDENTI -->
-
 <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">Dettagli Studenti</h3>
@@ -82,11 +82,19 @@ active
 
                       </div>
                   </div>
+
                   <div class="row">
                     <div class="text-center">
                         <a href="{{ action('DocumentiController@faiDownloadProgettoFormativo', array($stage->id, $studente->id)) }}"><button class="btn btn-success">Scarica Progetto Formativo</button></a>
                     </div>
                   </div>
+
+                  <div class="row">
+                    <div class="text-center">
+                        <a href="{{ action('DocumentiController@faiDownloadAppendiceMinorenni', array($stage->id, $studente->id)) }}"><button class="btn btn-success">Scarica Appendice Minorenni</button></a>
+                    </div>
+                  </div>
+
                 </li>
             </ul>
         @endforeach

@@ -2,13 +2,11 @@
 
 class DocumentiController extends BaseController {
 
-
-		/*
-
- questo va cambiato
-
-
-*/
+	/*
+		- percorso da quale si vanno a prendere i modelli
+		- serve perchè il percorso è diverso in base a dove si mette la cartella del progetto di laravel
+		- il percorso si va a prendere dalla tabella di config
+	*/
 	private $path;
 
 	/*Convenzioni*/
@@ -121,7 +119,19 @@ class DocumentiController extends BaseController {
 		return 'public/documenti/' . $stage->id . '/convenzione.docx';
 	}
 
-	/*PF*/
+
+
+
+
+
+
+
+
+
+
+	/*
+		progetti formativi
+	*/
 	public function faiDownloadProgettoFormativo($stageId,$studenteId){
 
 		
@@ -335,9 +345,38 @@ class DocumentiController extends BaseController {
 
 	    $templateProcessor->saveAs($nomeFile);
 
+		return $nomeFile;		
+	}
 
-		return $nomeFile;
 
-		
+
+	/*
+		download foglio appendice minorenni
+	*/
+	public function faiDownloadAppendiceMinorenni($stageId,$studenteId){
+
+		$this->path = AppConfig::where('chiave', '=', 'path')->firstOrFail()->valore;
+
+		$studente = Studente::find($studenteId);
+		$stage = Stage::find($stageId);
+
+
+		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'minorenni.doc');
+			    
+	    $nome_studente = str_replace("'", "", str_replace("\"", "", $studente->nome));
+	    $cognome_studente = str_replace("'", "", str_replace("\"", "", $studente->cognome));
+        $templateProcessor->setValue('nome_studente', $nome_studente);
+        $templateProcessor->setValue('cognome_studente', $cognome_studente);
+
+        
+        $nomeFile = 'public/documenti/' . $stage->id . '/appendiceMinorenni-' . $studente->cognome ."-". $studente->nome. '.docx';
+       
+        if (!file_exists('public/documenti/' . $stage->id . '/'))
+    		mkdir('public/documenti/' . $stage->id . '/', 0777, true);
+
+	    $templateProcessor->saveAs($nomeFile);
+
+
+		return Response::download($nomeFile);
 	}
 }
