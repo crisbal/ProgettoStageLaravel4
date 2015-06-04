@@ -4,6 +4,9 @@
 * aggiungere bottone per scaricare appendice minorenni sotto il progetto formativo
 * Sistemare nome classe durante upload, evitare che si chiamano allo stesso modo
 * promozione classi
+	--> controllare che non esista una classe uguale (es non si può promuover 4iB se c'è già 5iB)
+	--> mettere conferma promozione (alert con si/no)
+	--> per bocciare ci sono due scelte
 
 ### Priorità 2
 * Sistemare amministrazione
