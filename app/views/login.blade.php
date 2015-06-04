@@ -89,7 +89,11 @@
             <input type="checkbox" value="remember-me"> Ricorda i miei dati
           </label>
         </div>
+        @if(isset($error))
+        <div class="text-danger">{{$error}}</div>
+        @endif
         <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-lock"></span> Login sicuro</button>
+        
       </form>
 
     </div> <!-- /container -->
