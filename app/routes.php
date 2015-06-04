@@ -63,11 +63,11 @@ Route::group(array('before' => 'auth'), function()
 	Route::group(array('prefix' => 'amministrazione'), function()
 	{
 		Route::get('/', 'AmministrazioneController@menu');
-	    Route::get('/aggiungiClasse', 'AmministrazioneController@mostraCreaClasse');
-		Route::post('/aggiungiClasse', 'AmministrazioneController@faiCreaClasse');
+	    Route::get('/aggiungi/classe', 'AmministrazioneController@mostraCreaClasse');
+		Route::post('/aggiungi/classe', 'AmministrazioneController@faiCreaClasse');
 
-		Route::get('/aggiungiAziende', 'AmministrazioneController@mostraCreaAziende');
-		Route::post('/aggiungiAziende', 'AmministrazioneController@faiCreaAziende');
+		Route::get('/aggiungi/aziende', 'AmministrazioneController@mostraCreaAziende');
+		Route::post('/aggiungi/aziende', 'AmministrazioneController@faiCreaAziende');
 
 		Route::get('/azienda/{idAzienda}/modifica', 'AziendeController@modificaAzienda');
 		Route::post('/azienda/{idAzienda}/modifica', 'AziendeController@faiModificaAzienda');
@@ -80,5 +80,8 @@ Route::group(array('before' => 'auth'), function()
 		Route::get('/studente/{idStudente}/modifica', 'StudentiController@mostraModificaStudente');
 		Route::post('/studente/{idStudente}/modifica', 'StudentiController@faiModificaStudente');
 		
+		Route::get('/classe/{idClasse}/promuovi','StudentiController@faiPromuoviClasse');
+
+
 	});
 } );

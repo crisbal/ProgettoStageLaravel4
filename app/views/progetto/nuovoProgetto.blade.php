@@ -96,12 +96,14 @@ active
 		  	</tr>
 		  	<tbody class="searchableStudente">
 				@foreach($studenti as $studente)
+					@if ($studente->classe->classe < 6)
 					<tr studente="{{ $studente->id }}">
 						<td>{{$studente->cognome}}</td>
 						<td>{{$studente->nome}}</td>
 						<td>{{$studente->classe->classe}} {{$studente->classe->articolazione}} {{$studente->classe->sezione}}</td>
 						<td><input type="checkbox" autocomplete=off></td>
 					</tr>
+					@endif
 				@endforeach
 			</tbody>
 		</table>
