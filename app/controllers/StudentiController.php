@@ -12,7 +12,7 @@ class StudentiController extends BaseController {
 
 	public function mostraStudenti(){
 
-		$classi = Classe::all();
+		$classi = Classe::orderBy('classe','ASC')->get();
 	
 		return  View::make("studente/listaStudenti")->with("classi",$classi);
 	}
@@ -58,5 +58,23 @@ class StudentiController extends BaseController {
 
 			return Redirect::action("StudentiController@mostraSpecifico", array($studente->id));
 	}
+
+
+	public function faiPromuoviClasse($id){
+		
+		$classe = Classe::find($id);
+
+		$classe->classe +=1;
+
+		if($classe->classe == 6) //uscito dalla scuola
+		{
+			$classe->articolazione = "Ex 5°" . "" . $classe->sezione . " " . $classe->articolazione;
+			$classe->sezione = " - Non più in questa scuola dal " .  date("Y");
+		}
+
+		$classe->save();
+
+		return Redirect::action("StudentiController@mostraStudenti");
+	}	
 
 }
