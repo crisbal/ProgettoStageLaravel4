@@ -11,7 +11,6 @@
 |
 */
 
-//Route::get('/beta', 'StageController@beta');
 Route::get('/login', function()
 {
     return View::make("login");
@@ -38,6 +37,17 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/studenti', 'StudentiController@mostraStudenti');
 	Route::get('/studente/{id}', 'StudentiController@mostraSpecifico');
 
+	Route::get('/tutor', 'TutorController@mostraListaTutor');
+
+	Route::get('/tutor/aggiungi', 'TutorController@mostraNuovoTutor');
+	Route::post('/tutor/aggiungi', 'TutorController@faiNuovoTutor');
+
+	Route::get('/tutor/modifica/{id}', 'TutorController@mostraModificaTutor');
+	Route::post('/tutor/modifica/{id}', 'TutorController@faiModificaTutor');
+
+	Route::get('/tutor/{id}', 'TutorController@mostraSpecifico');
+
+
 	Route::get('/aziende', 'AziendeController@mostraAziende');
 
 
@@ -47,6 +57,7 @@ Route::group(array('before' => 'auth'), function()
 	{
 	    Route::get('/progettoFormativo/{stageId}/{studenteId}', 'DocumentiController@faiDownloadProgettoFormativo');
 	    Route::get('/convenzione/{stageId}/{studenteId}', 'DocumentiController@faiDownloadConvenzione');
+	    Route::get('/minorenni/{stageId}/{studenteId}', 'DocumentiController@faiDownloadAppendiceMinorenni');
 
 	    Route::get('/progetto/{stageId}', 'StageController@faiArchiviaProgetto');
 
@@ -56,7 +67,7 @@ Route::group(array('before' => 'auth'), function()
 	{
 
 	    Route::get('azienda/{idAzienda}', 'ApiController@mostraAzienda');
-	    Route::get('tutor/{idTutor}', 'ApiController@mostraTutor');
+	    //Route::get('tutor/{idTutor}', 'ApiController@mostraTutor');
 	    Route::get('studente/{idTutor}', 'ApiController@mostraStudente');
 	});
 

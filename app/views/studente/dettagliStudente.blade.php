@@ -13,8 +13,7 @@ active
 <div class="dettagliStage">
 <div class="pull-right">
                 <a href="{{ action('StudentiController@mostraModificaStudente', $studente->id) }}"><button class="btn btn-warning">Modifica Studente</button></a>
-                <a href=""><button class="btn btn-danger"><div class="glyphicon glyphicon-trash"></div></button></a>
-            	
+               
 </div>
     <div class="page-header">
       <h1>{{$studente->nome}} {{$studente->cognome}}<small> {{$studente->CF}}</small></h1>

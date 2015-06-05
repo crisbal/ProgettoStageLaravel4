@@ -26,6 +26,7 @@
           <li class="@yield('navProgetto')"><a href="/">Progetti</a></li>
           <li class="@yield('navAziende')"><a href="{{ action('AziendeController@mostraAziende')}}">Aziende</a></li>
           <li class="@yield('navStudenti')"><a href="{{ action('StudentiController@mostraStudenti')}}">Alunni</a></li>
+          <li class="@yield('navTutor')"><a href="{{ action('TutorController@mostraListaTutor')}}">Tutor Scuola</a></li>
         </ul>
         @if(Auth::getUser()->username == "amministrazione")
         <ul class="nav navbar-nav navbar-right">

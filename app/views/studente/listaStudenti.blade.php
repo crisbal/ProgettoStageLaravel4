@@ -19,7 +19,7 @@ active
 					<h4 class="panel-title">
 						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{$classe->id}}">@if ($classe->classe < 6){{$classe->classe}} @endif {{$classe->articolazione}} {{$classe->sezione}}</a>
 						@if ($classe->classe < 6)
-						<a href="{{ action('StudentiController@faiPromuoviClasse',$classe->id)}}"><button class="pull-right btn btn-success">Promuovi</button></a>
+						<button class="pull-right btn btn-success btnPromuovi" link="{{ action('StudentiController@faiPromuoviClasse',$classe->id)}}">Promuovi</button>
 						<div class="clearfix"></div>
 						@endif
 					</h4>
@@ -48,4 +48,14 @@ active
 		</div>
 	@endforeach
 
+@endsection
+
+
+@section('script')
+<script type="text/javascript">
+$(".btnPromuovi").click(function(){
+	if(confirm("Sei sicuro di volere promuore la classe?"))
+		location.href = $(this).attr("link");
+});
+</script>
 @endsection

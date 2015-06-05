@@ -67,7 +67,7 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($azienda->nomeRappresLegale));
 	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($azienda->cognomeRappresLegale));
 	    $templateProcessor->setValue('rappresentanteLegale_luogoN', htmlspecialchars($azienda->comuneNascitaRappresLegale));
-	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars(date("d/m/Y",strtotime($azienda->dataNascitaRappresLegale))));
+	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars($azienda->dataNascitaRappresLegale));
 	    $templateProcessor->setValue('rappresentanteLegale_cf', htmlspecialchars($azienda->CFRappresLegale));
 
 	    if (!file_exists('public/documenti/' . $stage->id . '/')) {
@@ -86,7 +86,7 @@ class DocumentiController extends BaseController {
 
 		if(strpos($stage->tipo,'Estivo') !== false){
 			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'stage/convenzione_estivo.docx');
-}
+		}
 		else
 			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'stage/convenzione_invernale.docx');	
 
@@ -108,7 +108,7 @@ class DocumentiController extends BaseController {
 	    $templateProcessor->setValue('rappresentanteLegale_nome', htmlspecialchars($azienda->nomeRappresLegale));
 	    $templateProcessor->setValue('rappresentanteLegale_cognome', htmlspecialchars($azienda->cognomeRappresLegale));
 	    $templateProcessor->setValue('rappresentanteLegale_luogoN', htmlspecialchars($azienda->comuneNascitaRappresLegale));
-	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars(date("d/m/Y",strtotime($azienda->dataNascitaRappresLegale))));
+	    $templateProcessor->setValue('rappresentanteLegale_dataN', htmlspecialchars($azienda->dataNascitaRappresLegale));
 	
 	    if (!file_exists('public/documenti/' . $stage->id . '/')) {
     		mkdir('public/documenti/' . $stage->id . '/', 0777, true);
@@ -142,7 +142,7 @@ class DocumentiController extends BaseController {
 		$studente = Studente::find($studenteId);
 
 		if($stage->archiviato)
-			return Response::download('public/documenti/' . $stage->id . '/progettoFormativo-' .$studente->cognome ."-". $studente->nome. '.docx');
+			return Response::download('public/documenti/' . $stage->id . '/progettoFormativo-' .$studente->cognome ."-". $studente->nome." ". $stage->numero. '.docx');
 		else
 			$nomeFile = $this->generaProgettoFormativo($stageId,$studenteId);
 		
@@ -251,7 +251,7 @@ class DocumentiController extends BaseController {
         $studente->cognome = str_replace("'", "", str_replace("\"", "", $studente->cognome));
         $studente->nome = str_replace("'", "", str_replace("\"", "", $studente->nome));
         
-        $nomeFile = 'public/documenti/' . $stage->id . '/progettoFormativo-' . $studente->cognome ."-". $studente->nome. '.docx';
+        $nomeFile = 'public/documenti/' . $stage->id . '/progettoFormativo-' . $studente->cognome ."-". $studente->nome." ". $stage->numero. '.docx';
        
         if (!file_exists('public/documenti/' . $stage->id . '/')) {
     		mkdir('public/documenti/' . $stage->id . '/', 0777, true);
@@ -337,7 +337,7 @@ class DocumentiController extends BaseController {
         $studente->cognome = str_replace("'", "", str_replace("\"", "", $studente->cognome));
         $studente->nome = str_replace("'", "", str_replace("\"", "", $studente->nome));
         
-        $nomeFile = 'public/documenti/' . $stage->id . '/progettoFormativo-' . $studente->cognome ."-". $studente->nome. '.docx';
+        $nomeFile = 'public/documenti/' . $stage->id . '/progettoFormativo-' . $studente->cognome ."-". $studente->nome." ". $stage->numero. '.docx';
        
         if (!file_exists('public/documenti/' . $stage->id . '/')) {
     		mkdir('public/documenti/' . $stage->id . '/', 0777, true);
@@ -360,8 +360,7 @@ class DocumentiController extends BaseController {
 		$studente = Studente::find($studenteId);
 		$stage = Stage::find($stageId);
 
-
-		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'minorenni.doc');
+		$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($this->path . 'minorenni.docx');
 			    
 	    $nome_studente = str_replace("'", "", str_replace("\"", "", $studente->nome));
 	    $cognome_studente = str_replace("'", "", str_replace("\"", "", $studente->cognome));
@@ -369,7 +368,7 @@ class DocumentiController extends BaseController {
         $templateProcessor->setValue('cognome_studente', $cognome_studente);
 
         
-        $nomeFile = 'public/documenti/' . $stage->id . '/appendiceMinorenni-' . $studente->cognome ."-". $studente->nome. '.docx';
+        $nomeFile = 'public/documenti/' . $stage->id . '/appendiceMinorenni-' . $studente->cognome ."-". $studente->nome." ". $stage->numero. '.docx';
        
         if (!file_exists('public/documenti/' . $stage->id . '/'))
     		mkdir('public/documenti/' . $stage->id . '/', 0777, true);

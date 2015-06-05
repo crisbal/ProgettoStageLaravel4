@@ -35,14 +35,13 @@ active
 		<div class="list-group-item">
 			<div class="panel-body">
 	    <div class="row">
-	        <div class="col-lg-6 text-center">
-	        	modifica 1 
+	        <div class="col-lg-12 text-center">
+	        	modifica path
+	       		
+	    		<button class="btn btn-primary ">Salva</button>
 	       	</div>
-        	<div class="col-lg-6 text-center">
-        		modifica 2
-    		</div>
 		</div>
-	    <button class="btn btn-primary btn-block">Salva</button>
+	    
     </div>
 	    
 </div>

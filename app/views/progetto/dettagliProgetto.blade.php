@@ -80,19 +80,13 @@ active
                         <b>Codice Fiscale</b>
                         <p>{{ $studente->CF}}</p>
 
+                        <p><a href="{{ action('DocumentiController@faiDownloadProgettoFormativo', array($stage->id, $studente->id)) }}"><button class="btn btn-success">Scarica Progetto Formativo</button></a></p>
+
+                        <p><a href="{{ action('DocumentiController@faiDownloadAppendiceMinorenni', array($stage->id, $studente->id)) }}"><button class="btn btn-success">Scarica Appendice Minorenni</button></a></p>
+
                       </div>
                   </div>
 
-                  <div class="row">
-                    <div class="text-center">
-                        <a href="{{ action('DocumentiController@faiDownloadProgettoFormativo', array($stage->id, $studente->id)) }}"><button class="btn btn-success">Scarica Progetto Formativo</button></a>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="text-center">
-                        <a href="{{ action('DocumentiController@faiDownloadAppendiceMinorenni', array($stage->id, $studente->id)) }}"><button class="btn btn-success">Scarica Appendice Minorenni</button></a>
-                    </div>
                   </div>
 
                 </li>

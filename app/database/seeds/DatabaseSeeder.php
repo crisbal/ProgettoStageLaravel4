@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder {
         //$this->call('ProgettoFormativoTableSeeder');
        // $this->command->info('ProgettoFormativo table seeded!');
 
-        //$this->call('ConfigTableSeeder');
+        $this->call('ConfigTableSeeder');
         $this->command->info('Config table seeded!');
 
         
