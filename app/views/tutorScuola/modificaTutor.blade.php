@@ -48,17 +48,11 @@ active
 					    </div>
 					  </div>
 
-	                <b>Telefono</b>	                
-					 <div class="form-group">
-					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$tutor->telefono}}" name="telefono">
-					    </div>
-					  </div>
 
-					 <b>E-Mail</b>	                
+	                <b>Cellulare</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$tutor->email}}" name="email">
+					      <input type="text" class="form-control" id="" value="{{$tutor->cellulare}}" name="cellulare">
 					    </div>
 					  </div>
 	            </div>
@@ -71,12 +65,13 @@ active
 					    </div>
 					  </div>
 
-	                <b>Cellulare</b>	                
+					 <b>E-Mail</b>	                
 					 <div class="form-group">
 					    <div class="input-group">
-					      <input type="text" class="form-control" id="" value="{{$tutor->cellulare}}" name="cellulare">
+					      <input type="text" class="form-control" id="" value="{{$tutor->email}}" name="email">
 					    </div>
 					  </div>
+
 	            </div>
           </div>
       </div>

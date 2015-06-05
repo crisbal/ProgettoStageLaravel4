@@ -27,7 +27,8 @@ class TutorController extends BaseController {
 
             $nome = Input::get('nome');
             $cognome = Input::get('cognome');
-            $telefono = Input::get('telefono');
+            //$telefono = Input::get('telefono');
+            $telefono = 0;
             $cellulare = Input::get('cellulare');
             $email = Input::get('email');
 
@@ -55,7 +56,8 @@ class TutorController extends BaseController {
 
             $nome = Input::get('nome');
             $cognome = Input::get('cognome');
-            $telefono = Input::get('telefono');
+            //$telefono = Input::get('telefono');
+            $telefono = 0;
             $cellulare = Input::get('cellulare');
             $email = Input::get('email');
 

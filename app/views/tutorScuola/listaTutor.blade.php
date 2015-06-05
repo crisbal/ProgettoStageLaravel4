@@ -22,12 +22,13 @@ active
 		<tr>
 			<th>Nome</th>
 			<th>Cognome</th>
+			<th>Dettagli</th>
 		</tr>
 	</thead>
 	@foreach($tutors as $tutor)
 	<tr>
 		<td style="text-transform:capitalize;">{{ strtolower($tutor->nome) }}</td>
-		<td>{{$tutor->cognome}}</td>
+		<td style="text-transform:capitalize;">{{ strtolower($tutor->cognome) }}</td>
 		<td><a href="{{ action('TutorController@mostraSpecifico',$tutor->id)}}">Dettagli Tutor</a></td>
 	</tr>
 	@endforeach

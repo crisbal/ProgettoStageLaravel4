@@ -18,9 +18,9 @@ class CreateTableTutorScuola extends Migration {
 
             $table->string('nome');
             $table->string('cognome');
-            $table->integer('telefono');        
-            $table->integer('cellulare');       
-            $table->string('email');        
+            $table->string('telefono')->nullable;        
+            $table->string('cellulare')->nullable;       
+            $table->string('email')->nullable;        
 
             $table->timestamps();
         });

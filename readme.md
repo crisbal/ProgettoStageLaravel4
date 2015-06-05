@@ -1,17 +1,14 @@
 # TODO
 
 ## Priorità 1
-* promozione classi
-	--> mettere conferma promozione (alert con si/no)
-
-
-### Priorità 2
 * Sistemare amministrazione
 
 
 
-
-
+Sistemare su server segreteria:
+* password
+* uploadare aziende nuove
+* fare backup db
 
 
 

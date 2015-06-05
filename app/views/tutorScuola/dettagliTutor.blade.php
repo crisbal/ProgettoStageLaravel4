@@ -32,11 +32,8 @@ active
 	                <b>Nome</b>
 	                <p>{{$tutor->nome}} &nbsp;</p>
 
-	              	<b>Telefono</b>
-	                <p>{{$tutor->telefono}} &nbsp;</p>
-
-	                <b>E-Mail</b>
-	                <p>{{$tutor->email}} &nbsp;</p>
+	              	<b>Cellulare</b>
+	                <p>{{$tutor->cellulare}} &nbsp; &nbsp;</p>
 
 	            </div>
 	            <div class="col-lg-6">
@@ -44,8 +41,8 @@ active
 	                <b>Cognome</b>
 	                <p>{{$tutor->cognome}} &nbsp; &nbsp;</p>
 
-	                <b>Cellulare</b>
-	                <p>{{$tutor->cellulare}} &nbsp; &nbsp;</p>
+	                <b>E-Mail</b>
+	                <p>{{$tutor->email}} &nbsp;</p>
 
 	            </div>
           	</div>
