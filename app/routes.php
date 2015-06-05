@@ -67,7 +67,7 @@ Route::group(array('before' => 'auth'), function()
 	{
 
 	    Route::get('azienda/{idAzienda}', 'ApiController@mostraAzienda');
-	    //Route::get('tutor/{idTutor}', 'ApiController@mostraTutor');
+	    Route::get('tutor/{idTutor}', 'ApiController@mostraTutor');
 	    Route::get('studente/{idTutor}', 'ApiController@mostraStudente');
 	});
 
