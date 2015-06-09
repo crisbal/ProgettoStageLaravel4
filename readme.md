@@ -5,15 +5,6 @@
 
 
 
-Sistemare su server segreteria:
-* password
-* uploadare aziende nuove (l'ultima non c'è perchè mancava tutor scuola)
-* fare backup db
-* lasciare manuale su desktop
-
-
-
-
 
 
 
