@@ -10,7 +10,7 @@ class LoginController extends BaseController {
 
 		if (Auth::attempt(array('username' => $username, 'password' => $password)))
 		{
-		    return Redirect::intended('home');
+		    return Redirect::action('StageController@index');
 		}
 		else{
 			$error = "Username o Password errati.";
