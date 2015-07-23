@@ -152,7 +152,7 @@ active
 		</div>
 	    @foreach($azienda->stages as $stage)
 	    <div class="list-group-item">
-		 <a href="{{ action('StageController@mostraStage',$stage->id) }}">Stage N° {{ $stage->id }} creato in data {{  date("d/m/Y",strtotime($stage->created_at)) }}</a>
+		 <a href="{{ action('StageController@mostraStage',$stage->id) }}">{{$stage->tipo}} N° {{ $stage->numero }}</a>
 		</div>
 	       	
 	   	@endforeach

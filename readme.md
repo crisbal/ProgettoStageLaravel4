@@ -1,8 +1,6 @@
 # TODO
 
 ## BUGFIX
-* Nel progetto formativo non vanno dentro i dati giusti riguardo alla sede del tirocinio
-* Rimuovere la matricola dalle viste
 * Archivia non funziona
 * Verificare obiettivi stage e alternanze nei progetti formativi, statici o modificabili?
 
@@ -22,6 +20,9 @@
 
 ## Priorità III
 * Ricerche varie
+
+## Priorità "ci pensano l'anno prossimo"
+* Una azienda N Tutor 
 * Manuali
 
 

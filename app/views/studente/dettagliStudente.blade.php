@@ -33,9 +33,6 @@ active
 	                <b>Nome</b>
 	                <p>{{$studente->nome}} &nbsp;</p>
 
-	              	<b>Matricola</b>
-	                <p>{{$studente->matricola}} &nbsp;</p>
-
 	                <b>Data di Nascita</b>
 	                <p>{{ date("d/m/Y",strtotime($studente->dataNascita))}} &nbsp;</p>
 
@@ -71,7 +68,7 @@ active
 		</div>
 	    @foreach($studente->stages as $stage)
 	    <div class="list-group-item">
-		 <a href="{{ action('StageController@mostraStage',$stage->id) }}">Stage N° {{ $stage->id }} creato in data {{  date("d/m/Y",strtotime($stage->created_at)) }}</a>
+		 <a href="{{ action('StageController@mostraStage',$stage->id) }}">{{$stage->tipo}} N° {{ $stage->numero }}</a>
 		 <span style="float:right; text-transform:capitalize;">Azienda: <a href="{{ action('AziendeController@mostraSpecifica',$stage->azienda->id)}}">{{ strtolower($stage->azienda->denominazione) }}</a></span>
 		</div> 	
 	   	@endforeach

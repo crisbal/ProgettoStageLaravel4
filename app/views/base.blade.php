@@ -21,7 +21,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">AGAS - IIS Badoni</a>
-        <img src="http://www.iisbadoni.gov.it/sites/default/files/logo.png" height="49" width="49">
+        <!--<img src="http://www.iisbadoni.gov.it/sites/default/files/logo.png" height="49" width="49">-->
       </div>
 
       <div id="navbar" class="collapse navbar-collapse">
