@@ -9,8 +9,7 @@
     * Mette il numero a 0 -----------
     * Possibilità successiva di poter cambiare tutto ----------
 * Tasto modifica stage (cambiare numero e data) -----------
-* Sotto ogni azienda far vedere gli studenti già ospitati, oltre che gli stage già ospitati
-    * Anche quando si crea il progetto, il più possibile
+* Sotto ogni azienda far vedere gli studenti già ospitatii ----
 
 ## Priorità II
 * Elimina Stage
