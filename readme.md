@@ -2,10 +2,10 @@
 
 ## BUGFIX
 * Archivia non funziona
-* Verificare obiettivi stage e alternanze nei progetti formativi, statici o modificabili?
+* Mettere obiettivi alternanza modificabili.
 
 ## Priorità I
-* Numerazione automatica con possibilità di di mettere la spunta per gli enti pubblici
+* Numerazione automatica con possibilità di mettere la spunta per gli enti pubblici
     * Mette il numero a 0
     * Possibilità successiva di poter cambiare tutto
 * Tasto modifica stage (cambiare numero e data)
@@ -22,7 +22,7 @@
 * Ricerche varie
 
 ## Priorità "ci pensano l'anno prossimo"
-* Una azienda N Tutor 
+* 1 azienda N Tutor 
 * Manuali
 
 
