@@ -108,9 +108,11 @@ active
                   <div class="form-group">
                     <label for="numeroProgetto">Numero Progetto</label>
                     <input type="number" class="form-control" id="numeroProgetto" placeholder="Numero Progetto" value="{{$stage->numero}}">
+                    <br>
+                    <button class="btn btn-info" onclick="suggerisciNumero();">Numero Consigliato</button>
                   </div>
                   <div class="form-group">
-                    <label for="numeroProgetto">Data Progetto</label>
+                    <label for="dataProgetto">Data Progetto</label>
                     <input type="text" class="form-control" id="dataProgetto" placeholder="Data Progetto" value="{{  date("d/m/Y",strtotime($stage->created_at)) }}">
                   </div>
                   
@@ -138,6 +140,12 @@ $( "#dataProgetto" ).datepicker({
     orientation: 'top',
     language: 'it'
 });
+
+function suggerisciNumero(){
+  $.get( '/api/numero/' + "{{$stage->tipo}}", function(data){
+    $("#numeroProgetto").val(data);
+  });
+}
 
 $("#faiModificaStage").click(function  () {
   var data = {};

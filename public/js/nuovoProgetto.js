@@ -2,6 +2,8 @@ $("#btnAlternanza").click(function() {
     tipoStage = "Alternanza";
     $("#step0").hide();
     $("#step1").show();
+
+    suggerisciNumero();
 });
 
 
@@ -9,14 +11,25 @@ $("#btnStageE").click(function() {
     tipoStage = "Stage Estivo";
     $("#step0").hide();
     $("#step1").show();
+
+    suggerisciNumero();
+
 });
 
 $("#btnStageI").click(function() {
     tipoStage = "Stage Invernale";
     $("#step0").hide();
     $("#step1").show();
+
+    suggerisciNumero();
+
 });
 
+function suggerisciNumero(){
+  $.get( '/api/numero/' + tipoStage, function(data){
+    $("#numeroProgetto").val(data);
+  });
+}
 
 $(document).ready(function () {
     (function ($) {

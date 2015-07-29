@@ -70,6 +70,8 @@ Route::group(array('before' => 'auth'), function()
 	    Route::get('azienda/{idAzienda}', 'ApiController@mostraAzienda');
 	    Route::get('tutor/{idTutor}', 'ApiController@mostraTutor');
 	    Route::get('studente/{idTutor}', 'ApiController@mostraStudente');
+
+      Route::get('numero/{tipologia}', 'ApiController@ottieniNumeroConsigliato');
 	});
 
 	Route::group(array('prefix' => 'amministrazione'), function()
