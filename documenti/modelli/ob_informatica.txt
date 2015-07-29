@@ -1,0 +1,4 @@
+- Realizza l'applicazione o nuove funzionalità a partire da requisiti, specifiche tecniche e documentazione;
+- Fornisce assistenza al cliente per l'utilizzazione di SW e HW;
+- Installa e configura la rete, le macchine o i software di base, per la sicurezza e applicativi (sia Server che Client) secondo i parametri richiesti dal cliente;
+- Sa analizzare e integrare sistemi e soluzioni hardware e software per l'acquisizione, l'elaborazione e la memorizzazione di segnali analogici e digitali;

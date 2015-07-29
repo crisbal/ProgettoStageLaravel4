@@ -2,7 +2,7 @@
 
 ## BUGFIX
 * Archivia non funziona
-* Mettere obiettivi alternanza modificabili.
+* Mettere obiettivi alternanza modificabili. -------
 
 ## Priorità I
 * Numerazione automatica con possibilità di mettere la spunta per gli enti pubblici -------

@@ -1,0 +1,4 @@
+- Sorveglia che i parametri elettrici siano nella norma e predispone manovre per interventi correttivi
+- Utilizza metodi di raccolta, elaborazione ed analisi dei dati
+- Esegue interventi di cablaggio, assemblaggio e messa in servizio di apparecchiature elettriche ed e elettroniche
+- Collauda gli impianti ed i sistemi installati e ne verifica la funzionalità
