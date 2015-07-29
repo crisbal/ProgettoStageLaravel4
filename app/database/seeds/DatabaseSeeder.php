@@ -11,8 +11,8 @@ class DatabaseSeeder extends Seeder {
     {
         Eloquent::unguard();
 
-       // $this->call('ClasseTableSeeder');
-        //$this->command->info('Classe table seeded!');
+        $this->call('ClasseTableSeeder');
+        $this->command->info('Classe table seeded!');
 
         //$this->call('StudentiTableSeeder');
         //$this->command->info('Studenti table seeded!');
@@ -55,8 +55,7 @@ class ClasseTableSeeder extends Seeder {
 
     public function run()
     {
-        Classe::create(['classe' => '5', 'articolazione' => 'informatica', 'sezione' => 'B']);
-        Classe::create(['classe' => '4', 'articolazione' => 'elettronica', 'sezione' => 'A']);
+        Classe::create(['classe' => 'Studente', 'articolazione' => 'Trasferito', 'sezione' => '']);
     }
 
 }
