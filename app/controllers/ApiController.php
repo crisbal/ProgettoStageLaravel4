@@ -30,7 +30,7 @@ class ApiController extends BaseController {
       $numero = Stage::where('tipo','=',$tipologia)
                 ->where('numero', '<>', 0)
                 ->where('archiviato', '=', 0)
-                ->max('numero');
+                ->orderBy('id', 'desc')->first()["numero"];
 
 
       if(is_null($numero))
