@@ -1,7 +1,7 @@
 # TODO
 
 ## BUGFIX
-* Archivia non funziona
+* Archivia non funziona ------
 * Mettere obiettivi alternanza modificabili. -------
 
 ## Priorità I
@@ -14,7 +14,7 @@
 ## Priorità II
 * Elimina Stage
 * Aggiungi studente a Stage già iniziato
-* Classe "Studente Trasferito" ----> da fare a mano nel DB
+* Classe "Studente Trasferito" ----> da fare a mano nel DB ------
 * Archiviare tutti gli stage interessati
 
 ## Priorità III

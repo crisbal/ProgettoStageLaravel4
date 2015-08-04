@@ -30,6 +30,8 @@ class DocumentiController extends BaseController {
 	}
 
 	public function generaConvenzione($stageId,$studenteId){
+    $this->path = AppConfig::where('chiave', '=', 'path')->firstOrFail()->valore;
+
 		$stage = Stage::find($stageId);
 		$tipo = $stage->tipo;
 
@@ -140,6 +142,9 @@ class DocumentiController extends BaseController {
 	}
 
 	public function generaProgettoFormativo($stageId,$studenteId){
+    $this->path = AppConfig::where('chiave', '=', 'path')->firstOrFail()->valore;
+
+    
 		$stage = Stage::find($stageId);
 		$tipo = $stage->tipo;
 
