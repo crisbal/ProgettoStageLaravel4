@@ -1,29 +1,29 @@
 # TODO
 
-## BUGFIX
-* Archivia non funziona ------
-* Mettere obiettivi alternanza modificabili. -------
-
-## Priorità I
-* Numerazione automatica con possibilità di mettere la spunta per gli enti pubblici -------
-    * Mette il numero a 0 -----------
-    * Possibilità successiva di poter cambiare tutto ----------
-* Tasto modifica stage (cambiare numero e data) -----------
-* Sotto ogni azienda far vedere gli studenti già ospitatii ----
-
-## Priorità II
 * Elimina Stage
 * Aggiungi studente a Stage già iniziato
-* Classe "Studente Trasferito" ----> da fare a mano nel DB ------
 * Archiviare tutti gli stage interessati
 
-## Priorità III
+## Priorità II
 * Ricerche varie
 
 ## Priorità "ci pensano l'anno prossimo"
 * 1 azienda N Tutor 
 * Manuali
 
+## Dopo 6 Agosto
+* Ricerca per numero convenzione
+* Foglio Excel con
+	* Numero Convenzione
+	* Ditta
+	* Sede Legale
+	* Sede Tirocinio
+	* Classe
+	* Alunno
+	* Primo Periodo
+	* Secondo Periodo 
+	* Terzo Periodo
+ 
 
 ##### Cartella condivisa che faranno preside, segreteria, tutor, ....
 Scuola-Lavoro
