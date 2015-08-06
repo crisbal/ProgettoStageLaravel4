@@ -30,6 +30,8 @@ class DocumentiController extends BaseController {
 	}
 
 	public function generaConvenzione($stageId,$studenteId){
+    $this->path = AppConfig::where('chiave', '=', 'path')->firstOrFail()->valore;
+
 		$stage = Stage::find($stageId);
 		$tipo = $stage->tipo;
 
@@ -119,17 +121,7 @@ class DocumentiController extends BaseController {
 		return 'public/documenti/' . $stage->id . '/convenzione.docx';
 	}
 
-
-
-
-
-
-
-
-
-
-
-	/*
+  /*
 		progetti formativi
 	*/
 	public function faiDownloadProgettoFormativo($stageId,$studenteId){
@@ -150,6 +142,9 @@ class DocumentiController extends BaseController {
 	}
 
 	public function generaProgettoFormativo($stageId,$studenteId){
+    $this->path = AppConfig::where('chiave', '=', 'path')->firstOrFail()->valore;
+
+    
 		$stage = Stage::find($stageId);
 		$tipo = $stage->tipo;
 
@@ -214,15 +209,15 @@ class DocumentiController extends BaseController {
 
 	    if(trim($studente->articolazione)[0] == "M" or substr(trim($studente->articolazione), 0, 3) == "ENE") //meccanica ed energia
 	    {
-	    	$obiettivi = "- Saper applicare comportamenti coerenti alle norme infortunistiche, di igiene personale e di sicurezza del lavoro.\n- Saper utilizzare e produrre semplici documentazioni tecniche.\nAttività previste e modalità di svolgimento:\n- Eseguire, sotto la direzione del personale dell’ufficio, semplici operazioni di progettazione con  esecuzione, montaggio e verifica di apparecchiature o manufatti.";
-	    }
+        $obiettivi = File::get($this->path . "ob_meccanica.txt");
+      }
 	    else if(substr(trim($studente->articolazione), 0, 3) == "ELE" or trim($studente->articolazione)[0] == "A") //elettronica e automazione
 	    {
-	    	$obiettivi = "- Sorveglia che i parametri elettrici siano nella norma e predispone manovre per interventi correttivi\n- Utilizza metodi di raccolta, elaborazione ed analisi dei dati\n- Esegue interventi di cablaggio, assemblaggio e messa in servizio di apparecchiature elettriche ed e elettroniche\n- Collauda gli impianti ed i sistemi installati e ne verifica la funzionalità";
-	    }
+        $obiettivi = File::get($this->path . "ob_elettronica.txt");
+      }
 	    else if(trim($studente->articolazione)[0] == "I" or trim($studente->articolazione)[0] == "T") //informatica
 	    {
-	    	$obiettivi ="- Realizza l'applicazione o nuove funzionalità a partire da requisiti, specifiche tecniche e documentazione;\n- Fornisce assistenza al cliente per l'utilizzazione di SW e HW;\n- Installa e configura la rete, le macchine o i software di base, per la sicurezza e applicativi (sia Server che Client) secondo i parametri richiesti dal cliente;\n- Sa analizzare e integrare sistemi e soluzioni hardware e software per l'acquisizione, l'elaborazione e la memorizzazione di segnali analogici e digitali;";
+	    	$obiettivi = File::get($this->path . "ob_informatica.txt");
 	    }
 	    else if(trim($studente->articolazione)[0] == "G") //geometra
 	  	{
@@ -311,6 +306,7 @@ class DocumentiController extends BaseController {
 
 	    $templateProcessor->setValue('azienda_sede_tirocinio', htmlspecialchars($azienda->indirizzoSedeTirocinio));
 	    $templateProcessor->setValue('azienda_citta_tirocinio', htmlspecialchars($azienda->cittaSedeTirocinio));
+      $templateProcessor->setValue('azienda_cap_tirocinio', htmlspecialchars($azienda->capSedeTirocinio));
 
 	    //---------------------------TUTOR AZIENDA
 	    $templateProcessor->setValue('tutorAzienda_nome', htmlspecialchars($azienda->nomeTutorAziend));

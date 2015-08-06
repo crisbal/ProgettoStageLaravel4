@@ -31,7 +31,8 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::get('/progetto', 'StageController@mostraNuovoProgetto');
 	Route::post('/progetto', 'StageController@faiNuovoProgetto');
-
+  
+  Route::get('/progetto/modifica', 'StageController@faiModificaProgetto');  
 	Route::get('/progetto/{id}', 'StageController@mostraStage');
 
 	Route::get('/studenti', 'StudentiController@mostraStudenti');
@@ -69,6 +70,8 @@ Route::group(array('before' => 'auth'), function()
 	    Route::get('azienda/{idAzienda}', 'ApiController@mostraAzienda');
 	    Route::get('tutor/{idTutor}', 'ApiController@mostraTutor');
 	    Route::get('studente/{idTutor}', 'ApiController@mostraStudente');
+
+      Route::get('numero/{tipologia}', 'ApiController@ottieniNumeroConsigliato');
 	});
 
 	Route::group(array('prefix' => 'amministrazione'), function()

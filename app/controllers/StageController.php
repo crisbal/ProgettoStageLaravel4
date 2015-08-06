@@ -73,6 +73,15 @@ class StageController extends BaseController {
 	}
 
 
+  public function faiModificaProgetto(){
+    $data = json_decode(Input::get('json'),true);
+    $stage = Stage::find($data["stage"]);
+    $stage->numero = $data["numero"];
+    $stage->created_at = $data["data"];
+    $stage->save();
+    return "ok";
+  }
+
 	public function faiArchiviaProgetto($id){
 		$stage = Stage::find($id);
 		$stage->archiviato = true;

@@ -19,15 +19,15 @@ active
     <div class="panel-body">
 	    <div class="row">
 	        <div class="col-lg-6 text-center">
-	        	<a href="{{ action('AmministrazioneController@mostraCreaAziende') }}"><button class="btn btn-lg btn-primary glyphicon glyphicon-briefcase"><br>Inserisci<br>Aziende</button></a>
+	        	<a href="{{ action('AmministrazioneController@mostraCreaAziende') }}"><button class="btn btn-lg btn-primary btn-block"><i class="glyphicon glyphicon-briefcase"></i><br>Inserisci Aziende</button></a>
 	        </div>
 	        <div class="col-lg-6 text-center">
-	        	<a href="{{ action('AmministrazioneController@mostraCreaClasse') }}"><button class="btn btn-lg btn-primary glyphicon glyphicon-user"><br>Inserisci<br>Classe</button></a>
+	        	<a href="{{ action('AmministrazioneController@mostraCreaClasse') }}"><button class="btn btn-lg btn-primary btn-block"><i class="glyphicon glyphicon-user"></i><br>Inserisci Classe</button></a>
 	        </div>
 	    </div>
     </div>
 
-	<div class="list-group">
+	<!--<div class="list-group">
 		<div class="list-group-item list-group-item-info">
 	        <h4>Parametri di configurazione</h4>
 	    </div>
@@ -42,7 +42,7 @@ active
 	       	</div>
 		</div>
 	    
-    </div>
+    </div>-->
 	    
 </div>
 @endsection
